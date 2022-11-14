@@ -67,7 +67,7 @@
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.php">
               <!-- Logo icon -->
               <b class="logo-icon ps-2">
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -351,7 +351,7 @@
                   class="dropdown-menu dropdown-menu-end user-dd animated"
                   aria-labelledby="navbarDropdown"
                 >
-                  <a class="dropdown-item mt-2" href="javascript:void(0)"
+                  <a id="logOut" class="dropdown-item mt-2" href="javascript:void(0)" onclick="logout()"
                     ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a
                   >
                 </ul>
@@ -1637,6 +1637,14 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    <!-- <script>
+      function logout() {
+        if (window.confirm("Anda yakin ingin keluar?")) {
+          window.open("")
+        }
+      }
+
+    </script> -->
     <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
