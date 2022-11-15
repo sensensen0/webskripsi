@@ -11,28 +11,52 @@
             <div class="row text-center position-absolute top-50 start-50 translate-middle">
                 <div class="card text-center" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="col">
-                    <h3 class="mb-5">LOGIN ADMIN</h3>
-                    <div class="row mb-3">
-                        <div class="col">Username</div>
-                        <div class="col"><input type="text" name="username" id="username"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col">Password</div>
-                        <div class="col"><input type="password" name="password" id="password"></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-12">
-                            <input type="button" value="Login">
-                        </div>
+                        <h3 class="card-title mb-3">LOGIN ADMIN</h3>
+                            <div class="row">
+                                <div class="col">Username</div>
+                                <div class="col"><input type="text" name="username" id="username"></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">Password</div>
+                                <div class="col"><input type="password" name="password" id="password"></div>
+                            </div>
+                        <input type="button" id="login" class="btn btn-primary mt-3" value="Login">
                     </div>
                 </div>
             </div>
-        </div>
+        </div>       
     </body>
+    <script text="text/javascript">
+        function ajax (url, data){
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function (){
+                var dataku = this.responseText;
+                var login = dataku;
+
+                if (login == "login"){
+                    alert("Berhasil login!");
+                } else {
+                    alert("Gagal Login\nUsername atau password anda salah!!!")
+                    reset();
+                }
+            };
+            xhttp.open("POST", url, true);
+            xhttp.send(data);
+        }
+
+
+        function login(){
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let login = document.getElementById("login").value;      
+        }
+        
+        function reset(){
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("username").focus;
+
+
+        }
+    </script>
 </html>

@@ -1637,14 +1637,14 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <!-- <script>
+    <script>
       function logout() {
         if (window.confirm("Anda yakin ingin keluar?")) {
-          window.open("")
+            
         }
       }
+    </script>
 
-    </script> -->
     <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
