@@ -351,10 +351,11 @@
                   class="dropdown-menu dropdown-menu-end user-dd animated"
                   aria-labelledby="navbarDropdown"
                 >
-                  <a id="logOut" class="dropdown-item mt-2" href="javascript:void(0)" onclick="logout()"
-                    ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a
-                  >
-                </ul>
+                
+                  <a id="logOut" class="dropdown-item mt-2" onclick="logout()">
+                    <i class="fa fa-power-off me-1 ms-1"></i>
+                    Logout
+                  </a> 
               </li>
               <!-- ============================================================== -->
               <!-- User profile and search -->
@@ -1637,14 +1638,16 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script>
-      function logout() {
-        if (window.confirm("Anda yakin ingin keluar?")) {
-            
-        }
+    <script type="text/javascript">
+      function logout(){
+        var logout = document.getElementById("logOut");
+        if (confirm("Apakah anda ingin keluar ?")) {
+          location.href = "login.php";
+        } else {
+          alert("Gagal Logout!");
+        } 
       }
     </script>
-
     <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
