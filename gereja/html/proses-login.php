@@ -6,17 +6,12 @@
     $password = $_POST['password'];
     $login = $_POST['login'];
 
-    $sql = mysqli_query($con, "select * from tbadmin");
-    while($data = mysqli_fetch_array($sql)){
-        $idadmin = $data[0];
-        $username= $data[1];
-        $password = $data[2];
+    $data = mysqli_query($con,"select * from tbadmin where username='$username' and password='$password'");
+    $cek = mysqli_num_rows($data);
 
-        if($username == "username" && $password == "password") {
-            echo "Berhasil login"
-        } else {
-            echo "Gagal login";
-        }
-    }
+    if($cek > 0 ) {
 
+    } else {
+        header("location:login.php");    }
+    
 ?>
