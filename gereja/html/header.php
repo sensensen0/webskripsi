@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+    <?php 
+      session_start();
+
+      if(!isset($_SESSION['idadmin'])){
+        header("location:login.php");
+      }
+    ?>
     <head></head>
     <body>
     <aside class="left-sidebar" data-sidebarbg="skin5">

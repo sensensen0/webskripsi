@@ -29,41 +29,40 @@
                                 <div class="col">Password</div>
                                 <div class="col"><input type="password" name="password" id="password"></div>
                             </div>
-                        <input type="button" id="login" class="btn btn-primary mt-3" value="Login">
+                        <input type="button" id="login" class="btn btn-primary mt-3" value="Login" onclick="login()">
                     </div>
                 </div>
             </div>
         </div>       
     </body>
-    <script text="text/javascript">
+    <script type="text/javascript">
         function ajax (url, data){
             let xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function (){
-                var dataku = this.responseText;
-                var login = dataku;
+                if (this.readyState == 4 && this.status == 200) {
+                    var dataku = this.responseText;
 
-                if (login == "login"){
-                    alert("Berhasil login!");
-                } else {
-                    alert("Gagal Login\nUsername atau password anda salah!!!")
-                    reset();
+                    if (dataku == "login"){
+                        alert("Berhasil login!");
+                        location.href = "index.php";
+                    } else {
+                        alert("Gagal Login\nUsername atau password anda salah!!!");
+                    }
                 }
             };
             xhttp.open("POST", url, true);
             xhttp.send(data);
         }
-
-
+        
         function login(){
             let username = document.getElementById("username").value;
             let password = document.getElementById("password").value;
-            let login = document.getElementById("login").value = "Login";         
-        }
-        
-        function reset(){
-            document.getElementById("username").value = "";
-            document.getElementById("password").value = "";
-            document.getElementById("username").focus;
+
+            var data = new FormData;
+            data.append("username", username);
+            data.append("password", password);
+            
+            ajax("proses-login.php", data);
         }
     </script>
 </html>

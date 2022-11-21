@@ -56,7 +56,7 @@
       data-header-position="absolute"
       data-boxed-layout="full"
     >
-    <?php include "header.php" ?>
+    <?php include "header.php"?>
       <!-- ============================================================== -->
       <!-- Topbar header - style you can find in pages.scss -->
       <!-- ============================================================== -->
@@ -1642,7 +1642,7 @@
       function logout(){
         var logout = document.getElementById("logOut");
         if (confirm("Apakah anda ingin keluar ?")) {
-          location.href = "login.php";
+          location.href = "proses-logout.php";
         } else {
           alert("Gagal Logout!");
         } 

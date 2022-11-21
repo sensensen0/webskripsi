@@ -1,17 +1,21 @@
 <?php
     include "koneksi.php";
+    session_start();
     
-    $idadmin = $_POST['idadmin'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $login = $_POST['login'];
 
-    $data = mysqli_query($con,"select * from tbadmin where username='$username' and password='$password'");
-    $cek = mysqli_num_rows($data);
+    $sql = mysqli_query($con,"select * from tbadmin where username='$username' and password='$password'");
+    $num = mysqli_num_rows($sql);
 
-    if($cek > 0 ) {
+    if($num > 0 ) {
+        echo "login";
 
-    } else {
-        header("location:login.php");    }
-    
+        $data = mysqli_fetch_array($sql);
+        $idadmin = $data['idadmin'];
+        $namalengkap = $data['namalengkap'];
+
+        $_SESSION['idadmin'] = $idadmin;
+        $_SESSION['namalengkap'] = $namalengkap;
+    }    
 ?>
