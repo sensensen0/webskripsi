@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
   <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Tell the browser to be responsive to screen width -->
@@ -53,6 +54,8 @@
   </head>
 
   <body onload="loading()">
+
+  <?php include "header.php"; ?>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -496,54 +499,103 @@
                         />
                       </div>
                     </div>
+                    <div class="form-group row d-flex flex-warp">
+                      <div class="col-md-3 text-end">
+                        <label
+                            for="jk"
+                            class="text-end control-label col-form-label"
+                            >Jenis Kelamin
+                        </label>
+                      </div>
+                      <div id="jk" class="col-auto">
+                        <div class="form-check form-check-inline col-auto mt-2">
+                          <input class="form-check-input" type="radio" name="gender" id="laki" value="Laki-laki"checked>
+                          <label class="form-check-label" for="laki">Laki-laki</label>
+                        </div>
+                        <div class="form-check form-check-inline col-auto mt-2">
+                          <input class="form-check-input" type="radio" name="gender" id="perempuan" value="Perempuan">
+                          <label class="form-check-label" for="perempuan">Perempuan</label>
+                        </div>
+                      </div>
+                    </div>
+                    
                     <div class="form-group row">
                       <label
-                        for="jk"
+                        for="alamat"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Jenis Kelamin</label
+                        >Alamat</label
                       >
-                      <input type="radio">Laki-Laki
-                      <input type="radio">Laki-Laki 
+                      <div class="col-sm-9">
+                        <input
+                          type="input-group-text"
+                          class="form-control"
+                          id="alamat"
+                          placeholder="Masukkan alamat jemaat"
+                        />
+                      </div>
                     </div>
-                  </div>
+                    <div class="form-group row">
+                      <label
+                        for="nohp"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Nomor Handphone</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="nohp"
+                          placeholder="Masukkan nomor handphone jemaat"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-md-3 text-end">
+                        <label
+                            for="status"
+                            class="text-end control-label col-form-label"
+                            >Status
+                        </label>
+                      </div>
+                      <div id="status" class="col-auto">
+                        <div class="form-check form-check-inline col-auto mt-2">
+                          <input class="form-check-input" type="radio" name="status" id="menikah" value="Menikah" checked>
+                          <label class="form-check-label" for="menikah">Menikah</label>
+                        </div>
+                        <div class="form-check form-check-inline col-auto ms-2 mt-2 me-1">
+                          <input class="form-check-input" type="radio" name="status" id="belumnikah" value="Belum Menikah">
+                          <label class="form-check-label" for="belumnikah">Belum Menikah</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="pekerjaan"
+                        class="col-md-3 text-end control-label col-form-label"
+                        >Pekerjaan</label
+                      >
+                      <div class="col-md-9">
+                        <select name="pekerjaan" id="pekerjaan" class="form-select">
+                          <option disabled selected>-- Pilih pekerjaan --</option>
+                          <option value="Tidak bekerja">Tidak bekerja</option>
+                          <option value="Pelajar">Pelajar/Mahasiswa</option>
+                          <option value="Karyawan">Karyawan</option>
+                          <option value="Pengusaha">Pengusaha</option>
+                          <option value="Self-employed">Self-Employed</option>
+                        </select>
+                      </div>
+                    </div>     
+                  </div>  
                   <div class="border-top">
                     <div class="card-body">
-                      <button id= "simpan" type="button" class="btn btn-primary float-end mb-3">
-                        Simpan
-                      </button>
-                    </div>
+                          <input id="cmd" type="button" class="btn btn-primary float-end mb-3" value="Simpan" onclick="simpan()">
+                    </div>    
                   </div>
                 </form>
               </div>
             </div>
           </div> 
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <form class="form-horizontal">
-                  <div class="card-body">
-                    <h4 class="card-title">Tabel Data</h4>
-                    <table class="table table-responsive table-bordered">
-                      <thead class="table-dark">
-                        <tr>
-                          <td>ID Jemaat</td>
-                          <td>Tanggal Masuk</td>
-                          <td>Nama Jemaat</td>
-                          <td>Tanggal Lahir</td>
-                          <td>Jenis Kelamin</td>
-                          <td>Alamat</td>
-                          <td>No. HP</td>
-                          <td>Status</td>
-                          <td>Pekerjaan</td>
-                          <td>Aksi</td>
-                        </tr>
-                      </thead>
-                    </table>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div> 
+          <div id="tableku"></div>
           <!-- ============================================================== -->
           <!-- End PAge Content -->
           <!-- ============================================================== -->
@@ -656,14 +708,14 @@
           var bagi = dataku.split("###");
 
           if(bagi[1] == "simpan"){
-            alert("Telah tersimpan");
+            alert("Data telah tersimpan");
           }else if (bagi[1] == "ubah") {
-            alert("Telah berubah");
+            alert("Data telah berubah");
           }else if (bagi[1] == "hapus") {
-            alert("Telah terhapus");
+            alert("Data telah terhapus");
           }
 
-          document.getElementById("myTable").innerHTML = bagi[2]
+          document.getElementById("tableku").innerHTML = bagi[2]
         }
       };
       xhttp.open("POST", url, true);
@@ -674,8 +726,73 @@
       ajaxku("proses-jemaat.php");
     }
 
-    function simpan(){
+    function resetForm(){
+      document.getElementById("tanggalmasuk").value = "";
+      document.getElementById("namajemaat").value = "";
+      document.getElementById("tanggallahir").value = "";
+      document.getElementById("jk").value = "";
+      document.getElementById("alamat").value = "";
+      document.getElementById("nohp").value = "";
+      document.getElementById("status").value = "";
+      document.getElementById("pekerjaan").value = -1;
+      document.getElementById("cmd").value = "Simpan";
+    }
 
+    function simpan(){
+      let tanggalmasuk = document.getElementById("tanggalmasuk").value;
+      let namajemaat = document.getElementById("namajemaat").value;
+      let tanggallahir = document.getElementById("tanggallahir").value;
+      let jk = document.getElementById("jk").value;
+      let alamat = document.getElementById("alamat").value;
+      let nohp = document.getElementById("nohp").value;
+      let status = document.getElementById("status").value;
+      let pekerjaan = document.getElementById("pekerjaan").value;
+      let cmd = document.getElementById("cmd").value;
+
+      let data = new FormData();
+      data.append("tanggalmasuk", tanggalmasuk);
+      data.append("namajemaat", namajemaat);
+      data.append("tanggallahir", tanggallahir);
+      data.append("jk", jk);
+      data.append("alamat", alamat);
+      data.append("nohp", nohp);
+      data.append("status", status);
+      data.append("pekerjaan", pekerjaan);
+      data.append("cmd", cmd);
+
+      if(cmd == "Ubah"){
+        if(confirm("Apakah anda ingin mengubah data ini?")){
+          data.append("idjemaat", idjemaatskrg);
+          ajaxku("proses-jemaat.php", data);
+        }
+      }
+      else{
+        ajaxku("proses-jemaat.php", data);
+      }
+      resetForm();
+    }
+
+    function ubah(idjemaat, tanggalmasuk, namajemaat, tanggallahir, jk, alamat, nohp, status, pekerjaan){
+      idjemaatskrg = "idjemaat";
+      document.getElementById("tanggalmasuk").value = tanggalmasuk;
+      document.getElementById("namajemaat").value = namajemaat;
+      document.getElementById("tanggallahir").value = tanggallahir;
+      document.getElementById("jk").value = jk;
+      document.getElementById("alamat").value = alamat; 
+      document.getElementById("nohp").value = nohp;
+      document.getElementById("status").value = status;
+      document.getElementById("pekerjaan").value = -1;
+      document.getElementById("cmd").value = "Ubah";
+    }
+
+    function hapus(idjemaat){
+      if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
+        let data = new FormData();
+        data.append("cmd", "Hapus");
+        data.append("idjemaat", idjemaat);
+
+        ajaxku("proses-jemaat.php", data);
+      }
     }
   </script>
 </html>
