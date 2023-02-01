@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+  <?php 
+    session_start();
+  ?>
   <head>
 
     <meta charset="utf-8" />
@@ -55,7 +58,6 @@
 
   <body onload="loading()">
 
-  <?php include "header.php"; ?>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -502,19 +504,19 @@
                     <div class="form-group row d-flex flex-warp">
                       <div class="col-md-3 text-end">
                         <label
-                            for="jk"
+                            for="gender"
                             class="text-end control-label col-form-label"
                             >Jenis Kelamin
                         </label>
                       </div>
-                      <div id="jk" class="col-auto">
+                      <div class="col-auto">
                         <div class="form-check form-check-inline col-auto mt-2">
-                          <input class="form-check-input" type="radio" name="gender" id="laki" value="Laki-laki"checked>
-                          <label class="form-check-label" for="laki">Laki-laki</label>
+                          <input class="form-check-input" type="radio" id="gender" name="gender" value="1"checked />
+                          <label class="form-check-label">Laki-laki</label>
                         </div>
                         <div class="form-check form-check-inline col-auto mt-2">
-                          <input class="form-check-input" type="radio" name="gender" id="perempuan" value="Perempuan">
-                          <label class="form-check-label" for="perempuan">Perempuan</label>
+                          <input class="form-check-input" type="radio" id="gender" name="gender" value="2"/>
+                          <label class="form-check-label">Perempuan</label>
                         </div>
                       </div>
                     </div>
@@ -557,14 +559,14 @@
                             >Status
                         </label>
                       </div>
-                      <div id="status" class="col-auto">
+                      <div class="col-auto">
                         <div class="form-check form-check-inline col-auto mt-2">
-                          <input class="form-check-input" type="radio" name="status" id="menikah" value="Menikah" checked>
-                          <label class="form-check-label" for="menikah">Menikah</label>
+                          <input class="form-check-input" type="radio" id="status" name="status" value="1" checked/>
+                          <label class="form-check-label">Menikah</label>
                         </div>
                         <div class="form-check form-check-inline col-auto ms-2 mt-2 me-1">
-                          <input class="form-check-input" type="radio" name="status" id="belumnikah" value="Belum Menikah">
-                          <label class="form-check-label" for="belumnikah">Belum Menikah</label>
+                          <input class="form-check-input" type="radio" id="status" name="status" value="2"/>
+                          <label class="form-check-label" >Belum Menikah</label>
                         </div>
                       </div>
                     </div>
@@ -730,11 +732,11 @@
       document.getElementById("tanggalmasuk").value = "";
       document.getElementById("namajemaat").value = "";
       document.getElementById("tanggallahir").value = "";
-      document.getElementById("jk").value = "";
+      document.getElementById("gender").value = "";
       document.getElementById("alamat").value = "";
       document.getElementById("nohp").value = "";
       document.getElementById("status").value = "";
-      document.getElementById("pekerjaan").value = -1;
+      document.getElementById("pekerjaan").value = 0;
       document.getElementById("cmd").value = "Simpan";
     }
 
@@ -742,7 +744,7 @@
       let tanggalmasuk = document.getElementById("tanggalmasuk").value;
       let namajemaat = document.getElementById("namajemaat").value;
       let tanggallahir = document.getElementById("tanggallahir").value;
-      let jk = document.getElementById("jk").value;
+      let gender = document.getElementById("gender").value;
       let alamat = document.getElementById("alamat").value;
       let nohp = document.getElementById("nohp").value;
       let status = document.getElementById("status").value;
@@ -753,7 +755,7 @@
       data.append("tanggalmasuk", tanggalmasuk);
       data.append("namajemaat", namajemaat);
       data.append("tanggallahir", tanggallahir);
-      data.append("jk", jk);
+      data.append("gender", gender);
       data.append("alamat", alamat);
       data.append("nohp", nohp);
       data.append("status", status);
@@ -772,16 +774,16 @@
       resetForm();
     }
 
-    function ubah(idjemaat, tanggalmasuk, namajemaat, tanggallahir, jk, alamat, nohp, status, pekerjaan){
-      idjemaatskrg = "idjemaat";
+    function ubah(idjemaat, tanggalmasuk, namajemaat, tanggallahir, gender, alamat, nohp, status, pekerjaan){
+      idjemaatskrg = idjemaat;
       document.getElementById("tanggalmasuk").value = tanggalmasuk;
       document.getElementById("namajemaat").value = namajemaat;
       document.getElementById("tanggallahir").value = tanggallahir;
-      document.getElementById("jk").value = jk;
+      document.getElementById("gender").value = "-1";
       document.getElementById("alamat").value = alamat; 
       document.getElementById("nohp").value = nohp;
-      document.getElementById("status").value = status;
-      document.getElementById("pekerjaan").value = -1;
+      document.getElementById("status").value = "-1";
+      document.getElementById("pekerjaan").value = "-1";
       document.getElementById("cmd").value = "Ubah";
     }
 

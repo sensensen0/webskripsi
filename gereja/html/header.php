@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
     <?php 
-      session_start();
-
       if(!isset($_SESSION['idadmin'])){
         header("location:login.php");
       }
@@ -41,13 +39,15 @@
                     >
                   </li>
                 </ul>
+              </li>
+              <li class="sidebar-item">
                 <a
-                  class="sidebar-link has-arrow waves-effect waves-dark"
-                  href="javascript:void(0)"
-                  aria-expanded="false"
-                  ><i class="mdi mdi-receipt"></i
-                  ><span class="hide-menu">Form Transaksi </span></a
-                >
+                    class="sidebar-link has-arrow waves-effect waves-dark"
+                    href="javascript:void(0)"
+                    aria-expanded="false"
+                    ><i class="mdi mdi-receipt"></i
+                    ><span class="hide-menu">Form Transaksi </span></a
+                  >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
                     <a href="form-basic.php" class="sidebar-link"
