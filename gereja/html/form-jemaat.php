@@ -428,7 +428,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title">Form Basic</h4>
+              <h4 class="page-title">Form Data Jemaat</h4>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -457,7 +457,7 @@
               <div class="card">
                 <form class="form-horizontal">
                   <div class="card-body">
-                    <h4 class="card-title">Personal Info</h4>
+                    <h4 class="card-title">Isi Data Jemaat</h4>
                     <div class="form-group row">
                       <label
                         for="tanggalmasuk"
@@ -504,18 +504,18 @@
                     <div class="form-group row d-flex flex-warp">
                       <div class="col-md-3 text-end">
                         <label
-                            for="gender"
+                            for="jk"
                             class="text-end control-label col-form-label"
                             >Jenis Kelamin
                         </label>
                       </div>
-                      <div class="col-auto">
+                      <div id="jk" class="col-auto">
                         <div class="form-check form-check-inline col-auto mt-2">
-                          <input class="form-check-input" type="radio" id="gender" name="gender" value="1"checked />
+                          <input class="form-check-input" type="radio" name="jk" value="1" checked/>
                           <label class="form-check-label">Laki-laki</label>
                         </div>
                         <div class="form-check form-check-inline col-auto mt-2">
-                          <input class="form-check-input" type="radio" id="gender" name="gender" value="2"/>
+                          <input class="form-check-input" type="radio" name="jk" value="2"/>
                           <label class="form-check-label">Perempuan</label>
                         </div>
                       </div>
@@ -559,13 +559,13 @@
                             >Status
                         </label>
                       </div>
-                      <div class="col-auto">
+                      <div id="status" class="col-auto">
                         <div class="form-check form-check-inline col-auto mt-2">
-                          <input class="form-check-input" type="radio" id="status" name="status" value="1" checked/>
+                          <input class="form-check-input" type="radio" name="status" value="1" checked/>
                           <label class="form-check-label">Menikah</label>
                         </div>
                         <div class="form-check form-check-inline col-auto ms-2 mt-2 me-1">
-                          <input class="form-check-input" type="radio" id="status" name="status" value="2"/>
+                          <input class="form-check-input" type="radio" name="status" value ="2"/>
                           <label class="form-check-label" >Belum Menikah</label>
                         </div>
                       </div>
@@ -732,7 +732,7 @@
       document.getElementById("tanggalmasuk").value = "";
       document.getElementById("namajemaat").value = "";
       document.getElementById("tanggallahir").value = "";
-      document.getElementById("gender").value = "";
+      document.getElementById("jk").value = "";
       document.getElementById("alamat").value = "";
       document.getElementById("nohp").value = "";
       document.getElementById("status").value = "";
@@ -744,7 +744,7 @@
       let tanggalmasuk = document.getElementById("tanggalmasuk").value;
       let namajemaat = document.getElementById("namajemaat").value;
       let tanggallahir = document.getElementById("tanggallahir").value;
-      let gender = document.getElementById("gender").value;
+      let jk = document.getElementById("jk").value;
       let alamat = document.getElementById("alamat").value;
       let nohp = document.getElementById("nohp").value;
       let status = document.getElementById("status").value;
@@ -755,7 +755,7 @@
       data.append("tanggalmasuk", tanggalmasuk);
       data.append("namajemaat", namajemaat);
       data.append("tanggallahir", tanggallahir);
-      data.append("gender", gender);
+      data.append("jk", jk);
       data.append("alamat", alamat);
       data.append("nohp", nohp);
       data.append("status", status);
@@ -774,16 +774,16 @@
       resetForm();
     }
 
-    function ubah(idjemaat, tanggalmasuk, namajemaat, tanggallahir, gender, alamat, nohp, status, pekerjaan){
+    function ubah(idjemaat, tanggalmasuk, namajemaat, tanggallahir, jk, alamat, nohp, status, pekerjaan){
       idjemaatskrg = idjemaat;
       document.getElementById("tanggalmasuk").value = tanggalmasuk;
       document.getElementById("namajemaat").value = namajemaat;
       document.getElementById("tanggallahir").value = tanggallahir;
-      document.getElementById("gender").value = "-1";
+      document.getElementById("jk").value = "-1";
       document.getElementById("alamat").value = alamat; 
       document.getElementById("nohp").value = nohp;
       document.getElementById("status").value = "-1";
-      document.getElementById("pekerjaan").value = "-1";
+      document.getElementById("pekerjaan").value = "0";
       document.getElementById("cmd").value = "Ubah";
     }
 

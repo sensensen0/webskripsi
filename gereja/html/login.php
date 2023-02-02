@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +14,7 @@
         </style>
     </head>
     <body>
-        <img class = "bg-image"src="../assets/img/bg-login.jpg" alt="Gradient background images">
+        <img class = "bg-image"src="../assets/img/bg-login.jpg" alt="Gradient background images" width="100%" height="100%">
         <div class="container-fluid">
             <div class="row text-center position-absolute top-50 start-50 translate-middle">
                 <div class="card text-center" style="width: 18rem;">
@@ -43,7 +42,7 @@
                     var dataku = this.responseText;
 
                     if (dataku == "login"){
-                        alert("Berhasil login!");
+                        alert("Berhasil Login!");
                         location.href = "index.php";
                     } else {
                         alert("Gagal Login\nUsername atau password anda salah!!!");
