@@ -509,18 +509,21 @@
                             >Jenis Kelamin
                         </label>
                       </div>
-                      <div id="jk" class="col-auto">
+                      <div class="col-md-9">
                         <div class="form-check form-check-inline col-auto mt-2">
-                          <input class="form-check-input" type="radio" name="jk" value="1" checked/>
-                          <label class="form-check-label">Laki-laki</label>
+                          <input class="form-check-input" type="radio" name="jk" id="laki" value="Laki-Laki">
+                          <label class="form-check-label" for="laki">
+                            Laki-Laki
+                          </label>
                         </div>
                         <div class="form-check form-check-inline col-auto mt-2">
-                          <input class="form-check-input" type="radio" name="jk" value="2"/>
-                          <label class="form-check-label">Perempuan</label>
+                          <input class="form-check-input" type="radio" name="jk" id="perempuan" value="Perempuan">
+                          <label class="form-check-label" for="perempuan">
+                            Perempuan
+                          </label>
                         </div>
                       </div>
-                    </div>
-                    
+                    </div>                    
                     <div class="form-group row">
                       <label
                         for="alamat"
@@ -559,15 +562,29 @@
                             >Status
                         </label>
                       </div>
-                      <div id="status" class="col-auto">
+                      <!-- <div id="status" class="col-auto">
                         <div class="form-check form-check-inline col-auto mt-2">
-                          <input class="form-check-input" type="radio" name="status" value="1" checked/>
+                          <input class="form-check-input" type="radio" name="status" value="Menikah" checked/>
                           <label class="form-check-label">Menikah</label>
                         </div>
                         <div class="form-check form-check-inline col-auto ms-2 mt-2 me-1">
-                          <input class="form-check-input" type="radio" name="status" value ="2"/>
+                          <input class="form-check-input" type="radio" name="status" value ="Belum Menikah"/>
                           <label class="form-check-label" >Belum Menikah</label>
                         </div>
+                      </div> -->
+                      <div class="col-md-9">
+                        <div class="form-check form-check-inline col-auto mt-2">
+                          <input class="form-check-input" type="radio" name="status" id="menikah" value="Menikah">
+                          <label class="form-check-label" for="menikah">
+                            Menikah
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline col-auto mt-2">
+                          <input class="form-check-input" type="radio" name="status" id="belummenikah" value="Belum Menikah">
+                          <label class="form-check-label" for="belummenikah">
+                            Belum Menikah
+                          </label>
+                        </div>                        
                       </div>
                     </div>
                     <div class="form-group row">
@@ -732,11 +749,13 @@
       document.getElementById("tanggalmasuk").value = "";
       document.getElementById("namajemaat").value = "";
       document.getElementById("tanggallahir").value = "";
-      document.getElementById("jk").value = "";
+      document.getElementById("laki").checked = false;
+      document.getElementById("perempuan").checked = false
       document.getElementById("alamat").value = "";
       document.getElementById("nohp").value = "";
-      document.getElementById("status").value = "";
-      document.getElementById("pekerjaan").value = 0;
+      document.getElementById("menikah").checked = false;
+      document.getElementById("belummenikah").checked = false
+      document.getElementById("pekerjaan").value =  "";
       document.getElementById("cmd").value = "Simpan";
     }
 
@@ -744,12 +763,13 @@
       let tanggalmasuk = document.getElementById("tanggalmasuk").value;
       let namajemaat = document.getElementById("namajemaat").value;
       let tanggallahir = document.getElementById("tanggallahir").value;
-      let jk = document.getElementById("jk").value;
+      let jk = document.querySelector('input[name="jk"]:checked').value;
       let alamat = document.getElementById("alamat").value;
       let nohp = document.getElementById("nohp").value;
-      let status = document.getElementById("status").value;
+      let status = document.querySelector('input[name="status"]:checked').value;
       let pekerjaan = document.getElementById("pekerjaan").value;
       let cmd = document.getElementById("cmd").value;
+
 
       let data = new FormData();
       data.append("tanggalmasuk", tanggalmasuk);
@@ -779,11 +799,11 @@
       document.getElementById("tanggalmasuk").value = tanggalmasuk;
       document.getElementById("namajemaat").value = namajemaat;
       document.getElementById("tanggallahir").value = tanggallahir;
-      document.getElementById("jk").value = "-1";
+      document.querySelector(`input[name='jk'][value='${jk}']`).checked = true;
+      document.querySelector(`input[name='status'][value='${status}']`).checked = true;
       document.getElementById("alamat").value = alamat; 
       document.getElementById("nohp").value = nohp;
-      document.getElementById("status").value = "-1";
-      document.getElementById("pekerjaan").value = "0";
+      document.getElementById("pekerjaan").value = pekerjaan;
       document.getElementById("cmd").value = "Ubah";
     }
 
