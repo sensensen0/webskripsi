@@ -428,7 +428,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title">Form Data Jemaat</h4>
+              <h4 class="page-title">Form Sesi Kelas</h4>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -457,47 +457,51 @@
               <div class="card">
                 <form class="form-horizontal">
                   <div class="card-body">
-                    <h4 class="card-title">Isi Data Jemaat</h4>
+                    <h4 class="card-title">Isi Data Sesi Kelas</h4>
                     <div class="form-group row">
                       <label
-                        for="tanggalmasuk"
+                        for="namasesi"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Tanggal Masuk</label
-                      >
-                      <div class="col-sm-9">
-                        <input
-                          type="date"
-                          class="form-control"
-                          id="tanggalmasuk"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="namajemaat"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Nama Jemaat</label
+                        >Nama Sesi</label
                       >
                       <div class="col-sm-9">
                         <input
                           type="text"
                           class="form-control"
-                          id="namajemaat"
-                          placeholder="Isi nama jemaat"
+                          id="namasesi"
                         />
                       </div>
                     </div>
                     <div class="form-group row">
                       <label
-                        for="tanggallahir"
+                        for="harisesi"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Tanggal Lahir</label
+                        >Hari Sesi</label
+                      >
+                      <div class="col-md-9">
+                        <select name="hari" id="hari" class="form-select">
+                          <option disabled selected>-- Pilih Hari --</option>
+                          <option value="Senin">Senin</option>
+                          <option value="Selasa">Selasa</option>
+                          <option value="Rabu">Rabu</option>
+                          <option value="Kamis">Kamis</option>
+                          <option value="Jum'at">Jum'at</option>
+                          <option value="Sabtu">Sabtu</option>
+                          <option value="Minggu">Minggu</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="waktumulai"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Waktu Mulai</label
                       >
                       <div class="col-sm-9">
                         <input
-                          type="date"
+                          type="time"
                           class="form-control"
-                          id="tanggallahir"
+                          id="waktumulai"
                         />
                       </div>
                     </div>

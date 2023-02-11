@@ -46,6 +46,9 @@
                         location.href = "index.php";
                     } else {
                         alert("Gagal Login\nUsername atau password anda salah!!!");
+                        document.getElementById("username").value="";
+                        document.getElementById("password").value="";
+                        document.getElementById("username").focus();
                     }
                 }
             };
@@ -63,5 +66,26 @@
             
             ajax("proses-login.php", data);
         }
+        let user = document.getElementById("username");
+            user.addEventListener("keypress", function(event){
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    alert("Username / Password belum diisi!");
+                    user.value="";
+                }
+            });
+        let pwd = document.getElementById("password");
+            pwd.addEventListener("keypress", function(event) {
+                if (event.key === "Enter" && user.value === "") {
+                    event.preventDefault();
+                    alert("Username / Password belum diisi!");
+                    user.focus();
+                    pwd.value="";
+                } else if (event.key === "Enter") {
+                    event.preventDefault();
+                    document.getElementById("login").click();
+                }
+            });
+    
     </script>
 </html>
