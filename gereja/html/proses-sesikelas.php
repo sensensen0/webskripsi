@@ -1,25 +1,21 @@
 <?php
     include "koneksi.php";
     
-    $idjemaat = $_POST['idjemaat'];
-    $tanggalmasuk = $_POST['tanggalmasuk'];
-    $namajemaat = $_POST['namajemaat'];
-    $tanggallahir = $_POST['tanggallahir'];
-    $jk = $_POST['jk'];
-    $alamat = $_POST['alamat'];
-    $nohp = $_POST['nohp'];
-    $status = $_POST['status'];
-    $pekerjaan = $_POST['pekerjaan'];
+    $idsesikelas = $_POST['idsesikelas'];
+    $idkelas = $_POST['idkelas'];
+    $namasesi = $_POST['namasesi'];
+    $harisesi = $_POST['harisesi'];
+    $waktumulai = $_POST['waktumulai'];
     $cmd = $_POST['cmd'];
 
     if ($cmd == "Simpan"){
-        mysqli_query($con, "insert into tbjemaat (tanggalmasuk, namajemaat, tanggallahir, jk, alamat, nohp, status, pekerjaan) values('$tanggalmasuk', '$namajemaat', '$tanggallahir', '$jk', '$alamat', '$nohp', '$status', '$pekerjaan')");
+        mysqli_query($con, "insert into tbsesikelas (idkelas, namasesi, harisesi, waktumulai) values('$idkelas', '$namasesi', '$harisesi', '$waktumulai')");
         echo "###simpan";
     }else if($cmd == "Ubah") {
-        mysqli_query($con, "update tbjemaat set tanggalmasuk='$tanggalmasuk', namajemaat='$namajemaat', tanggallahir='$tanggallahir', jk='$jk', alamat='$alamat', nohp='$nohp', status='$status', pekerjaan='$pekerjaan' where idjemaat='$idjemaat'");
+        mysqli_query($con, "update tbsesikelas set idkelas='$idkelas', namasesi='$namasesi', harisesi='$harisesi', waktumulai='$waktumulai' where idesesikelas='$idesesikelas'");
         echo "###ubah";
     }else if ($cmd == "Hapus") {
-        mysqli_query($con, "delete from tbjemaat where idjemaat='$idjemaat'");
+        mysqli_query($con, "delete from tbsesikelas where idesesikelas='$idesesikelas'");
         echo "###hapus";
     }else {
         echo "###";
@@ -41,44 +37,32 @@
                             <table class="table table-responsive table-bordered">
                                 <thead class="table-dark">
                                     <tr>
-                                        <td>ID Jemaat</td>
-                                        <td>Tanggal Masuk</td>
-                                        <td>Nama Jemaat</td>
-                                        <td>Tanggal Lahir</td>
-                                        <td>Jenis Kelamin</td>
-                                        <td>Alamat</td>
-                                        <td>No. HP</td>
-                                        <td>Status</td>
-                                        <td>Pekerjaan</td>
+                                        <td>ID Sesi Kelas</td>
+                                        <td>Nama Kelas</td>
+                                        <td>Nama Sesi</td>
+                                        <td>Hari Sesi</td>
+                                        <td>Waktu Mulai</td>
                                         <td>Aksi</td>
                                     </tr>
                                 </thead>
                             <?php 
-                                $sql = mysqli_query($con, "select * from tbjemaat");
+                                $sql = mysqli_query($con, "select * from tbsesikelas");
                                 while($data = mysqli_fetch_array($sql)){
-                                    $idjemaat = $data[0];
-                                    $tanggalmasuk = $data[1];
-                                    $namajemaat = $data[2];
-                                    $tanggallahir = $data[3];
-                                    $jk = $data[4];
-                                    $alamat = $data[5];
-                                    $nohp = $data[6];
-                                    $status = $data[7];
-                                    $pekerjaan = $data[8];
+                                    $idesesikelas = $data[0];
+                                    $idkelas = $data[1];
+                                    $namasesi = $data[2];
+                                    $harisesi = $data[3];
+                                    $waktumulai = $data[4];
                                     ?>
                                         <tbody>
-                                            <td><?php echo $idjemaat; ?></td>
-                                            <td><?php echo $tanggalmasuk; ?></td>
-                                            <td><?php echo $namajemaat; ?></td>
-                                            <td><?php echo $tanggallahir; ?></td>
-                                            <td><?php echo $jk; ?></td>
-                                            <td><?php echo $alamat; ?></td>
-                                            <td><?php echo $nohp; ?></td>
-                                            <td><?php echo $status; ?></td>
-                                            <td><?php echo $pekerjaan; ?></td>
+                                            <td><?php echo $idesesikelas; ?></td>
+                                            <td><?php echo $idkelas; ?></td>
+                                            <td><?php echo $namasesi; ?></td>
+                                            <td><?php echo $harisesi; ?></td>
+                                            <td><?php echo $waktumulai; ?></td>
                                             <td>
-                                                <input type="button" class="btn btn-primary btn-success col-auto mb-1" value="Ubah" onclick="ubah(<?php echo "'$idjemaat', '$tanggalmasuk','$namajemaat','$tanggallahir','$jk','$alamat','$nohp','$status','$pekerjaan'"; ?>)">
-                                                <input type="button" class="btn btn-danger col-auto mb-1" value="Hapus" onclick="hapus(<?php echo "'$idjemaat'"; ?>)">
+                                                <input type="button" class="btn btn-primary btn-success col-auto mb-1" value="Ubah" onclick="ubah(<?php echo "'$idesesikelas', '$idkelas','$namasesi','$harisesi','$waktumulai'"; ?>)">
+                                                <input type="button" class="btn btn-danger col-auto mb-1" value="Hapus" onclick="hapus(<?php echo "'$idesesikelas'"; ?>)">
                                             </td>
                                         </tbody>
                                     <?php

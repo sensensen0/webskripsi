@@ -464,7 +464,7 @@
                         class="col-sm-3 text-end control-label col-form-label"
                         >Tanggal Masuk</label
                       >
-                      <div class="col-sm-9">
+                      <div class="col-md-2">
                         <input
                           type="date"
                           class="form-control"
@@ -493,7 +493,7 @@
                         class="col-sm-3 text-end control-label col-form-label"
                         >Tanggal Lahir</label
                       >
-                      <div class="col-sm-9">
+                      <div class="col-md-2">
                         <input
                           type="date"
                           class="form-control"

@@ -38,8 +38,6 @@
                       ><span class="hide-menu"> Form Jemaat </span></a
                     >
                   </li>
-                </ul>
-                <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
                     <a href="form-sesikelas.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline"></i

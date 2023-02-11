@@ -23,6 +23,9 @@
                             <div class="row">
                                 <div class="col">Username</div>
                                 <div class="col"><input type="text" name="username" id="username"></div>
+                                <script>
+                                    document.getElementById("username").focus();
+                                </script>
                             </div>
                             <div class="row mt-3">
                                 <div class="col">Password</div>
