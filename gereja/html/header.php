@@ -44,6 +44,12 @@
                       ><span class="hide-menu"> Form Sesi Kelas </span></a
                     >
                   </li>
+                  <li class="sidebar-item">
+                    <a href="form-berita.php" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu"> Form Berita </span></a
+                    >
+                  </li>
                 </ul>
               </li>
               <li class="sidebar-item">
@@ -56,9 +62,9 @@
                   >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
-                    <a href="form-basic.php" class="sidebar-link"
+                    <a href="form-daftarkelas.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline"></i
-                      ><span class="hide-menu"> Form Basic </span></a
+                      ><span class="hide-menu"> Form Daftar Kelas </span></a
                     >
                   </li>
                 </ul>

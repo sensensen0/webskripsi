@@ -468,7 +468,7 @@
                         <select name="idkelas" id="idkelas" class="form-select">
                           <option disabled selected>-- Pilih Kelas --</option>
                           <?php
-                            $con = mysqli_connect("localhost","root","","db_gereja");
+                            include "koneksi.php";
                             $sql = mysqli_query($con, "select * from tbkelas");
                             while($data = mysqli_fetch_array($sql)){
                               $idkelas = $data['idkelas'];

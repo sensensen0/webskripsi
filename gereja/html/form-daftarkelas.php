@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+  <?php 
+    session_start();
+  ?>
   <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Tell the browser to be responsive to screen width -->
@@ -16,6 +20,7 @@
     <meta name="robots" content="noindex,nofollow" />
     <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
     <!-- Favicon icon -->
+    
     <link
       rel="icon"
       type="image/png"
@@ -52,7 +57,8 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body onload="loading()">
+
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -423,7 +429,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title">Form Basic</h4>
+              <h4 class="page-title">Form Daftar Kelas</h4>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -452,131 +458,102 @@
               <div class="card">
                 <form class="form-horizontal">
                   <div class="card-body">
-                    <h4 class="card-title">Personal Info</h4>
+                    <h4 class="card-title">Isi Data Pendaftaran Kelas</h4>
                     <div class="form-group row">
                       <label
-                        for="fname"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >First Name</label
+                        for="idkelas"
+                        class="col-md-3 text-end control-label col-form-label"
+                        >Nama Kelas</label
                       >
-                      <div class="col-sm-9">
+                      <div class="col-md-9">
+                        <select name="idkelas" id="idkelas" class="form-select"  onclick="tampil()">
+                          <option disabled selected>-- Pilih Kelas --</option>
+                          <?php
+                            include "koneksi.php";
+                            $sql = mysqli_query($con, "select * from tbkelas");
+                            while($data = mysqli_fetch_array($sql)) {
+                              $idkelas = $data['idkelas'];
+                              $namakelas = $data['namakelas'];
+                              ?>
+                                <option value="<?php echo $idkelas ?>"><?php echo $namakelas;?></option>
+                                <?php
+                            }                            
+                          ?>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="idjemaat"
+                        class="col-md-3 text-end control-label col-form-label"
+                        >Nama Jemaat</label
+                      >
+                      <div class="col-md-9">
+                        <select name="idjemaat" id="idjemaat" class="form-select">
+                        <option value="" selected disabled>-- Pilih Daftar Jemaat --</option>
+                        <?php
+                            include "koneksi.php";
+                            $sql = mysqli_query($con, "select * from tbjemaat");
+                            while($data = mysqli_fetch_array($sql)) {
+                              $idjemaat = $data['idjemaat'];
+                              $namajemaat = $data['namajemaat'];
+                              ?>
+                                <option value="<?php echo $idjemaat ?>"><?php echo $namajemaat;?></option>
+                                <?php
+                            }                            
+                          ?>                          
+                        </select>
+                      </div>
+                    </div>
+                    <div id="pasangan" class="form-group row" id="pasangan">
+                      <label
+                        for="namapasangan"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Nama Pasangan</label
+                      >
+                      <div class="col-md-9">
                         <input
                           type="text"
                           class="form-control"
-                          id="fname"
-                          placeholder="First Name Here"
+                          id="namapasangan"
                         />
                       </div>
                     </div>
                     <div class="form-group row">
                       <label
-                        for="lname"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Last Name</label
+                        for="idsesikelas"
+                        class="col-md-3 text-end control-label col-form-label"
+                        >Sesi Kelas</label
                       >
-                      <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="lname"
-                          placeholder="Last Name Here"
-                        />
+                      <div class="col-md-9">
+                        <select name="idsesikelas" id="idsesikelas" class="form-select">
+                          <option disabled selected>-- Pilih Sesi Kelas --</option>
+                          <?php
+                            include "koneksi.php";
+                            $sql = mysqli_query($con, "select * from tbsesikelas");
+                            while($data = mysqli_fetch_array($sql)) {
+                              $idsesikelas = $data['idsesikelas'];
+                              $namasesi = $data['namasesi'];
+                              $waktumulai = $data ['waktumulai'];
+                              $waktuakhir = $data ['waktuakhir'];
+                              ?>
+                                <option value="<?php echo $idsesikelas ?>"><?php echo $namasesi . "" . "($waktumulai - $waktuakhir)";?></option>
+                                <?php
+                            }                            
+                          ?>
                       </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="lname"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Password</label
-                      >
-                      <div class="col-sm-9">
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="lname"
-                          placeholder="Password Here"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="email1"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Company</label
-                      >
-                      <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="email1"
-                          placeholder="Company Name Here"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="cono1"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Contact No</label
-                      >
-                      <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="cono1"
-                          placeholder="Contact No Here"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="cono1"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Message</label
-                      >
-                      <div class="col-sm-9">
-                        <textarea class="form-control"></textarea>
-                      </div>
-                    </div>
-                  </div>
+                    </div>     
+                  </div>  
                   <div class="border-top">
                     <div class="card-body">
-                      <button id= "simpan" type="button" class="btn btn-primary float-end mb-3">
-                        Simpan
-                      </button>
-                    </div>
+                          <input id="cmd" type="button" class="btn btn-primary float-end mt-3 mb-3" value="Simpan" onclick="simpan()">
+                    </div>    
                   </div>
                 </form>
               </div>
             </div>
           </div> 
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <form class="form-horizontal">
-                  <div class="card-body">
-                    <h4 class="card-title">Tabel Data</h4>
-                    <table class="table table-responsive table-bordered">
-                      <thead class="table-dark">
-                        <tr>
-                          <td>Nama</td>
-                          <td>Alamat</td>
-                          <td>Umur</td>
-                          <td>Aksi</td>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <td class="col">Sendi</td>
-                        <td class="col">Jl. Teluk Sahang 1</td>
-                        <td class="col">22</td>
-                        <td class="col">Yo</td>
-                      </tbody>
-                    </table>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div> 
+          <div id="tableku"></div>
           <!-- ============================================================== -->
           <!-- End PAge Content -->
           <!-- ============================================================== -->
@@ -677,4 +654,117 @@
       });
     </script>
   </body>
+  <script type="text/javascript">
+    var idjemaatskrg = "";
+
+    function ajaxku(url, data){
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var dataku = this.responseText;
+
+          var bagi = dataku.split("###");
+
+          if(bagi[1] == "simpan"){
+            alert("Data telah tersimpan");
+          }else if (bagi[1] == "ubah") {
+            alert("Data telah berubah");
+          }else if (bagi[1] == "hapus") {
+            alert("Data telah terhapus");
+          }
+
+          document.getElementById("tableku").innerHTML = bagi[2]
+        }
+      };
+      xhttp.open("POST", url, true);
+      xhttp.send(data);
+    }
+    
+    function loading(){
+      document.getElementById("pasangan").style.display = "none";
+      ajaxku("proses-jemaat.php");
+    }
+
+    function resetForm(){
+      document.getElementById("tanggalmasuk").value = "";
+      document.getElementById("namajemaat").value = "";
+      document.getElementById("tanggallahir").value = "";
+      document.getElementById("laki").checked = false;
+      document.getElementById("perempuan").checked = false
+      document.getElementById("alamat").value = "";
+      document.getElementById("nohp").value = "";
+      document.getElementById("menikah").checked = false;
+      document.getElementById("belummenikah").checked = false
+      document.getElementById("pekerjaan").value =  "";
+      document.getElementById("cmd").value = "Simpan";
+    }
+
+    function simpan(){
+      let tanggalmasuk = document.getElementById("tanggalmasuk").value;
+      let namajemaat = document.getElementById("namajemaat").value;
+      let tanggallahir = document.getElementById("tanggallahir").value;
+      let jk = document.querySelector('input[name="jk"]:checked').value;
+      let alamat = document.getElementById("alamat").value;
+      let nohp = document.getElementById("nohp").value;
+      let status = document.querySelector('input[name="status"]:checked').value;
+      let pekerjaan = document.getElementById("pekerjaan").value;
+      let cmd = document.getElementById("cmd").value;
+
+
+      let data = new FormData();
+      data.append("tanggalmasuk", tanggalmasuk);
+      data.append("namajemaat", namajemaat);
+      data.append("tanggallahir", tanggallahir);
+      data.append("jk", jk);
+      data.append("alamat", alamat);
+      data.append("nohp", nohp);
+      data.append("status", status);
+      data.append("pekerjaan", pekerjaan);
+      data.append("cmd", cmd);
+
+      if(cmd == "Ubah"){
+        if(confirm("Apakah anda ingin mengubah data ini?")){
+          data.append("idjemaat", idjemaatskrg);
+          ajaxku("proses-jemaat.php", data);
+        }
+      }
+      else{
+        ajaxku("proses-jemaat.php", data);
+      }
+      resetForm();
+    }
+
+    function ubah(idjemaat, tanggalmasuk, namajemaat, tanggallahir, jk, alamat, nohp, status, pekerjaan){
+      idjemaatskrg = idjemaat;
+      document.getElementById("tanggalmasuk").value = tanggalmasuk;
+      document.getElementById("namajemaat").value = namajemaat;
+      document.getElementById("tanggallahir").value = tanggallahir;
+      document.querySelector(`input[name='jk'][value='${jk}']`).checked = true;
+      document.querySelector(`input[name='status'][value='${status}']`).checked = true;
+      document.getElementById("alamat").value = alamat; 
+      document.getElementById("nohp").value = nohp;
+      document.getElementById("pekerjaan").value = pekerjaan;
+      document.getElementById("cmd").value = "Ubah";
+    }
+
+    function hapus(idjemaat){
+      if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
+        let data = new FormData();
+        data.append("cmd", "Hapus");
+        data.append("idjemaat", idjemaat);
+
+        ajaxku("proses-jemaat.php", data);
+      }
+    }
+
+    function tampil(){
+      let pranikah = document.getElementById("idkelas").value;
+      if (pranikah === "2") {
+        pasangan.style.display = 'block';
+      }
+      else {
+        pasangan.style.display = "none";
+      }
+    }
+  </script>
 </html>

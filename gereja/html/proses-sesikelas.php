@@ -26,7 +26,14 @@
 ?>
 <!DOCTYPE html>
     <head>
-              
+        <style>
+            .table-wrapper {
+                /* max-height: 400px;
+                max-width: 100%;
+                overflow: auto;
+                display:inline-block; */
+            }
+        </style>                  
     </head>
     <body>
         <div class="row">
@@ -35,7 +42,7 @@
                     <form class="form-horizontal">
                         <div class="card-body">
                             <h4 class="card-title">Table Data</h4>
-                            <table class="table table-responsive table-bordered">
+                            <table class="table table-responsive-md table-bordered table-wrapper">
                                 <thead class="table-dark">
                                     <tr>
                                         <td>ID Sesi Kelas</td>
