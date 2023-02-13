@@ -1,7 +1,7 @@
 <?php
     include "koneksi.php";
     
-    $idjemaat = $_POST['idjemaat'];
+    // $idjemaat = $_POST['idjemaat'];
     $tanggalmasuk = $_POST['tanggalmasuk'];
     $namajemaat = $_POST['namajemaat'];
     $tanggallahir = $_POST['tanggallahir'];

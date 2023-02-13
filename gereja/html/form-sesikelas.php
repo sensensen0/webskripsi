@@ -414,7 +414,7 @@
       <!-- ============================================================== -->
       <!-- Left Sidebar - style you can find in sidebar.scss  -->
       <!-- ============================================================== -->
-      <?php include "header.php" ?>
+      <?php include "header.php"; ?>
       <!-- ============================================================== -->
       <!-- End Left Sidebar - style you can find in sidebar.scss  -->
       <!-- ============================================================== -->
@@ -460,19 +460,21 @@
                     <h4 class="card-title">Isi Data Sesi Kelas</h4>
                     <div class="form-group row">
                       <label
-                        for="pilihkelas"
+                        for="idkelas"
                         class="col-sm-3 text-end control-label col-form-label"
                         >Pilih Kelas</label
                       >
                       <div class="col-md-9">
-                        <select name="pilihkelas" id="pilihkelas" class="form-select">
+                        <select name="idkelas" id="idkelas" class="form-select">
                           <option disabled selected>-- Pilih Kelas --</option>
                           <?php
-                            $sql = mysqli_query($con, "select * from tbsesikelas inner join tbkelas on tbsesikelas.idkelas = tbkelas.idkelas");
+                            $con = mysqli_connect("localhost","root","","db_gereja");
+                            $sql = mysqli_query($con, "select * from tbkelas");
                             while($data = mysqli_fetch_array($sql)){
                               $idkelas = $data['idkelas'];
+                              $namakelas = $data['namakelas']
                               ?>
-                                <option><?php echo $idkelas; ?></option>
+                                <option value="<?php echo $idkelas ?>"><?php echo $namakelas; ?></option>
                               <?php
                             } 
                           ?>
@@ -518,11 +520,25 @@
                         class="col-sm-3 text-end control-label col-form-label"
                         >Waktu Mulai</label
                       >
-                      <div class="col-sm-1">
+                      <div class="col-md-2">
                         <input
                           type="time"
                           class="form-control"
                           id="waktumulai"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="waktuakhir"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Waktu Akhir</label
+                      >
+                      <div class="col-md-2">
+                        <input
+                          type="time"
+                          class="form-control"
+                          id="waktuakhir"
                         />
                       </div>
                     </div>    
@@ -668,26 +684,30 @@
     }
 
     function resetForm(){
-      document.getElementById("pilihkelas").value = "-1";
+      document.getElementById("idkelas").value = "-1";
       document.getElementById("namasesi").value = "";
       document.getElementById("harisesi").value = "-1";
       document.getElementById("waktumulai").value = "";
+      document.getElementById("waktuakhir").value="";
       document.getElementById("cmd").value = "Simpan";
+      document.getElementById("idkelas").focus();
     }
 
     function simpan(){
-      let pilihkelas = document.getElementById("pilihkelas").value
+      let idkelas = document.getElementById("idkelas").value
       let namasesi = document.getElementById("namasesi").value;
       let harisesi = document.getElementById("harisesi").value;
       let waktumulai = document.getElementById("waktumulai").value;
+      let waktuakhir = document.getElementById ("waktuakhir").value;
       let cmd = document.getElementById("cmd").value;
 
 
       let data = new FormData();
-      data.append("pilihkelas", pilihkelas)
+      data.append("idkelas", idkelas)
       data.append("namasesi", namasesi);
       data.append("harisesi", harisesi);
       data.append("waktumulai", waktumulai);
+      data.append("waktuakhir", waktuakhir);
       data.append("cmd", cmd);
 
       if(cmd == "Ubah"){
@@ -702,13 +722,15 @@
       resetForm();
     }
 
-    function ubah(idsesikelas,  namasesi, harisesi, waktumulai){
+    function ubah(idsesikelas, idkelas,  namasesi, harisesi, waktumulai, waktuakhir){
       idsesikelasskrg = idsesikelas;
-      document.getElementById("pilihkelas").value = pilihkelas;
+      document.getElementById("idkelas").value = idkelas;
       document.getElementById("namasesi").value = namasesi;
       document.getElementById("harisesi").value = harisesi;
       document.getElementById("waktumulai").value = waktumulai;
+      document.getElementById("waktuakhir").value = waktuakhir;
       document.getElementById("cmd").value = "Ubah";
+      document.getElementById("idkelas").focus();
     }
 
     function hapus(idsesikelas){

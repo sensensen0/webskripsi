@@ -6,16 +6,17 @@
     $namasesi = $_POST['namasesi'];
     $harisesi = $_POST['harisesi'];
     $waktumulai = $_POST['waktumulai'];
+    $waktuakhir = $_POST['waktuakhir'];
     $cmd = $_POST['cmd'];
 
     if ($cmd == "Simpan"){
-        mysqli_query($con, "insert into tbsesikelas (idkelas, namasesi, harisesi, waktumulai) values('$idkelas', '$namasesi', '$harisesi', '$waktumulai')");
+        mysqli_query($con, "insert into tbsesikelas (idkelas, namasesi, harisesi, waktumulai, waktuakhir) values('$idkelas', '$namasesi', '$harisesi', '$waktumulai', '$waktuakhir')");
         echo "###simpan";
     }else if($cmd == "Ubah") {
-        mysqli_query($con, "update tbsesikelas set idkelas='$idkelas', namasesi='$namasesi', harisesi='$harisesi', waktumulai='$waktumulai' where idesesikelas='$idesesikelas'");
+        mysqli_query($con, "update tbsesikelas set idkelas='$idkelas', namasesi='$namasesi', harisesi='$harisesi', waktumulai='$waktumulai', waktuakhir = '$waktuakhir' where idsesikelas='$idsesikelas'");
         echo "###ubah";
     }else if ($cmd == "Hapus") {
-        mysqli_query($con, "delete from tbsesikelas where idesesikelas='$idesesikelas'");
+        mysqli_query($con, "delete from tbsesikelas where idsesikelas='$idsesikelas'");
         echo "###hapus";
     }else {
         echo "###";
@@ -33,7 +34,7 @@
                 <div class="card">
                     <form class="form-horizontal">
                         <div class="card-body">
-                            <h4 class="card-title">Tabel Data</h4>
+                            <h4 class="card-title">Table Data</h4>
                             <table class="table table-responsive table-bordered">
                                 <thead class="table-dark">
                                     <tr>
@@ -42,27 +43,31 @@
                                         <td>Nama Sesi</td>
                                         <td>Hari Sesi</td>
                                         <td>Waktu Mulai</td>
+                                        <td>Waktu Akhir</td>
                                         <td>Aksi</td>
                                     </tr>
                                 </thead>
                             <?php 
-                                $sql = mysqli_query($con, "select * from tbsesikelas");
+                                $sql = mysqli_query($con, "select * from tbsesikelas inner join tbkelas on tbsesikelas.idkelas = tbkelas.idkelas");
                                 while($data = mysqli_fetch_array($sql)){
-                                    $idesesikelas = $data[0];
+                                    $idsesikelas = $data[0];
                                     $idkelas = $data[1];
                                     $namasesi = $data[2];
                                     $harisesi = $data[3];
                                     $waktumulai = $data[4];
+                                    $waktuakhir = $data[5];
+                                    $namakelas = $data['namakelas'];
                                     ?>
                                         <tbody>
-                                            <td><?php echo $idesesikelas; ?></td>
-                                            <td><?php echo $idkelas; ?></td>
+                                            <td><?php echo $idsesikelas; ?></td>
+                                            <td><?php echo $namakelas; ?></td>
                                             <td><?php echo $namasesi; ?></td>
                                             <td><?php echo $harisesi; ?></td>
                                             <td><?php echo $waktumulai; ?></td>
+                                            <td><?php echo $waktuakhir; ?></td>
                                             <td>
-                                                <input type="button" class="btn btn-primary btn-success col-auto mb-1" value="Ubah" onclick="ubah(<?php echo "'$idesesikelas', '$idkelas','$namasesi','$harisesi','$waktumulai'"; ?>)">
-                                                <input type="button" class="btn btn-danger col-auto mb-1" value="Hapus" onclick="hapus(<?php echo "'$idesesikelas'"; ?>)">
+                                                <input type="button" class="btn btn-primary btn-success col-md-4 mb-1" value="Ubah" onclick="ubah(<?php echo "'$idsesikelas', '$idkelas','$namasesi','$harisesi','$waktumulai','$waktuakhir'"; ?>)">
+                                                <input type="button" class="btn btn-danger col-md-4 mb-1" value="Hapus" onclick="hapus(<?php echo "'$idsesikelas'"; ?>)">
                                             </td>
                                         </tbody>
                                     <?php
