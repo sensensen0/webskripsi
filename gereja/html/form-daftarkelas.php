@@ -528,19 +528,7 @@
                       <div class="col-md-9">
                         <select name="idsesikelas" id="idsesikelas" class="form-select">
                           <option disabled selected>-- Pilih Sesi Kelas --</option>
-                          <?php
-                            include "koneksi.php";
-                            $sql = mysqli_query($con, "select * from tbsesikelas");
-                            while($data = mysqli_fetch_array($sql)) {
-                              $idsesikelas = $data['idsesikelas'];
-                              $namasesi = $data['namasesi'];
-                              $waktumulai = $data ['waktumulai'];
-                              $waktuakhir = $data ['waktuakhir'];
-                              ?>
-                                <option value="<?php echo $idsesikelas ?>"><?php echo $namasesi . "" . "($waktumulai - $waktuakhir)";?></option>
-                                <?php
-                            }                            
-                          ?>
+                          
                       </div>
                     </div>     
                   </div>  
@@ -655,7 +643,7 @@
     </script>
   </body>
   <script type="text/javascript">
-    var idjemaatskrg = "";
+    var iddaftarkelasskrg = "";
 
     function ajaxku(url, data){
       var xhttp = new XMLHttpRequest();
@@ -682,89 +670,74 @@
     
     function loading(){
       document.getElementById("pasangan").style.display = "none";
-      ajaxku("proses-jemaat.php");
+      ajaxku("proses-daftarkelas.php");
     }
 
     function resetForm(){
-      document.getElementById("tanggalmasuk").value = "";
-      document.getElementById("namajemaat").value = "";
-      document.getElementById("tanggallahir").value = "";
-      document.getElementById("laki").checked = false;
-      document.getElementById("perempuan").checked = false
-      document.getElementById("alamat").value = "";
-      document.getElementById("nohp").value = "";
-      document.getElementById("menikah").checked = false;
-      document.getElementById("belummenikah").checked = false
-      document.getElementById("pekerjaan").value =  "";
+      document.getElementById("idkelas").value = "";
+      document.getElementById("idjemaat").value = "";
+      document.getElementById("namapasangan").value = "";
+      document.getElementById("idsesikelas").value = "";
       document.getElementById("cmd").value = "Simpan";
     }
 
     function simpan(){
-      let tanggalmasuk = document.getElementById("tanggalmasuk").value;
-      let namajemaat = document.getElementById("namajemaat").value;
-      let tanggallahir = document.getElementById("tanggallahir").value;
-      let jk = document.querySelector('input[name="jk"]:checked').value;
-      let alamat = document.getElementById("alamat").value;
-      let nohp = document.getElementById("nohp").value;
-      let status = document.querySelector('input[name="status"]:checked').value;
-      let pekerjaan = document.getElementById("pekerjaan").value;
+      let idkelas = document.getElementById("idkelas").value;
+      let idjemaat = document.getElementById("idjemaat").value;
+      let namapasangan = document.getElementById("namapasangan").value;
+      let idsesikelas = document.getElementById("idsesikelas").value;
       let cmd = document.getElementById("cmd").value;
 
 
       let data = new FormData();
-      data.append("tanggalmasuk", tanggalmasuk);
-      data.append("namajemaat", namajemaat);
-      data.append("tanggallahir", tanggallahir);
-      data.append("jk", jk);
-      data.append("alamat", alamat);
-      data.append("nohp", nohp);
-      data.append("status", status);
-      data.append("pekerjaan", pekerjaan);
+      data.append("idkelas", idkelas);
+      data.append("idjemaat", idjemaat);
+      data.append("namapasangan", namapasangan);
+      data.append("idsesikelas", idsesikelas);
       data.append("cmd", cmd);
 
       if(cmd == "Ubah"){
         if(confirm("Apakah anda ingin mengubah data ini?")){
-          data.append("idjemaat", idjemaatskrg);
-          ajaxku("proses-jemaat.php", data);
+          data.append("iddaftarkelas", iddaftarkelasskrg);
+          ajaxku("proses-daftarkelas.php", data);
         }
       }
       else{
-        ajaxku("proses-jemaat.php", data);
+        ajaxku("proses-daftarkelas.php", data);
       }
       resetForm();
     }
 
-    function ubah(idjemaat, tanggalmasuk, namajemaat, tanggallahir, jk, alamat, nohp, status, pekerjaan){
-      idjemaatskrg = idjemaat;
-      document.getElementById("tanggalmasuk").value = tanggalmasuk;
-      document.getElementById("namajemaat").value = namajemaat;
-      document.getElementById("tanggallahir").value = tanggallahir;
-      document.querySelector(`input[name='jk'][value='${jk}']`).checked = true;
-      document.querySelector(`input[name='status'][value='${status}']`).checked = true;
-      document.getElementById("alamat").value = alamat; 
-      document.getElementById("nohp").value = nohp;
-      document.getElementById("pekerjaan").value = pekerjaan;
+    function ubah(iddaftarkelas, idkelas, idjemaat, namapasangan, idsesikelas){
+      iddaftarkelasskrg = iddaftarkelas;
+      document.getElementById("idkelas").value = idkelas;
+      document.getElementById("idjemaat").value = idjemaat;
+      document.getElementById("namapasangan").value = namapasangan;
+      document.getElementById("idsesikelas").value = idsesikelas;
       document.getElementById("cmd").value = "Ubah";
     }
 
-    function hapus(idjemaat){
+    function hapus(iddaftarkelas){
       if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
         let data = new FormData();
         data.append("cmd", "Hapus");
-        data.append("idjemaat", idjemaat);
+        data.append("iddaftarkelas", iddaftarkelas);
 
-        ajaxku("proses-jemaat.php", data);
+        ajaxku("proses-daftarkelas.php", data);
       }
     }
 
     function tampil(){
       let pranikah = document.getElementById("idkelas").value;
       if (pranikah === "2") {
-        pasangan.style.display = 'block';
+        pasangan.style.display = 'flex';
       }
       else {
         pasangan.style.display = "none";
       }
     }
+
+    // buat function menampilkan sesi sesuai kelas yang dipilih
+
   </script>
 </html>
