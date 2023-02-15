@@ -62,16 +62,19 @@
                                     $namakelas = $data['namakelas'];
                                     $namajemaat = $data['namajemaat'];
                                     $namasesi = $data['namasesi'];
+                                    $harisesi = $data['harisesi'];
+                                    $waktumulai = $data['waktumulai'];
+                                    $waktuakhir = $data['waktuakhir'];
                                     ?>
                                         <tbody>
                                             <td><?php echo $iddaftarkelas; ?></td>
                                             <td><?php echo $namakelas; ?></td>
                                             <td><?php echo $namajemaat; ?></td>
                                             <td><?php echo $namapasangan; ?></td>
-                                            <td><?php echo $namasesi; ?></td>
+                                            <td><?php echo $namasesi . (": "). ("("). $harisesi .(": ") . $waktumulai .("-"). $waktuakhir .(")"); ?></td>
                                             <td class="text-center">
-                                                <input type="button" class="btn btn-primary btn-success center col-md-4 mb-1" value="Ubah" onclick="ubah(<?php echo "'$iddaftarkelas', '$idkelas','$idjemaat','$namapasangan','$idsesikelas'"; ?>)">
-                                                <input type="button" class="btn btn-danger col-md-4 mb-1" value="Hapus" onclick="hapus(<?php echo "'$iddaftarkelas'"; ?>)">
+                                                <input type="button" class="btn btn-primary btn-success center col-md-auto mb-1" value="Ubah" onclick="ubah(<?php echo "'$iddaftarkelas', '$idkelas','$idjemaat','$namapasangan','$idsesikelas'"; ?>)">
+                                                <input type="button" class="btn btn-danger col-md-auto mb-1" value="Hapus" onclick="hapus(<?php echo "'$iddaftarkelas'"; ?>)">
                                             </td>
                                         </tbody>
                                     <?php
