@@ -6,10 +6,23 @@
         <title>
             Gereja Kristen Kalimantan Barat Jemaat Sui Raya Dalam
         </title>
+        <style>
+            .row {
+                margin-top: 1em;
+            }
+            [class ^= "col"] {
+                background-color: rgba(86, 61, 124, 0.15);
+                border: 1px solid rgba(86, 61, 124, 0.2);
+                padding: 0.4em;
+                margin-top: 0.5em; 
+            }
+        </style>
     </head>
     <body>
-        <div class="container-fluid">
-            <h1>Hello World</h1>
+        <div class="container">
+            <div class="row">
+                <div class=""></div>
+            </div>
         </div>
     </body>
     <footer>
