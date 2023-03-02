@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Form Pendaftaran Pembaptisan</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 110px;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!--Navbar-->
+        <div class="row">
+            <!--Navbar-->
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                  <a class="navbar-brand" href="#">
+                    <img src="../assets/img/logosvg.svg" alt="Logo" width="100" height="100" class="d-inline-block align-text-top">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto p-2 fs-5">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#visiMisi">Visi dan Misi</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#informasi">Informasi</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#hubungiKami" class="nav-link">Hubungi Kami</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            </nav>
+            <!--Akhir Navbar-->
+        </div>
+          <!--Akhir Navbar-->
+        <div class="row mt-5 mb-4">
+            <div class="col-md-12 text-center">
+                <h1 class=>Formulir Pendaftaran Pembaptisan</h1>
+            </div>
+        </div>
+        <!--Buat form daftar-->
+        <div class="container justify-content-center align-items-center">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="form-horizontal">
+                    <div class="card-body">
+                      <h4 class="card-title mb-3">Isi Data Pendaftaran</h4>
+                      <div class="form-group row">
+                        <!--Nama Lengkap-->
+                        <div class="col-md-3 text-start control-label col-form-label mb-2">
+                          <label for="namaLengkap">Nama Lengkap</label>
+                        </div>
+                        <div class="col-md-7">
+                          <input type="text" class="form-control" id="namaLengkap" placeholder="Masukkan nama lengkap anda"/>
+                        </div>
+                        <!-- Akhir Nama Lengkap -->
+                        <!--Jenis Kelamin-->
+                        <div class="col-md-3 text-start control-label col-form-label">
+                          <label for="jenisKelamin">Jenis Kelamin</label>
+                        </div>
+                        <div class="col-md-7 mb-1">
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="jenisKelamin" id="laki" value="Laki-Laki">
+                            <label for="laki" class="form-check-label">Laki-Laki</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="jenisKelamin" id="perempuan" value="Perempuan">
+                            <label for="perempuan" class="form-check-label">Perempuan</label>
+                          </div>
+                        </div>
+                        <!-- Akhir jenis kelamin -->
+                        <!--Nomor KTP-->
+                        <div class="col-md-3 text-start control-label col-form-label mb-2">
+                          <label for="noKtp" class="form-label">Nomor KTP</label>
+                        </div>
+                        <div class="col-md-7">
+                          <input type="number" class="form-control" id="noKtp" placeholder="Masukkan nomor KTP anda"/>
+                        </div>
+                        <!-- Akhir Nomor KTP -->
+                        <!--Tempat, tanggal lahir-->
+                        <div class="col-md-3 text-start control-label col-form-label mb-2">
+                          <label for="ttl">Tempat, Tanggal Lahir</label>
+                        </div>
+                        <div class="col-md-3">
+                          <input type="text" class="form-control" id="ttl" placeholder="Masukkan tempat lahir anda"/>
+                        </div>
+                        <div class="col-md-4">
+                          <input type="date" class="form-control" id="ttl"/>
+                        </div>
+                        <!-- Akhir ttl -->
+                        <!--Status Pernikahan-->
+                        <div class="col-md-3 text-start control-label col-form-label">
+                          <label for="statusPernikahan">Status Pernikahan</label>
+                        </div>
+                        <div class="col-md-7 mb-1">
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="statusPernikahan" id="menikah" value="Menikah">
+                            <label for="menikah" class="form-check-label">Menikah</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="statusPernikahan" id="belumMenikah" value="Belum Menikah">
+                            <label for="belumMenikah" class="form-check-label">Belum Menikah</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="statusPernikahan" id="dudaJanda" value="Duda/Janda">
+                            <label for="dudaJanda" class="form-check-label">Duda/Janda</label>
+                          </div>
+                        </div>
+                        <!-- Akhir Status Pernikahan -->
+                        <!-- <div class="col-md-3 text-start control-label col-form-label mb-2">
+                          <label for="alamatLengkap">Alamat Lengkap</label>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="dropdown">
+                            <button class="btn border dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown button
+                            </button>
+                            <ul class="dropdown-menu">
+                              <div class="card mx-1">
+                                <div class="form-horizontal mx-1">
+                                  <div class="card-body">
+                                    <div class="row mb-3">
+                                      <div class="col-md-3 text-start control-label col-form-label">
+                                        <label for="alamatRumah" class="">Alamat Rumah</label>
+                                      </div>
+                                      <div class="col-md-9">
+                                        <input type="text" class="form-control" id="alamatRumah">
+                                      </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                      <div class="col-md-3 text-start control-label col-form-label  ">
+                                        <label for="provinsi" class="">Provinsi</label>
+                                      </div>
+                                      <div class="col-md-9">
+                                        <input type="text" class="form-control" id="provinsi">
+                                      </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                      <div class="col-md-3 text-start control-label col-form-label">
+                                        <label for="kota" class="">Kota</label>
+                                      </div>
+                                      <div class="col-md-9">
+                                        <input type="text" class="form-control" id="kota">
+                                      </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                      <div class="col-md-3 text-start control-label col-form-label  ">
+                                        <label for="kecamatan" class="">Kecamatan</label>
+                                      </div>
+                                      <div class="col-md-9">
+                                        <input type="text" class="form-control" id="kecamatan">
+                                      </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                      <div class="col-md-3 text-start control-label col-form-label">
+                                        <label for="kelurahan" class="">Kelurahan</label>
+                                      </div>
+                                      <div class="col-md-9">
+                                        <input type="text" class="form-control" id="kelurahan">
+                                      </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                      <div class="col-md-3 text-start control-label col-form-label">
+                                        <label for="rtRw" class="">RT/RW</label>
+                                      </div>
+                                      <div class="col-md-3">
+                                        <input type="text" class="form-control" id="rtRw">
+                                      </div>
+                                      <div class="col-md-2 text-start control-label col-form-label">
+                                        <label for="kodePos" class="">Kode Pos</label>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <input type="text" class="form-control" id="kodePos">
+                                      </div>  
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </ul>
+                          </div>
+                        </div> -->
+                        <!--Alamat Rumah-->
+                        <div class="col-md-3 text-start control-label col-form-label mb-2">
+                          <label for="alamatLengkap">Alamat Lengkap</label>
+                        </div>
+                        <div class="col-md-7 mb-3">
+                          <div class="card">
+                            <div class="form-horizontal mx-1">
+                              <div class="card-body">
+                                <div class="row mb-3">
+                                  <div class="col-md-3 text-start control-label col-form-label">
+                                    <label for="alamatRumah" class="">Alamat Rumah</label>
+                                  </div>
+                                  <div class="col-md-9">
+                                    <input type="text" class="form-control" id="alamatRumah">
+                                  </div>
+                                </div>
+                                <div class="row mb-3">
+                                  <div class="col-md-3 text-start control-label col-form-label  ">
+                                    <label for="provinsi" class="">Provinsi</label>
+                                  </div>
+                                  <div class="col-md-9">
+                                    <input type="text" class="form-control" id="provinsi">
+                                  </div>
+                                </div>
+                                <div class="row mb-3">
+                                  <div class="col-md-3 text-start control-label col-form-label">
+                                    <label for="kota" class="">Kota</label>
+                                  </div>
+                                  <div class="col-md-9">
+                                    <input type="text" class="form-control" id="kota">
+                                  </div>
+                                </div>
+                                <div class="row mb-3">
+                                  <div class="col-md-3 text-start control-label col-form-label  ">
+                                    <label for="kecamatan" class="">Kecamatan</label>
+                                  </div>
+                                  <div class="col-md-9">
+                                    <input type="text" class="form-control" id="kecamatan">
+                                  </div>
+                                </div>
+                                <div class="row mb-3">
+                                  <div class="col-md-3 text-start control-label col-form-label">
+                                    <label for="kelurahan" class="">Kelurahan</label>
+                                  </div>
+                                  <div class="col-md-9">
+                                    <input type="text" class="form-control" id="kelurahan">
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-3 text-start control-label col-form-label">
+                                    <label for="rtRw" class="">RT/RW</label>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <input type="text" class="form-control" id="rtRw">
+                                  </div>
+                                  <div class="col-md-2 text-start control-label col-form-label">
+                                    <label for="kodePos" class="">Kode Pos</label>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <input type="text" class="form-control" id="kodePos">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--Akhir alamat rumah-->
+                        <!--Nomor HP-->
+                        <div class="col-md-3 text-start control-label col-form-label mb-3">
+                          <label for="noHp">Nomor Handphone</label>
+                        </div>
+                        <div class="col-md-7">
+                          <input type="number" class="form-control" id="noHp" placeholder="Masukkan nomor handphone anda"/>
+                        </div>
+                        <!--Akhir nomor hp-->
+                        <!--Email-->
+                        <div class="col-md-3 text-start control-label col-form-label mb-3">
+                          <label for="email">Email</label>
+                        </div>
+                        <div class="col-md-7">
+                          <input type="email" class="form-control" id="email" placeholder="Masukkan email anda"/>
+                        </div>
+                        <!-- Akhir email -->
+                        <!--Pekerjaan-->
+                        <div class="col-md-3 text-start control-label col-form-label mb-3">
+                          <label for="pekerjaan">Pekerjaan</label>
+                        </div>
+                        <div class="col-md-7">
+                          <input type="pekerjaan" class="form-control" id="pekerjaan" placeholder="Masukkan pekerjaan anda"/>
+                        </div>
+                        <!-- Akhir Pekerjaan -->
+                        <!--Riwayat Pendidikan-->
+                        <div class="col-md-3 text-start control-label col-form-label mb-3">
+                          <label for="riwayatPendidikan">Riwayat</label>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="riwayatPendidikan" id="sd" value="SD">
+                            <label for="sd" class="form-check-label">SD</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="riwayatPendidikan" id="smp" value="SMP">
+                            <label for="smp" class="form-check-label">SMP</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="riwayatPendidikan" id="sma" value="SMA">
+                            <label for="sma" class="form-check-label">SMA</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="riwayatPendidikan" id="s1" value="S1">
+                            <label for="s1" class="form-check-label">S1</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="riwayatPendidikan" id="s2" value="S2">
+                            <label for="s2" class="form-check-label">S2</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="riwayatPendidikan" id="s3" value="S3">
+                            <label for="s3" class="form-check-label">S3</label>
+                          </div>
+                        </div>
+                        <!-- Akhir riwayat pendidikan -->
+                        <!--Opsi Baptis-->
+                        <div class="col-md-3 text-start control-label col-form-label mb-3">
+                          <label for="opsiBaptis">Opsi Baptis</label>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="opsiBaptis" id="sidi" value="Sidi">
+                            <label for="sidi" class="form-check-label">Sidi</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="opsiBaptis" id="percik" value="Percik">
+                            <label for="percik" class="form-check-label">Percik</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="opsiBaptis" id="selam" value="Selam">
+                            <label for="selam" class="form-check-label">Selam</label>
+                          </div>
+                        </div>
+                        <!-- Akhir Opsi Baptis -->
+                        <!--Opsi Baptis-->
+                        <div class="col-md-3 text-start control-label col-form-label mb-3">
+                          <label for="ukuranJubah">Ukuran Jubah</label>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="ukuranJubah" id="s" value="S">
+                            <label for="s" class="form-check-label">S</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="ukuranJubah" id="m" value="M">
+                            <label for="m" class="form-check-label">M</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="ukuranJubah" id="l" value="L">
+                            <label for="l" class="form-check-label">L</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="ukuranJubah" id="xl" value="XL">
+                            <label for="xl" class="form-check-label">XL</label>
+                          </div>
+                        </div>
+                        <!-- Akhir Opsi Baptis -->
+                        <!--Pernyataan-->
+                        <div class="col-md-3 text-start control-label col-form-label mb-3">
+                          <label for="pernyataan">Bersedia Mengikuti Kelas Pembaptisan:</label>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="pernyataan" id="ya" value="Ya">
+                            <label for="ya" class="form-check-label">Ya</label>
+                          </div>
+                          <div class="form-check form-check-inline control-label col-form-label">
+                            <input type="radio" class="form-check-input" name="pernyataan" id="tidak" value="Tidak">
+                            <label for="tidak" class="form-check-label">Tidak</label>
+                          </div>
+                        </div>
+                        <!-- Akhir Pernyataan -->
+                        <!-- Upload foto -->
+                        <div class="col-md-3 align-text-top control-label col-form-label mb-4">
+                          <label for="uploadFoto" class="form-label">Upload Foto</label>
+                        </div>
+                        <div class="col-md-7">
+                          <input class="form-control" type="file" id="uploadFoto">
+                        </div>
+                        <!-- Akhir upload foto -->
+
+                        <!-- Tombol simpan -->
+                        <div class="border-top">
+                          <div class="card-body">
+                                <input id="cmd" type="button" class="btn btn-primary float-end" value="Submit" onclick="simpan()">
+                          </div>    
+                        </div>
+                        <!-- Akhir tombol simpan -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>\
+    <script>
+      function simpan() {
+        let submitFile = document.getElementById("cmd").value;
+        if(confirm("Apakah anda ingin mengirim data ini?")) {
+          window.alert("Data terkirim!");
+        } else {
+          window.alert("Submit batal!");
+        }
+      }
+    </script>
+</body>
+</html>
