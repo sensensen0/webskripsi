@@ -12,6 +12,14 @@
             body {
                 overflow-x: hidden;
             }
+            .link {
+                text-decoration: none;
+                color: black;
+                
+            }
+            .link:hover{
+                color: white;
+            }
         </style>
     </head>
     <body>
@@ -135,13 +143,13 @@
                 style="
                     background-color: #88a8ff;
                     background-size: cover;
-                    width: 100vw;
+                    max-width: 100vw;
                     height: 100vh;
                 ">
                     <div class="col-md-12 text-center">
-                        <h1 class = "mt-1 mb-5" style="font-size: 4rem;">Informasi Gereja</h1>
-                        <div class="row d-flex justify-content-center align-items-center me-auto">
-                            <div class="col-md-4">
+                        <h1 class = "mt-1 mb-5" style="font-size: 4rem;">Informasi dan Berita Gereja</h1>
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-md-3">
                                 <div class="card">
                                     <img src="../assets/images/background/img4.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
@@ -149,7 +157,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="card">
                                     <img src="../assets/images/background/img5.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
@@ -157,7 +165,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="card">
                                     <img src="../assets/images/background/img6.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
@@ -167,7 +175,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="row text-center d-flex justify-content-center align-items-center mb-4">
+                            <div class="col-md-5">
+                                <a href="listinformasi.htm" class="btn btn-outline-light btn-lg p-3">Lihat Selengkapnya</a>
+                            </div>
+                        </div>
                 </div>
             </section>
         </div>
@@ -183,9 +195,10 @@
                     <div class="col-md-12 text-center">
                         <h1 class = "mt-1 mb-5" style="font-size: 4rem;">Hubungi Kami</h1>
                         <div class="row d-flex justify-content-center align-items-center mx-auto">
-                            <span><i class="bi bi-geo-alt-fill"></i>Jalan Sungai Raya Dalam, Komplek Taman Bougenville No.59</span>
-                            <span><i class="bi bi-telephone-fill"></i>000-000000/00-0000-0000</span>
-                            <span><i class="bi bi-instagram ms-4"></i>IG</span>
+                            <a href="https://goo.gl/maps/T23XPUitTsGqZf7u5" target="_blank" class="link"><p><span><i class="bi bi-geo-alt-fill me-2"></i></span>Jalan Sungai Raya Dalam, Komplek Taman Bougenville No. 59</p>
+                            </a>
+                            <p><span><i class="bi bi-telephone-fill me-2"></i></span>000-0000000/00-0000-0000</p>
+                            
                         </div>
                     </div>
                 </div>
