@@ -27,14 +27,14 @@
             <!--Navbar-->
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
                 <div class="container">
-                  <a class="navbar-brand" href="#">
-                    <img src="../assets/img/logosvg.svg" alt="Logo" width="128" height="128" class="d-inline-block align-text-top">
+                  <a class="navbar-brand me-5" href="index.htm">
+                    <img src="../assets/img/logosvg.svg" alt="Logo" width="80" height="80" class="d-inline-block align-text-top">
                   </a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto p-2 fs-5">
+                    <ul class="navbar-nav p-2 fs-5">
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#home">Home</a>
                       </li>
@@ -47,9 +47,27 @@
                       <li class="nav-item">
                         <a class="nav-link" href="#informasi">Informasi</a>
                       </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Pendaftaran
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Kelas Pembaptisan</a></li>
+                          <li><a class="dropdown-item" href="#">Kelas Bimbingan Pranikah</a></li>
+                          <li><a class="dropdown-item" href="#">Pemberkatan Pernikahan</a></li>
+                        </ul>
+                      </li>
                       <li class="nav-item">
                         <a href="#hubungiKami" class="nav-link">Hubungi Kami</a>
                       </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mt-1 p-2">
+                            <a href="#loginUser" class="btn btn-outline-light pt-2 pb-2 px-4">Masuk</a>
+                        </li>
+                        <li class="nav-item mt-1 p-2">
+                            <a href="#daftarUser" class="btn btn-dark pt-2 pb-2 px-4">Daftar</a>
+                        </li>
                     </ul>
                   </div>
                 </div>
@@ -147,7 +165,12 @@
                     height: 100vh;
                 ">
                     <div class="col-md-12 text-center">
-                        <h1 class = "mt-1 mb-5" style="font-size: 4rem;">Informasi dan Berita Gereja</h1>
+                        <div class="row text-md-center">
+                            <h1 class="mt-5" style="font-size: 4rem;">Informasi dan Berita Gereja</h1>
+                        </div>
+                        <div class="row text-warp text-md-center fs-5 mb-5">
+                            <p class="fw-light">Berisi mengenai informasi dan berita pada Gereja Kristen Kalimantan Barat Jemaat Sungai Raya Dalam</p>
+                        </div>
                         <div class="row d-flex justify-content-center align-items-center">
                             <div class="col-md-3">
                                 <div class="card">
