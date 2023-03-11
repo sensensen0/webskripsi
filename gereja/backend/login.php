@@ -46,7 +46,7 @@
 
                     if (dataku == "login"){
                         alert("Berhasil Login!");
-                        location.href = "index.php";
+                        location.href = "index.php  ";
                     } else {
                         alert("Gagal Login\nUsername atau password anda salah!!!");
                         document.getElementById("username").value="";

@@ -58,13 +58,25 @@
                     href="javascript:void(0)"
                     aria-expanded="false"
                     ><i class="mdi mdi-receipt"></i
-                    ><span class="hide-menu">Form Transaksi </span></a
+                    ><span class="hide-menu">Form Transaksi Data</span></a
                   >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
                     <a href="form-daftarkelas.php" class="sidebar-link"
-                      ><i class="mdi mdi-note-outline"></i
-                      ><span class="hide-menu"> Form Daftar Kelas </span></a
+                      ><i class="mdi mdi-note-outline me-2"></i
+                      ><span class="hide-menu text-wrap lh-1"> Data Pendaftaran Kelas Pembaptisan </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="form-daftarkelas.php" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline me-2"></i
+                      ><span class="hide-menu text-wrap lh-1"> Data Pendaftaran Kelas Bimbingan Pranikah</span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="form-daftarkelas.php" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline me-2"></i
+                      ><span class="hide-menu text-wrap lh-1"> Data Pendaftaran Pemberkatan Pernikahan </span></a
                     >
                   </li>
                 </ul>
