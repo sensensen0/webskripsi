@@ -35,7 +35,7 @@
                   <li class="sidebar-item">
                     <a href="form-jemaat.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline"></i
-                      ><span class="hide-menu"> Form Jemaat </span></a
+                      ><span class="hide-menu"> Data Jemaat </span></a
                     >
                   </li>
                   <li class="sidebar-item">
@@ -47,7 +47,7 @@
                   <li class="sidebar-item">
                     <a href="form-berita.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline"></i
-                      ><span class="hide-menu"> Form Berita </span></a
+                      ><span class="hide-menu"> Data Berita </span></a
                     >
                   </li>
                 </ul>
