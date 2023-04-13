@@ -460,21 +460,21 @@
                     <h4 class="card-title">Isi Data Sesi Kelas</h4>
                     <div class="form-group row">
                       <label
-                        for="idkelas"
+                        for="idKelas"
                         class="col-sm-3 text-end control-label col-form-label"
                         >Pilih Kelas</label
                       >
                       <div class="col-md-9">
-                        <select name="idkelas" id="idkelas" class="form-select">
+                        <select name="idKelas" id="idKelas" class="form-select">
                           <option disabled selected>-- Pilih Kelas --</option>
                           <?php
                             include "koneksi.php";
                             $sql = mysqli_query($con, "select * from tbkelas");
                             while($data = mysqli_fetch_array($sql)){
-                              $idkelas = $data['idkelas'];
-                              $namakelas = $data['namakelas'];
+                              $idKelas = $data['idKelas'];
+                              $namaKelas = $data['namaKelas'];
                               ?>
-                                <option value="<?php echo $idkelas ?>"><?php echo $namakelas; ?></option>
+                                <option value="<?php echo $idKelas ?>"><?php echo $namaKelas; ?></option>
                               <?php
                             } 
                           ?>
@@ -483,7 +483,7 @@
                     </div>
                     <div class="form-group row">
                       <label
-                        for="namasesi"
+                        for="namaSesi"
                         class="col-sm-3 text-end control-label col-form-label"
                         >Nama Sesi</label
                       >
@@ -491,18 +491,18 @@
                         <input
                           type="text"
                           class="form-control"
-                          id="namasesi"
+                          id="namaSesi"
                         />
                       </div>
                     </div>
                     <div class="form-group row">
                       <label
-                        for="harisesi"
+                        for="hariSesi"
                         class="col-sm-3 text-end control-label col-form-label"
                         >Hari Sesi</label
                       >
                       <div class="col-md-9">
-                        <select name="harisesi" id="harisesi" class="form-select">
+                        <select name="hariSesi" id="hariSesi" class="form-select">
                           <option disabled selected>-- Pilih Hari --</option>
                           <option value="Senin">Senin</option>
                           <option value="Selasa">Selasa</option>
@@ -516,7 +516,7 @@
                     </div>
                     <div class="form-group row">
                       <label
-                        for="waktumulai"
+                        for="waktuMulai"
                         class="col-sm-3 text-end control-label col-form-label"
                         >Waktu Mulai</label
                       >
@@ -524,13 +524,13 @@
                         <input
                           type="time"
                           class="form-control"
-                          id="waktumulai"
+                          id="waktuMulai"
                         />
                       </div>
                     </div>
                     <div class="form-group row">
                       <label
-                        for="waktuakhir"
+                        for="waktuAkhir"
                         class="col-sm-3 text-end control-label col-form-label"
                         >Waktu Akhir</label
                       >
@@ -538,7 +538,7 @@
                         <input
                           type="time"
                           class="form-control"
-                          id="waktuakhir"
+                          id="waktuAkhir"
                         />
                       </div>
                     </div>    
@@ -654,22 +654,24 @@
     </script>
   </body>
   <script type="text/javascript">
-    var idsesikelasskrg = "";
+    var idSesiKelasskrg = "";
 
     function ajaxku(url, data){
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           var dataku = this.responseText;
-
+          console.log(dataku);
           var bagi = dataku.split("###");
 
           if(bagi[1] == "simpan"){
-            alert("Data telah tersimpan");
+            alert("Sukses: Data telah tersimpan");
+          }else if(bagi[1] == "namasesiada"){
+            alert("Error: Nama Sesi Telah Ada");
           }else if (bagi[1] == "ubah") {
-            alert("Data telah berubah");
+            alert("Error: Data telah berubah");
           }else if (bagi[1] == "hapus") {
-            alert("Data telah terhapus");
+            alert("Error: Data telah terhapus");
           }
 
           document.getElementById("tableku").innerHTML = bagi[2]
@@ -684,35 +686,35 @@
     }
 
     function resetForm(){
-      document.getElementById("idkelas").value = "-1";
-      document.getElementById("namasesi").value = "";
-      document.getElementById("harisesi").value = "-1";
-      document.getElementById("waktumulai").value = "";
-      document.getElementById("waktuakhir").value="";
+      document.getElementById("idKelas").value = "-1";
+      document.getElementById("namaSesi").value = "";
+      document.getElementById("hariSesi").value = "-1";
+      document.getElementById("waktuMulai").value = "";
+      document.getElementById("waktuAkhir").value="";
       document.getElementById("cmd").value = "Simpan";
-      document.getElementById("idkelas").focus();
+      document.getElementById("idKelas").focus();
     }
 
     function simpan(){
-      let idkelas = document.getElementById("idkelas").value
-      let namasesi = document.getElementById("namasesi").value;
-      let harisesi = document.getElementById("harisesi").value;
-      let waktumulai = document.getElementById("waktumulai").value;
-      let waktuakhir = document.getElementById ("waktuakhir").value;
+      let idKelas = document.getElementById("idKelas").value
+      let namaSesi = document.getElementById("namaSesi").value;
+      let hariSesi = document.getElementById("hariSesi").value;
+      let waktuMulai = document.getElementById("waktuMulai").value;
+      let waktuAkhir = document.getElementById ("waktuAkhir").value;
       let cmd = document.getElementById("cmd").value;
 
 
       let data = new FormData();
-      data.append("idkelas", idkelas)
-      data.append("namasesi", namasesi);
-      data.append("harisesi", harisesi);
-      data.append("waktumulai", waktumulai);
-      data.append("waktuakhir", waktuakhir);
+      data.append("idKelas", idKelas)
+      data.append("namaSesi", namaSesi);
+      data.append("hariSesi", hariSesi);
+      data.append("waktuMulai", waktuMulai);
+      data.append("waktuAkhir", waktuAkhir);
       data.append("cmd", cmd);
 
       if(cmd == "Ubah"){
         if(confirm("Apakah anda ingin mengubah data ini?")){
-          data.append("idsesikelas", idsesikelasskrg);
+          data.append("idSesiKelas", idSesiKelasskrg);
           ajaxku("proses-sesikelas.php", data);
         }
       }
@@ -722,22 +724,22 @@
       resetForm();
     }
 
-    function ubah(idsesikelas, idkelas,  namasesi, harisesi, waktumulai, waktuakhir){
-      idsesikelasskrg = idsesikelas;
-      document.getElementById("idkelas").value = idkelas;
-      document.getElementById("namasesi").value = namasesi;
-      document.getElementById("harisesi").value = harisesi;
-      document.getElementById("waktumulai").value = waktumulai;
-      document.getElementById("waktuakhir").value = waktuakhir;
+    function ubah(idSesiKelas, idKelas,  namaSesi, hariSesi, waktuMulai, waktuAkhir){
+      idSesiKelasskrg = idSesiKelas;
+      document.getElementById("idKelas").value = idKelas;
+      document.getElementById("namaSesi").value = namaSesi;
+      document.getElementById("hariSesi").value = hariSesi;
+      document.getElementById("waktuMulai").value = waktuMulai;
+      document.getElementById("waktuAkhir").value = waktuAkhir;
       document.getElementById("cmd").value = "Ubah";
-      document.getElementById("idkelas").focus();
+      document.getElementById("idKelas").focus();
     }
 
-    function hapus(idsesikelas){
+    function hapus(idSesiKelas){
       if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
         let data = new FormData();
         data.append("cmd", "Hapus");
-        data.append("idsesikelas", idsesikelas);
+        data.append("idSesiKelas", idSesiKelas);
 
         ajaxku("proses-sesikelas.php", data);
       }

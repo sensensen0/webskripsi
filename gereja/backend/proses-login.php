@@ -12,10 +12,10 @@
         echo "login";
 
         $data = mysqli_fetch_array($sql);
-        $idadmin = $data['idadmin'];
-        $namalengkap = $data['namalengkap'];
+        $idAdmin = $data['idAdmin'];
+        $namaLengkap = $data['namaLengkap'];
 
-        $_SESSION['idadmin'] = $idadmin;
-        $_SESSION['namalengkap'] = $namalengkap;
+        $_SESSION['idAdmin'] = $idAdmin;
+        $_SESSION['namaLengkap'] = $namaLengkap;
     }    
 ?>

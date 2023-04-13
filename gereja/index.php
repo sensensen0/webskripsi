@@ -1,3 +1,3 @@
 <?php 
-	HEADER("LOCATION:html/index.php");
+	HEADER("LOCATION:backend/index.php");
 ?>

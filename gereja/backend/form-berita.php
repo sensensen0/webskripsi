@@ -461,7 +461,7 @@
                     <h4 class="card-title">Isi Data Berita</h4>
                     <div class="form-group row">
                       <label
-                        for="judul"
+                        for="judulBerita"
                         class="col-sm-3 text-end control-label col-form-label"
                         >Judul Berita</label
                       >
@@ -469,39 +469,40 @@
                         <input
                           type="text"
                           class="form-control text-uppercase"
-                          id="judul"
+                          id="judulBerita"
                           placeholder="Masukkan judul berita"
+                          required
                         />
                       </div>
                     </div>                    
                     <div class="form-group row">
                       <label
-                        for="isi"
+                        for="isiBerita"
                         class="col-sm-3 text-end control-label col-form-label"
                         >Isi Berita</label
                       >
                       <div class="col-sm-9">
-                        <textarea class="form-control" placeholder="Masukkan isi berita" id="isi"></textarea>
+                        <textarea class="form-control" placeholder="Masukkan isi berita" id="isiBerita" rows="10" required></textarea>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label
-                        for="gambar"
+                        for="gambarCover"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Cover berita</label
+                        >Gambar Cover</label
                       >
                       <div class="col-sm-9">
                         <input
                           type="file"
                           class="form-control"
-                          id="gambar"
+                          id="gambarCover"
                           placeholder="Masukkan gambar cover"
                         />
                       </div>
                     </div>
                     <div class="form-group row">
                       <label
-                        for="file"
+                        for="fileBerita"
                         class="col-sm-3 text-end control-label col-form-label"
                         >File</label
                       >
@@ -509,7 +510,7 @@
                         <input
                           type="file"
                           class="form-control"
-                          id="file"
+                          id="fileBerita"
                           placeholder="Masukkan file video atau yang lainnya (opsional)"
                         />
                       </div>
@@ -626,7 +627,7 @@
     </script>
   </body>
   <script type="text/javascript">
-    var idberitaskrg = "";
+    var idBeritaskrg = "";
 
     function ajaxku(url, data){
       var xhttp = new XMLHttpRequest();
@@ -656,32 +657,32 @@
     }
 
     function resetForm(){
-      document.getElementById("judul").value = "";
-      document.getElementById("isi").value = "";
-      document.getElementById("gambar").value = "";
-      document.getElementById("file").value="";
+      document.getElementById("judulBerita").value = "";
+      document.getElementById("isiBerita").value = "";
+      document.getElementById("gambarCover").value = "";
+      document.getElementById("fileBerita").value="";
       document.getElementById("cmd").value = "Simpan";
-      document.getElementById("judul").focus();
+      document.getElementById("judulBerita").focus();
     }
 
     function simpan(){
-      let judul = document.getElementById("judul").value;
-      let isi = document.getElementById("isi").value;
-      let gambar = document.getElementById("gambar").value;
-      let file= document.getElementById("file").value;
+      let judulBerita = document.getElementById("judulBerita").value;
+      let isiBerita = document.getElementById("isiBerita").value;
+      let gambarCover = document.getElementById("gambarCover").value;
+      let fileBerita= document.getElementById("fileBerita").value;
       let cmd = document.getElementById("cmd").value;
 
 
       let data = new FormData();
-      data.append("judul", judul);
-      data.append("isi", isi);
-      data.append("gambar", gambar);
-      data.append("file", file);
+      data.append("judulBerita", judulBerita);
+      data.append("isiBerita", isiBerita);
+      data.append("gambarCover", gambarCover);
+      data.append("fileBerita", fileBerita);
       data.append("cmd", cmd);
 
       if(cmd == "Ubah"){
         if(confirm("Apakah anda ingin mengubah data ini?")){
-          data.append("idberita", idberitaskrg);
+          data.append("idBerita", idBeritaskrg);
           ajaxku("proses-berita.php", data);
         }
       }
@@ -691,23 +692,27 @@
       resetForm();
     }
 
-    function ubah(idberita, judul, isi, gambar, file){
-      idberitaskrg = idberita;
-      document.getElementById("judul").value = judul;
-      document.getElementById("isi").value = isi;
-      document.getElementById("gambar").value = gambar;
-      document.getElementById("filberitar").value = file;
+    function ubah(idBerita, judulBerita, isiBerita, gambarCover, fileBerita){
+      idBeritaskrg = idBerita;
+      document.getElementById("judulBerita").value = judulBerita;
+      document.getElementById("isiBerita").value = isiBerita;
+      document.getElementById("gambarCover").value = gambarCover;
+      document.getElementById("filberitar").value = fileBerita;
       document.getElementById("cmd").value = "Ubah";
     }
 
-    function hapus(idberita){
+    function hapus(idBerita){
       if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
         let data = new FormData();
         data.append("cmd", "Hapus");
-        data.append("idberita", idberita);
+        data.append("idBerita", idBerita);
 
         ajaxku("proses-berita.php", data);
       }
+    }
+
+    function publish(){
+
     }
   </script>
 </html>

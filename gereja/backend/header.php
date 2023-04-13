@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <?php 
-      if(!isset($_SESSION['idadmin'])){
+      if(!isset($_SESSION['idAdmin'])){
         header("location:login.php");
       }
     ?>
@@ -33,9 +33,15 @@
                 >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
+                    <a href="form-regisadmin.php" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu"> Data Admin </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
                     <a href="form-jemaat.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline"></i
-                      ><span class="hide-menu"> Data Jemaat </span></a
+                      ><span class="hide-menu"> Data Akun Jemaat </span></a
                     >
                   </li>
                   <li class="sidebar-item">
@@ -65,6 +71,12 @@
                     <a href="form-daftarkelas.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline me-2"></i
                       ><span class="hide-menu text-wrap lh-1"> Data Pendaftaran Kelas Pembaptisan </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="form-daftarkelas.php" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline me-2"></i
+                      ><span class="hide-menu lh-1"> Data Pendaftaran Pembaptisan </span></a
                     >
                   </li>
                   <li class="sidebar-item">

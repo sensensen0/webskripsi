@@ -1,21 +1,22 @@
 <?php
     include "koneksi.php";
     
-    $idberita = $_POST['idberita'];
-    $judul = $_POST['judul'];
-    $isi = $_POST['isi'];
-    $gambar = $_POST['gambar'];
-    $file = $_POST['file'];
+    $idBerita = $_POST['idBerita'];
+    $judulBerita = $_POST['judulBerita'];
+    $isiBerita = $_POST['isiBerita'];
+    $gambarCover = $_POST['gambarCover'];
+    $fileBerita = $_POST['fileBerita'];
+    $statusPublish = $_POST['statusPublish'];
     $cmd = $_POST['cmd'];
 
     if ($cmd == "Simpan"){
-        mysqli_query($con, "insert into tbberita (judul, isi, gambar, file) values('$judul', '$isi', '$gambar', '$file')");
+        mysqli_query($con, "insert into tbberita (judulBerita, isiBerita, gambarCover, fileBerita, statusPublish) values('$judulBerita', '$isiBerita', '$gambarCover', '$fileBerita', '$statusPublish')");
         echo "###simpan";
     }else if($cmd == "Ubah") {
-        mysqli_query($con, "update tbberita set judul='$judul', isi='$isi', gambar='$gambar', file='$file' where idberita='$idberita'");
+        mysqli_query($con, "update tbberita set judulBerita='$judulBerita', isiBerita='$isiBerita', gambarCover='$gambarCover', fileBerita='$fileBerita' where idBerita='$idBerita'");
         echo "###ubah";
     }else if ($cmd == "Hapus") {
-        mysqli_query($con, "delete from tbberita where idberita='$idberita'");
+        mysqli_query($con, "delete from tbberita where idBerita='$idBerita'");
         echo "###hapus";
     }else {
         echo "###";
@@ -48,27 +49,31 @@
                                         <td>Isi Berita</td>
                                         <td>Gambar Cover</td>
                                         <td>File Berita</td>
+                                        <td>Status Publish</td>
                                         <td>Aksi</td>
                                     </tr>
                                 </thead>
                             <?php 
                                 $sql = mysqli_query($con, "select * from tbberita");
                                 while($data = mysqli_fetch_array($sql)){
-                                    $idberita = $data[0];
-                                    $judul = $data[1];
-                                    $isi = $data[2];
-                                    $gambar = $data[3];
-                                    $file = $data[4];
+                                    $idBerita = $data[0];
+                                    $judulBerita = $data[1];
+                                    $isiBerita = $data[2];
+                                    $gambarCover = $data[3];
+                                    $fileBerita = $data[4];
+                                    $statusPublish = $data[5];
                                     ?>
                                         <tbody>
-                                            <td><?php echo $idberita; ?></td>
-                                            <td><?php echo $judul; ?></td>
-                                            <td><?php echo $isi; ?></td>
-                                            <td><?php echo $gambar; ?></td>
-                                            <td><?php echo $file; ?></td>
+                                            <td><?php echo $idBerita; ?></td>
+                                            <td><?php echo $judulBerita; ?></td>
+                                            <td><?php echo $isiBerita; ?></td>
+                                            <td><?php echo $gambarCover; ?></td>
+                                            <td><?php echo $fileBerita; ?></td>
+                                            <td><?php echo $statusPublish; ?></td>
                                             <td>
-                                                <input type="button" class="btn btn-primary btn-success col-auto mb-1" value="Ubah" onclick="ubah(<?php echo "'$idberita', '$judul','$isi','$gambar','$file'"; ?>)">
-                                                <input type="button" class="btn btn-danger col-auto mb-1" value="Hapus" onclick="hapus(<?php echo "'$idberita'"; ?>)">
+                                                <input type="button" class="btn btn-primary col-auto mb-1" value="Ubah" onclick="ubah(<?php echo "'$idBerita', '$judulBerita','$isiBerita','$gambarCover','$fileBerita'"; ?>)">
+                                                <input type="button" class="btn btn-danger col-auto mb-1" value="Hapus" onclick="hapus(<?php echo "'$idBerita'"; ?>)">
+                                                <input type="button" class="btn btn-success col-auto mb-1" value="Publish" onclick="publish()">
                                             </td>
                                         </tbody>
                                     <?php

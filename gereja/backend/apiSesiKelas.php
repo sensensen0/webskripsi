@@ -2,9 +2,9 @@
 
 include 'koneksi.php';
 
-$idkelas = $_GET['idkelas'];
+$idKelas = $_GET['idKelas'];
 
-$sqlSesiKelas = "SELECT * FROM tbsesikelas WHERE idkelas = '$idkelas'";
+$sqlSesiKelas = "SELECT * FROM tbsesikelas WHERE idKelas = '$idKelas'";
 $querySesiKelas = mysqli_query($con, $sqlSesiKelas);
 $resultSesiKelas = mysqli_fetch_all($querySesiKelas, MYSQLI_ASSOC);
 

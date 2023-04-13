@@ -429,7 +429,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title">Form Daftar Kelas</h4>
+              <h4 class="page-title">Form Data Jemaat</h4>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -458,82 +458,67 @@
               <div class="card">
                 <form class="form-horizontal">
                   <div class="card-body">
-                    <h4 class="card-title">Isi Data Pendaftaran Kelas</h4>
+                    <h4 class="card-title">Isi Data Jemaat</h4>
                     <div class="form-group row">
                       <label
-                        for="idKelas"
-                        class="col-md-3 text-end control-label col-form-label"
-                        >Nama Kelas</label
-                      >
-                      <div class="col-md-9">
-                        <select name="idKelas" id="idKelas" class="form-select" onclick="tampil()" onchange="pilihKelas(this.value)">
-                          <option disabled selected>-- Pilih Kelas --</option>
-                          <?php
-                            include "koneksi.php";
-                            $sql = mysqli_query($con, "select * from tbkelas");
-                            while($data = mysqli_fetch_array($sql)) {
-                              $idkelas = $data['idKelas'];
-                              $namakelas = $data['namaKelas'];
-                              ?>
-                                <option value="<?php echo $idKelas ?>"><?php echo $namaKelas;?></option>
-                                <?php
-                            }                            
-                          ?>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="idjemaat"
-                        class="col-md-3 text-end control-label col-form-label"
-                        >Nama Jemaat</label
-                      >
-                      <div class="col-md-9">
-                        <select name="idjemaat" id="idjemaat" class="form-select">
-                        <option value="" selected disabled>-- Pilih Daftar Jemaat --</option>
-                        <?php
-                            include "koneksi.php";
-                            $sql = mysqli_query($con, "select * from tbjemaat");
-                            while($data = mysqli_fetch_array($sql)) {
-                              $idjemaat = $data['idjemaat'];
-                              $namajemaat = $data['namajemaat'];
-                              ?>
-                                <option value="<?php echo $idjemaat ?>"><?php echo $namajemaat;?></option>
-                                <?php
-                            }                            
-                          ?>                          
-                        </select>
-                      </div>
-                    </div>
-                    <div id="pasangan" class="form-group row" id="pasangan">
-                      <label
-                        for="namapasangan"
+                        for="tanggalmasuk"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Nama Pasangan</label
+                        >Tanggal Masuk</label
                       >
-                      <div class="col-md-9">
+                      <div class="col-md-2">
                         <input
-                          type="text"
+                          type="date"
                           class="form-control"
-                          id="namapasangan"
+                          id="tanggalmasuk"
                         />
                       </div>
                     </div>
                     <div class="form-group row">
                       <label
-                        for="idsesikelas"
-                        class="col-md-3 text-end control-label col-form-label"
-                        >Sesi Kelas</label
+                        for="namajemaat"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Nama Jemaat</label
                       >
-                      <div class="col-md-9">
-                        <select name="idsesikelas" id="idsesikelas" class="form-select">
-                          <option disabled selected>-- Pilih Sesi Kelas --</option>
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control text-uppercase"
+                          id="namajemaat"
+                          placeholder="Isi nama jemaat"
+                        />
                       </div>
-                    </div>     
-                  </div>  
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="tanggallahir"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Tanggal Lahir</label
+                      >
+                      <div class="col-md-2">
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="tanggallahir"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="tanggallahir"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Tanggal Lahir</label
+                      >
+                      <div class="col-md-2">
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="tanggallahir"
+                        />
+                      </div>
+                    </div>
                   <div class="border-top">
                     <div class="card-body">
-                          <input id="cmd" type="button" class="btn btn-primary float-end mt-3 mb-3" value="Simpan" onclick="simpan()">
+                          <input id="cmd" type="button" class="btn btn-primary float-end mb-3" value="Simpan" onclick="simpan()">
                     </div>    
                   </div>
                 </form>
@@ -642,7 +627,7 @@
     </script>
   </body>
   <script type="text/javascript">
-    var iddaftarkelasskrg = "";
+    var idjemaatskrg = "";
 
     function ajaxku(url, data){
       var xhttp = new XMLHttpRequest();
@@ -668,87 +653,78 @@
     }
     
     function loading(){
-      document.getElementById("pasangan").style.display = "none";
-      ajaxku("proses-daftarkelas.php");
+      ajaxku("proses-jemaat.php");
     }
 
     function resetForm(){
-      document.getElementById("idkelas").value = "";
-      document.getElementById("idjemaat").value = "";
-      document.getElementById("namapasangan").value = "";
-      document.getElementById("idsesikelas").value = "";
+      document.getElementById("tanggalmasuk").value = "";
+      document.getElementById("namajemaat").value = "";
+      document.getElementById("tanggallahir").value = "";
+      document.getElementById("laki").checked = false;
+      document.getElementById("perempuan").checked = false
+      document.getElementById("alamat").value = "";
+      document.getElementById("nohp").value = "";
+      document.getElementById("menikah").checked = false;
+      document.getElementById("belummenikah").checked = false;
+      document.getElementById("pekerjaan").value =  "";
       document.getElementById("cmd").value = "Simpan";
     }
 
     function simpan(){
-      let idkelas = document.getElementById("idkelas").value;
-      let idjemaat = document.getElementById("idjemaat").value;
-      let namapasangan = document.getElementById("namapasangan").value;
-      let idsesikelas = document.getElementById("idsesikelas").value;
+      let tanggalmasuk = document.getElementById("tanggalmasuk").value;
+      let namajemaat = document.getElementById("namajemaat").value;
+      let tanggallahir = document.getElementById("tanggallahir").value;
+      let jk = document.querySelector('input[name="jk"]:checked').value;
+      let alamat = document.getElementById("alamat").value;
+      let nohp = document.getElementById("nohp").value;
+      let status = document.querySelector('input[name="status"]:checked').value;
+      let pekerjaan = document.getElementById("pekerjaan").value;
       let cmd = document.getElementById("cmd").value;
 
 
       let data = new FormData();
-      data.append("idkelas", idkelas);
-      data.append("idjemaat", idjemaat);
-      data.append("namapasangan", namapasangan);
-      data.append("idsesikelas", idsesikelas);
+      data.append("tanggalmasuk", tanggalmasuk);
+      data.append("namajemaat", namajemaat);
+      data.append("tanggallahir", tanggallahir);
+      data.append("jk", jk);
+      data.append("alamat", alamat);
+      data.append("nohp", nohp);
+      data.append("status", status);
+      data.append("pekerjaan", pekerjaan);
       data.append("cmd", cmd);
 
       if(cmd == "Ubah"){
         if(confirm("Apakah anda ingin mengubah data ini?")){
-          data.append("iddaftarkelas", iddaftarkelasskrg);
-          ajaxku("proses-daftarkelas.php", data);
+          data.append("idjemaat", idjemaatskrg);
+          ajaxku("proses-jemaat.php", data);
         }
       }
       else{
-        ajaxku("proses-daftarkelas.php", data);
+        ajaxku("proses-jemaat.php", data);
       }
       resetForm();
     }
 
-    function ubah(iddaftarkelas, idkelas, idjemaat, namapasangan, idsesikelas){
-      iddaftarkelasskrg = iddaftarkelas;
-      document.getElementById("idkelas").value = idkelas;
-      document.getElementById("idjemaat").value = idjemaat;
-      document.getElementById("namapasangan").value = namapasangan;
-      document.getElementById("idsesikelas").value = idsesikelas;
+    function ubah(idjemaat, tanggalmasuk, namajemaat, tanggallahir, jk, alamat, nohp, status, pekerjaan){
+      idjemaatskrg = idjemaat;
+      document.getElementById("tanggalmasuk").value = tanggalmasuk;
+      document.getElementById("namajemaat").value = namajemaat;
+      document.getElementById("tanggallahir").value = tanggallahir;
+      document.querySelector(`input[name='jk'][value='${jk}']`).checked = true;
+      document.querySelector(`input[name='status'][value='${status}']`).checked = true;
+      document.getElementById("alamat").value = alamat; 
+      document.getElementById("nohp").value = nohp;
+      document.getElementById("pekerjaan").value = pekerjaan;
       document.getElementById("cmd").value = "Ubah";
     }
 
-    function hapus(iddaftarkelas){
+    function hapus(idjemaat){
       if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
         let data = new FormData();
         data.append("cmd", "Hapus");
-        data.append("iddaftarkelas", iddaftarkelas);
+        data.append("idjemaat", idjemaat);
 
-        ajaxku("proses-daftarkelas.php", data);
-      }
-    }
-    //pemfilteran pemilihan kelas dan muncul sesinya sesuai kelas yang dipilih
-    function pilihKelas(idkelas){
-      const selectElement = document.getElementById('idsesikelas');
-      let selectHtml = '<option disabled selected>-- Pilih Sesi Kelas --</option>';
-
-      fetch(`apiSesiKelas.php?idkelas=${idkelas}`)
-        .then(res => res.json())
-        .then(res => {
-          res.forEach(val => {
-            selectHtml += `<option value="${val.idsesikelas}">${val.namasesi} (${val.harisesi}: ${val.waktumulai}-${val.waktuakhir})</option>`;
-          });
-
-          selectElement.innerHTML = selectHtml;
-        });
-    }
-
-    //buat function tampil field nama pasangan saat kelas bimbingan pranikah terpilih
-    function tampil() {
-      let pranikah = document.getElementById("idkelas").value;
-      if (pranikah === "2") {
-        pasangan.style.display = 'flex';
-      }
-      else {
-        pasangan.style.display = "none";
+        ajaxku("proses-jemaat.php", data);
       }
     }
   </script>

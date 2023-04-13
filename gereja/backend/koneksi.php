@@ -1,3 +1,3 @@
 <?php 
-	$con = mysqli_connect("localhost","root","","db_gereja");
+	$con = mysqli_connect("localhost","root","","db_serdam");
 ?>

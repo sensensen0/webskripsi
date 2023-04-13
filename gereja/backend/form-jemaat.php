@@ -453,7 +453,7 @@
           <!-- ============================================================== -->
           <!-- Start Page Content -->
           <!-- ============================================================== -->
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <form class="form-horizontal">
@@ -604,7 +604,7 @@
                 </form>
               </div>
             </div>
-          </div> 
+          </div>  -->
           <div id="tableku"></div>
           <!-- ============================================================== -->
           <!-- End PAge Content -->
@@ -745,7 +745,7 @@
       document.getElementById("alamat").value = "";
       document.getElementById("nohp").value = "";
       document.getElementById("menikah").checked = false;
-      document.getElementById("belummenikah").checked = false
+      document.getElementById("belummenikah").checked = false;
       document.getElementById("pekerjaan").value =  "";
       document.getElementById("cmd").value = "Simpan";
     }
