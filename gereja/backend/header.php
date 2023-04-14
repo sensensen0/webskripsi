@@ -387,6 +387,15 @@
                   </li>
                 </ul>
               </li>
+              <li class="sidebar-item">
+                <a
+                    class="sidebar-link has-arrow waves-effect waves-dark"
+                    href="laporan.php"
+                    aria-expanded="false"
+                    ><i class="mdi mdi-receipt"></i
+                    ><span class="hide-menu">Laporan</span></a
+                  >
+              </li>
             </ul>
           </nav>
           <!-- End Sidebar navigation -->
