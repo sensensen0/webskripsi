@@ -55,6 +55,9 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+      .error{color:red;}
+    </style>
   </head>
 
   <body onload="loading()">
@@ -84,338 +87,14 @@
       <!-- ============================================================== -->
       <!-- Topbar header - style you can find in pages.scss -->
       <!-- ============================================================== -->
-      <header class="topbar" data-navbarbg="skin5">
-        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-          <div class="navbar-header" data-logobg="skin5">
-            <!-- ============================================================== -->
-            <!-- Logo -->
-            <!-- ============================================================== -->
-            <a class="navbar-brand" href="index.php">
-              <!-- Logo icon -->
-              <b class="logo-icon ps-2">
-                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                <!-- Dark Logo icon -->
-                <img
-                  src="../assets/images/logo-icon.png"
-                  alt="homepage"
-                  class="light-logo"
-                  width="25"
-                />
-              </b>
-              <!--End Logo icon -->
-              <!-- Logo text -->
-              <span class="logo-text ms-2">
-                <!-- dark Logo text -->
-                <img
-                  src="../assets/images/logo-text.png"
-                  alt="homepage"
-                  class="light-logo"
-                />
-              </span>
-              <!-- Logo icon -->
-              <!-- <b class="logo-icon"> -->
-              <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-              <!-- Dark Logo icon -->
-              <!-- <img src="../assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
-
-              <!-- </b> -->
-              <!--End Logo icon -->
-            </a>
-            <!-- ============================================================== -->
-            <!-- End Logo -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Toggle which is visible on mobile only -->
-            <!-- ============================================================== -->
-            <a
-              class="nav-toggler waves-effect waves-light d-block d-md-none"
-              href="javascript:void(0)"
-              ><i class="ti-menu ti-close"></i
-            ></a>
-          </div>
-          <!-- ============================================================== -->
-          <!-- End Logo -->
-          <!-- ============================================================== -->
-          <div
-            class="navbar-collapse collapse"
-            id="navbarSupportedContent"
-            data-navbarbg="skin5"
-          >
-            <!-- ============================================================== -->
-            <!-- toggle and nav items -->
-            <!-- ============================================================== -->
-            <ul class="navbar-nav float-start me-auto">
-              <li class="nav-item d-none d-lg-block">
-                <a
-                  class="nav-link sidebartoggler waves-effect waves-light"
-                  href="javascript:void(0)"
-                  data-sidebartype="mini-sidebar"
-                  ><i class="mdi mdi-menu font-24"></i
-                ></a>
-              </li>
-              <!-- ============================================================== -->
-              <!-- create new -->
-              <!-- ============================================================== -->
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <span class="d-none d-md-block"
-                    >Create New <i class="fa fa-angle-down"></i
-                  ></span>
-                  <span class="d-block d-md-none"
-                    ><i class="fa fa-plus"></i
-                  ></span>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
-              </li>
-              <!-- ============================================================== -->
-              <!-- Search -->
-              <!-- ============================================================== -->
-              <li class="nav-item search-box">
-                <a
-                  class="nav-link waves-effect waves-dark"
-                  href="javascript:void(0)"
-                  ><i class="mdi mdi-magnify fs-4"></i
-                ></a>
-                <form class="app-search position-absolute">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search &amp; enter"
-                  />
-                  <a class="srh-btn"><i class="mdi mdi-window-close"></i></a>
-                </form>
-              </li>
-            </ul>
-            <!-- ============================================================== -->
-            <!-- Right side toggle and nav items -->
-            <!-- ============================================================== -->
-            <ul class="navbar-nav float-end">
-              <!-- ============================================================== -->
-              <!-- Comment -->
-              <!-- ============================================================== -->
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="mdi mdi-bell font-24"></i>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
-              </li>
-              <!-- ============================================================== -->
-              <!-- End Comment -->
-              <!-- ============================================================== -->
-              <!-- ============================================================== -->
-              <!-- Messages -->
-              <!-- ============================================================== -->
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle waves-effect waves-dark"
-                  href="#"
-                  id="2"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="font-24 mdi mdi-comment-processing"></i>
-                </a>
-                <ul
-                  class="
-                    dropdown-menu dropdown-menu-end
-                    mailbox
-                    animated
-                    bounceInDown
-                  "
-                  aria-labelledby="2"
-                >
-                  <ul class="list-style-none">
-                    <li>
-                      <div class="">
-                        <!-- Message -->
-                        <a href="javascript:void(0)" class="link border-top">
-                          <div class="d-flex no-block align-items-center p-10">
-                            <span
-                              class="
-                                btn btn-success btn-circle
-                                d-flex
-                                align-items-center
-                                justify-content-center
-                              "
-                              ><i class="mdi mdi-calendar text-white fs-4"></i
-                            ></span>
-                            <div class="ms-2">
-                              <h5 class="mb-0">Event today</h5>
-                              <span class="mail-desc"
-                                >Just a reminder that event</span
-                              >
-                            </div>
-                          </div>
-                        </a>
-                        <!-- Message -->
-                        <a href="javascript:void(0)" class="link border-top">
-                          <div class="d-flex no-block align-items-center p-10">
-                            <span
-                              class="
-                                btn btn-info btn-circle
-                                d-flex
-                                align-items-center
-                                justify-content-center
-                              "
-                              ><i class="mdi mdi-settings fs-4"></i
-                            ></span>
-                            <div class="ms-2">
-                              <h5 class="mb-0">Settings</h5>
-                              <span class="mail-desc"
-                                >You can customize this template</span
-                              >
-                            </div>
-                          </div>
-                        </a>
-                        <!-- Message -->
-                        <a href="javascript:void(0)" class="link border-top">
-                          <div class="d-flex no-block align-items-center p-10">
-                            <span
-                              class="
-                                btn btn-primary btn-circle
-                                d-flex
-                                align-items-center
-                                justify-content-center
-                              "
-                              ><i class="mdi mdi-account fs-4"></i
-                            ></span>
-                            <div class="ms-2">
-                              <h5 class="mb-0">Pavan kumar</h5>
-                              <span class="mail-desc"
-                                >Just see the my admin!</span
-                              >
-                            </div>
-                          </div>
-                        </a>
-                        <!-- Message -->
-                        <a href="javascript:void(0)" class="link border-top">
-                          <div class="d-flex no-block align-items-center p-10">
-                            <span
-                              class="
-                                btn btn-danger btn-circle
-                                d-flex
-                                align-items-center
-                                justify-content-center
-                              "
-                              ><i class="mdi mdi-link fs-4"></i
-                            ></span>
-                            <div class="ms-2">
-                              <h5 class="mb-0">Luanch Admin</h5>
-                              <span class="mail-desc"
-                                >Just see the my new admin!</span
-                              >
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </ul>
-              </li>
-              <!-- ============================================================== -->
-              <!-- End Messages -->
-              <!-- ============================================================== -->
-
-              <!-- ============================================================== -->
-              <!-- User profile and search -->
-              <!-- ============================================================== -->
-              <li class="nav-item dropdown">
-                <a
-                  class="
-                    nav-link
-                    dropdown-toggle
-                    text-muted
-                    waves-effect waves-dark
-                    pro-pic
-                  "
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <img
-                    src="../assets/images/users/1.jpg"
-                    alt="user"
-                    class="rounded-circle"
-                    width="31"
-                  />
-                </a>
-                <ul
-                  class="dropdown-menu dropdown-menu-end user-dd animated"
-                  aria-labelledby="navbarDropdown"
-                >
-                  <a class="dropdown-item" href="javascript:void(0)"
-                    ><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a
-                  >
-                  <a class="dropdown-item" href="javascript:void(0)"
-                    ><i class="mdi mdi-wallet me-1 ms-1"></i> My Balance</a
-                  >
-                  <a class="dropdown-item" href="javascript:void(0)"
-                    ><i class="mdi mdi-email me-1 ms-1"></i> Inbox</a
-                  >
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="javascript:void(0)"
-                    ><i class="mdi mdi-settings me-1 ms-1"></i> Account
-                    Setting</a
-                  >
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="javascript:void(0)"
-                    ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a
-                  >
-                  <div class="dropdown-divider"></div>
-                  <div class="ps-4 p-10">
-                    <a
-                      href="javascript:void(0)"
-                      class="btn btn-sm btn-success btn-rounded text-white"
-                      >View Profile</a
-                    >
-                  </div>
-                </ul>
-              </li>
-              <!-- ============================================================== -->
-              <!-- User profile and search -->
-              <!-- ============================================================== -->
-            </ul>
-          </div>
-        </nav>
-      </header>
+      <?php include "header.php" ?>
       <!-- ============================================================== -->
       <!-- End Topbar header -->
       <!-- ============================================================== -->
       <!-- ============================================================== -->
       <!-- Left Sidebar - style you can find in sidebar.scss  -->
       <!-- ============================================================== -->
-      <?php include "header.php" ?>
+      
       <!-- ============================================================== -->
       <!-- End Left Sidebar - style you can find in sidebar.scss  -->
       <!-- ============================================================== -->
@@ -458,67 +137,83 @@
               <div class="card">
                 <form class="form-horizontal">
                   <div class="card-body">
-                    <h4 class="card-title">Isi Data Jemaat</h4>
+                    <h4 class="card-title">Registrasi Admin</h4>
                     <div class="form-group row">
                       <label
-                        for="tanggalmasuk"
+                        for="username"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Tanggal Masuk</label
+                        >Username</label
                       >
-                      <div class="col-md-2">
-                        <input
-                          type="date"
-                          class="form-control"
-                          id="tanggalmasuk"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="namajemaat"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Nama Jemaat</label
-                      >
-                      <div class="col-sm-9">
+                      <div class="col-md-5">
                         <input
                           type="text"
-                          class="form-control text-uppercase"
-                          id="namajemaat"
-                          placeholder="Isi nama jemaat"
+                          minlength="8"
+                          maxlength="20"
+                          class="form-control"
+                          id="username"
+                          placeholder="Isi username"
+                          required
                         />
                       </div>
                     </div>
-                    <div class="form-group row">
+                    <form onsubmit="return validateForm();">
+                    <div class="form-group row" onsubmit="return validateForm()">
                       <label
-                        for="tanggallahir"
+                        for="password"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Tanggal Lahir</label
+                        >Password</label
                       >
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                         <input
-                          type="date"
+                          type="password"
                           class="form-control"
-                          id="tanggallahir"
+                          id="password"
+                          placeholder="Isi password"
+                          oninput="validateForm();"
+                          required
                         />
                       </div>
+                      
+                    <span id="passwordLengthError" class="error col-md-5"></span><br> <!-- Menampilkan pesan error -->
                     </div>
+                    <div class="form-group row" onsubmit="return validateForm()">
+                      <label
+                        for="confirmPassword"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Confirm Password</label
+                      >
+                      <div class="col-md-4">
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="confirmPassword"
+                          placeholder="Isi ulang password"
+                          oninput="validateForm();"
+                          required
+                        />
+                      </div>
+                      <span id="passwordError" class="error col-md-4"></span><br> <!-- Menampilkan pesan error -->
+                    </div>
+                    </form>
                     <div class="form-group row">
                       <label
-                        for="tanggallahir"
+                        for="namaLengkap"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Tanggal Lahir</label
+                        >Nama Lengkap</label
                       >
-                      <div class="col-md-2">
+                      <div class="col-md-5">
                         <input
-                          type="date"
+                          type="text"
                           class="form-control"
-                          id="tanggallahir"
+                          id="namaLengkap"
+                          placeholder="Isi nama lengkap"
+                          required
                         />
                       </div>
                     </div>
                   <div class="border-top">
                     <div class="card-body">
-                          <input id="cmd" type="button" class="btn btn-primary float-end mb-3" value="Simpan" onclick="simpan()">
+                          <input id="cmd" type="submit" class="btn btn-primary float-end mb-3" value="Simpan" onclick="simpan()">
                     </div>    
                   </div>
                 </form>
@@ -627,7 +322,7 @@
     </script>
   </body>
   <script type="text/javascript">
-    var idjemaatskrg = "";
+    var idAdminSkrg = "";
 
     function ajaxku(url, data){
       var xhttp = new XMLHttpRequest();
@@ -643,8 +338,10 @@
             alert("Data telah berubah");
           }else if (bagi[1] == "hapus") {
             alert("Data telah terhapus");
+          }else if (bagi[1] == "usernameada"){
+            alert("Username telah ada!");
           }
-
+          
           document.getElementById("tableku").innerHTML = bagi[2]
         }
       };
@@ -653,79 +350,94 @@
     }
     
     function loading(){
-      ajaxku("proses-jemaat.php");
+      ajaxku("proses-regisadmin.php");
     }
 
     function resetForm(){
-      document.getElementById("tanggalmasuk").value = "";
-      document.getElementById("namajemaat").value = "";
-      document.getElementById("tanggallahir").value = "";
-      document.getElementById("laki").checked = false;
-      document.getElementById("perempuan").checked = false
-      document.getElementById("alamat").value = "";
-      document.getElementById("nohp").value = "";
-      document.getElementById("menikah").checked = false;
-      document.getElementById("belummenikah").checked = false;
-      document.getElementById("pekerjaan").value =  "";
-      document.getElementById("cmd").value = "Simpan";
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("confirmPassword").value = "";
+      document.getElementById("namaLengkap").value="";
     }
 
     function simpan(){
-      let tanggalmasuk = document.getElementById("tanggalmasuk").value;
-      let namajemaat = document.getElementById("namajemaat").value;
-      let tanggallahir = document.getElementById("tanggallahir").value;
-      let jk = document.querySelector('input[name="jk"]:checked').value;
-      let alamat = document.getElementById("alamat").value;
-      let nohp = document.getElementById("nohp").value;
-      let status = document.querySelector('input[name="status"]:checked').value;
-      let pekerjaan = document.getElementById("pekerjaan").value;
+      let username = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirmPassword").value;
+      let namaLengkap = document.getElementById("namaLengkap").value;
       let cmd = document.getElementById("cmd").value;
-
-
+      
       let data = new FormData();
-      data.append("tanggalmasuk", tanggalmasuk);
-      data.append("namajemaat", namajemaat);
-      data.append("tanggallahir", tanggallahir);
-      data.append("jk", jk);
-      data.append("alamat", alamat);
-      data.append("nohp", nohp);
-      data.append("status", status);
-      data.append("pekerjaan", pekerjaan);
+      data.append("username", username);
+      data.append("password", password);
+      data.append("namaLengkap", namaLengkap);
       data.append("cmd", cmd);
 
       if(cmd == "Ubah"){
         if(confirm("Apakah anda ingin mengubah data ini?")){
-          data.append("idjemaat", idjemaatskrg);
-          ajaxku("proses-jemaat.php", data);
+          data.append("idAdmin", idAdminSkrg);
+          ajaxku("proses-regisadmin.php", data);
         }
       }
       else{
-        ajaxku("proses-jemaat.php", data);
+        ajaxku("proses-regisadmin.php", data);
       }
       resetForm();
     }
 
-    function ubah(idjemaat, tanggalmasuk, namajemaat, tanggallahir, jk, alamat, nohp, status, pekerjaan){
-      idjemaatskrg = idjemaat;
-      document.getElementById("tanggalmasuk").value = tanggalmasuk;
-      document.getElementById("namajemaat").value = namajemaat;
-      document.getElementById("tanggallahir").value = tanggallahir;
-      document.querySelector(`input[name='jk'][value='${jk}']`).checked = true;
-      document.querySelector(`input[name='status'][value='${status}']`).checked = true;
-      document.getElementById("alamat").value = alamat; 
-      document.getElementById("nohp").value = nohp;
-      document.getElementById("pekerjaan").value = pekerjaan;
+    function ubah(idAdmin, username, password, namaLengkap){
+      idAdminSkrg = idAdmin;
+      document.getElementById("username").value = username;
+      document.getElementById("password").value = password;
+      document.getElementById("namaLengkap").value = namaLengkap;
       document.getElementById("cmd").value = "Ubah";
     }
 
-    function hapus(idjemaat){
+    function hapus(idAdmin){
       if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
         let data = new FormData();
         data.append("cmd", "Hapus");
-        data.append("idjemaat", idjemaat);
+        data.append("idAdmin", idAdmin);
 
-        ajaxku("proses-jemaat.php", data);
+        ajaxku("proses-regisadmin.php", data);
       }
     }
+    function showPassword(id) {
+      var passwordField = document.getElementById("password" + id);
+      if (passwordField.type === "password") {
+          passwordField.type = "text";
+          document.getElementById("sp").value="Hide Password";
+      } else {
+          passwordField.type = "password";
+          document.getElementById("sp").value="Show Password";
+      }
+    }
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+      var passwordError = document.getElementById("passwordError");
+      var passwordLengthError = document.getElementById("passwordLengthError");
+      var cmd = document.getElementById("cmd");
+      // Reset pesan error sebelumnya
+      passwordError.textContent = "";
+      passwordLengthError.textContent = "";
+
+      // Cek apakah password dan confirm password sama
+      if (password !== confirmPassword) {
+        passwordError.textContent = "Password dan Confirm Password tidak sama!";
+        cmd.disabled = true;
+        return false;
+      }
+
+      // Cek panjang password minimal 6 karakter
+      if (password.length < 6) {
+        passwordLengthError.textContent = "Password harus memiliki minimal 6 karakter!";
+        cmd.disabled = true;
+        return false;
+      }
+      cmd.disabled=false;
+      return true;
+    }
+    
   </script>
 </html>

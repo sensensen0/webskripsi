@@ -1,25 +1,32 @@
 <?php
     include "koneksi.php";
     
-    $idjemaat = $_POST['idjemaat'];
-    $tanggalmasuk = $_POST['tanggalmasuk'];
-    $namajemaat = $_POST['namajemaat'];
-    $tanggallahir = $_POST['tanggallahir'];
-    $jk = $_POST['jk'];
-    $alamat = $_POST['alamat'];
-    $nohp = $_POST['nohp'];
-    $status = $_POST['status'];
-    $pekerjaan = $_POST['pekerjaan'];
+    $idAdmin = $_POST['idAdmin'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $namaLengkap = $_POST['namaLengkap'];
     $cmd = $_POST['cmd'];
 
     if ($cmd == "Simpan"){
-        mysqli_query($con, "insert into tbjemaat (tanggalmasuk, namajemaat, tanggallahir, jk, alamat, nohp, status, pekerjaan) values('$tanggalmasuk', '$namajemaat', '$tanggallahir', '$jk', '$alamat', '$nohp', '$status', '$pekerjaan')");
-        echo "###simpan";
+        $query = "SELECT * FROM tbadmin WHERE username = '$username'";
+        $result = mysqli_query($con, $query);
+        if (mysqli_num_rows($result) > 0) {
+            echo '###usernameada';
+        }else {
+            mysqli_query($con, "insert into tbadmin (username, password, namaLengkap) values('$username', '$password', '$namaLengkap')");
+            echo "###simpan";
+        }
     }else if($cmd == "Ubah") {
-        mysqli_query($con, "update tbjemaat set tanggalmasuk='$tanggalmasuk', namajemaat='$namajemaat', tanggallahir='$tanggallahir', jk='$jk', alamat='$alamat', nohp='$nohp', status='$status', pekerjaan='$pekerjaan' where idjemaat='$idjemaat'");
-        echo "###ubah";
+        $query = "SELECT * FROM tbadmin WHERE username = '$username'";
+        $result = mysqli_query($con, $query);
+        if (mysqli_num_rows($result) > 0) {
+            echo '###usernameada';
+        }else {
+            mysqli_query($con, "update tbadmin set username='$username', password='$password', namaLengkap='$namaLengkap' where idAdmin='$idAdmin'");
+            echo "###ubah";
+        }
     }else if ($cmd == "Hapus") {
-        mysqli_query($con, "delete from tbjemaat where idjemaat='$idjemaat'");
+        mysqli_query($con, "delete from tbadmin where idAdmin='$idAdmin'");
         echo "###hapus";
     }else {
         echo "###";
@@ -29,12 +36,15 @@
 ?>
 <!DOCTYPE html>
     <head>
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+        <<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
         <style>
             .table-wrapper {
                 max-height: 400px;
                 overflow: auto;
                 display:inline-block;
             }
+            /* Tombol "Lihat Password" */
         </style>          
     </head>
     <body>
@@ -44,53 +54,33 @@
                     <form class="form-horizontal">
                         <div class="card-body">
                             <h4 class="card-title">Tabel Data</h4>
-                            <table class="table table-responsive table-bordered table-wrapper">
+                            <table class="table table-responsive table-bordered table-wrapper align-items-center">
                                 <thead class="table-dark">
                                     <tr>
-                                        <td>Tanggal Daftar</td>
-                                        <td>Nama User</td>
+                                        <td>ID Admin</td>
                                         <td>Username</td>
-                                        <td>Email</td>
-                                        <td>Jenis Kelamin</td>
-                                        <td>Tempat Lahir</td>
-                                        <td>Tanggal Lahir</td>
-                                        <td>No. HP</td>
-                                        <td>Alamat</td>
-                                        <td>Provinsi</td>
-                                        <td>Kota</td>
-                                        <td>Kecamatan</td>
-                                        <td>Kelurahan</td>
-                                        <td>Kode Pos</td>
-                                        <td>Pekerjaan</td>
+                                        <td>Password</td>
+                                        <td>Nama Lengkap</td>
                                         <td>Aksi</td>
                                     </tr>
                                 </thead>
                             <?php 
-                                $sql = mysqli_query($con, "select * from tbjemaat");
+                                $sql = mysqli_query($con, "select * from tbadmin");
                                 while($data = mysqli_fetch_array($sql)){
-                                    $idjemaat = $data[0];
-                                    $tanggalmasuk = $data[1];
-                                    $namajemaat = $data[2];
-                                    $tanggallahir = $data[3];
-                                    $jk = $data[4];
-                                    $alamat = $data[5];
-                                    $nohp = $data[6];
-                                    $status = $data[7];
-                                    $pekerjaan = $data[8];
+                                    $idAdmin = $data[0];
+                                    $username = $data[1];
+                                    $password = $data[2];
+                                    $namaLengkap = $data[3];
                                     ?>
                                         <tbody>
-                                            <td><?php echo $idjemaat; ?></td>
-                                            <td><?php echo $tanggalmasuk; ?></td>
-                                            <td><?php echo $namajemaat; ?></td>
-                                            <td><?php echo $tanggallahir; ?></td>
-                                            <td><?php echo $jk; ?></td>
-                                            <td><?php echo $alamat; ?></td>
-                                            <td><?php echo $nohp; ?></td>
-                                            <td><?php echo $status; ?></td>
-                                            <td><?php echo $pekerjaan; ?></td>
+                                            <td><?php echo $idAdmin; ?></td>
+                                            <td><?php echo $username; ?></td>
+                                            <td><input class="border-0" type='password' id="password<?php echo $idAdmin;?>" value="<?php echo $password;?>" readonly></td>
+                                            <td><?php echo $namaLengkap; ?></td>
                                             <td>
-                                                <input type="button" class="btn btn-primary btn-success col-auto mb-1" value="Ubah" onclick="ubah(<?php echo "'$idjemaat', '$tanggalmasuk','$namajemaat','$tanggallahir','$jk','$alamat','$nohp','$status','$pekerjaan'"; ?>)">
-                                                <input type="button" class="btn btn-danger col-auto mb-1" value="Hapus" onclick="hapus(<?php echo "'$idjemaat'"; ?>)">
+                                                <input type="button" class="btn btn-primary btn-success col-auto mb-1" value="Ubah" onclick="ubah(<?php echo "'$idAdmin', '$username','$password','$namaLengkap'"; ?>)">
+                                                <input type="button" class="btn btn-danger col-auto mb-1" value="Hapus" onclick="hapus(<?php echo "'$idAdmin'"; ?>)">
+                                                <input id="sp" type="button" class="btn btn-outline-dark col-auto mb-1" value="Show Password" onclick="showPassword('<?php echo $idAdmin;?>')" >
                                             </td>
                                         </tbody>
                                     <?php

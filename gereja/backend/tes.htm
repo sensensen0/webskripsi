@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #label-gambar {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="gambar" id="gambar">
+        <input type="submit" name="submit" value="Upload Gambar">
+      </form>      
+      <script>
+        // Menangkap peristiwa pengunggahan file
+        document.getElementById('gambar').addEventListener('change', function(e) {
+        // Mendapatkan nama file yang diunggah
+        var fileName = e.target.files[0].name;
+        
+        // Menampilkan nama file pada label
+        document.getElementById('label-gambar').innerText = fileName;
+        });
+
+      </script>
+</body>
+</html>
