@@ -362,7 +362,7 @@
                   >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
-                    <a href="form-daftarkelas.php" class="sidebar-link"
+                    <a href="form-daftarkb.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline me-2"></i
                       ><span class="hide-menu text-wrap lh-1"> Data Pendaftaran Kelas Pembaptisan </span></a
                     >
@@ -387,15 +387,14 @@
                   </li>
                 </ul>
               </li>
-              <li class="sidebar-item">
-                <a
-                    class="sidebar-link has-arrow waves-effect waves-dark"
-                    href="laporan.php"
-                    aria-expanded="false"
-                    ><i class="mdi mdi-receipt"></i
-                    ><span class="hide-menu">Laporan</span></a
-                  >
-              </li>
+              <ul aria-expanded="false" class="">
+                <li class="sidebar-item">
+                      <a href="laporan.php" class="sidebar-link"
+                        ><i class="mdi mdi-receipt"></i
+                        ><span class="hide-menu lh-1">Laporan</span></a
+                      >
+                </li>
+              </ul>
             </ul>
           </nav>
           <!-- End Sidebar navigation -->

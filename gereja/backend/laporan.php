@@ -20,6 +20,7 @@
     <meta name="robots" content="noindex,nofollow" />
     <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
     <!-- Favicon icon -->
+    
     <link
       rel="icon"
       type="image/png"
@@ -89,7 +90,7 @@
       <!-- ============================================================== -->
       <!-- Left Sidebar - style you can find in sidebar.scss  -->
       <!-- ============================================================== -->
-      <?php include "header.php"; ?>
+      <?php include "header.php" ?>
       <!-- ============================================================== -->
       <!-- End Left Sidebar - style you can find in sidebar.scss  -->
       <!-- ============================================================== -->
@@ -103,7 +104,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title">Form Sesi Kelas</h4>
+              <h3 class="page-title">Laporan</h3>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -130,107 +131,54 @@
           <div class="row">
             <div class="col-md-12">
               <div class="card">
-                <form class="form-horizontal">
+                <form id = "formLaporan" class="form-horizontal">
                   <div class="card-body">
-                    <h4 class="card-title">Isi Data Sesi Kelas</h4>
+                    <h4 class="card-title">Laporan</h4>
                     <div class="form-group row">
                       <label
-                        for="idKelas"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Pilih Kelas</label
+                        for="kategori"
+                        class="col-md-4 text-end control-label col-form-label fs-5"
+                        >Kategori Laporan</label
                       >
-                      <div class="col-md-9">
-                        <select name="idKelas" id="idKelas" class="form-select">
-                          <option disabled selected>-- Pilih Kelas --</option>
-                          <?php
-                            include "koneksi.php";
-                            $sql = mysqli_query($con, "select * from tbkelas");
-                            while($data = mysqli_fetch_array($sql)){
-                              $idKelas = $data['idKelas'];
-                              $namaKelas = $data['namaKelas'];
-                              ?>
-                                <option value="<?php echo $idKelas ?>"><?php echo $namaKelas; ?></option>
-                              <?php
-                            } 
-                          ?>
+                      <div class="col-md-5">
+                        <select name="kategori" id="kategori" class="form-select fs-5">
+                          <option disabled selected>-- Pilih Kategori Laporan --</option>
+                          <option value="pendaftaranKelasBaptis">1. Pendaftaran Kelas Baptis</option>
+                          <option value="pendaftaranPembaptisan">2. Pendaftaran Pembaptisan</option>
+                          <option value="pendaftaranKelasBimbinganPranikah">3. Pendaftaran Kelas Bimbingan Pranikah</option>
+                          <option value="pendaftaranPemberkatanPernikahan">4. Pendaftaran Pemberkatan Pernikahan</option>
+                          <option value="totalPendaftaran">5. Total Pendaftaran</option>
                         </select>
                       </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="namaSesi"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Nama Sesi</label
-                      >
-                      <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="namaSesi"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="hariSesi"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Hari Sesi</label
-                      >
-                      <div class="col-md-9">
-                        <select name="hariSesi" id="hariSesi" class="form-select">
-                          <option disabled selected>-- Pilih Hari --</option>
-                          <option value="Senin">Senin</option>
-                          <option value="Selasa">Selasa</option>
-                          <option value="Rabu">Rabu</option>
-                          <option value="Kamis">Kamis</option>
-                          <option value="Jum\'at">Jum'at</option>
-                          <option value="Sabtu">Sabtu</option>
-                          <option value="Minggu">Minggu</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="waktuMulai"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Waktu Mulai</label
-                      >
-                      <div class="col-md-2">
-                        <input
-                          type="time"
-                          class="form-control"
-                          id="waktuMulai"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="waktuAkhir"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Waktu Akhir</label
-                      >
-                      <div class="col-md-2">
-                        <input
-                          type="time"
-                          class="form-control"
-                          id="waktuAkhir"
-                        />
-                      </div>
-                    </div>    
+                    </div>     
                   </div>  
                   <div class="border-top">
                     <div class="card-body">
-                          <input id="cmd" type="button" class="btn btn-primary float-end mb-3" value="Simpan" onclick="simpan()">
+                          <input id="cmd" type="button" class="btn btn-primary float-end mb-3 fs-4" value="Tampilkan Laporan" onclick="loading()">
                     </div>    
                   </div>
                 </form>
               </div>
             </div>
           </div> 
-          <div id="tableku">
+          <!-- <div id="tableku"></div> -->
+          <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Hasil laporan</h4>
+                        <div class="card-body">
+                            <div id="hasilLaporan"></div>
+                            <div class="border-top">
+                                <div class="card-body">
+                                    <input type="button" class="btn btn-primary float-end mb-2 fs-4" value="Download">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </div>
-          <p id="hitungJumlahData">0
-          </p>
           <!-- ============================================================== -->
           <!-- End PAge Content -->
           <!-- ============================================================== -->
@@ -332,27 +280,15 @@
     </script>
   </body>
   <script type="text/javascript">
-    var idSesiKelasskrg = "";
+    // var idjemaatskrg = "";
 
-    function ajaxku(url, data){
+    function laporan(url, data){
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           var dataku = this.responseText;
-          console.log(dataku);
-          var bagi = dataku.split("###");
 
-          if(bagi[1] == "simpan"){
-            alert("Sukses: Data telah tersimpan");
-          }else if(bagi[1] == "namasesiada"){
-            alert("Error: Nama Sesi Telah Ada");
-          }else if (bagi[1] == "ubah") {
-            alert("Error: Data telah berubah");
-          }else if (bagi[1] == "hapus") {
-            alert("Error: Data telah terhapus");
-          }
-
-          document.getElementById("tableku").innerHTML = bagi[2]
+          document.getElementById("hasilLaporan").innerHTML = dataku;   
         }
       };
       xhttp.open("POST", url, true);
@@ -360,94 +296,8 @@
     }
     
     function loading(){
-      ajaxku("proses-sesikelas.php");
+        
+        laporan("proses-laporan.php?kategori=" + document.getElementById("kategori").value);
     }
-
-    function resetForm(){
-      document.getElementById("idKelas").value = "-1";
-      document.getElementById("namaSesi").value = "";
-      document.getElementById("hariSesi").value = "-1";
-      document.getElementById("waktuMulai").value = "";
-      document.getElementById("waktuAkhir").value="";
-      document.getElementById("cmd").value = "Simpan";
-      document.getElementById("idKelas").focus();
-    }
-
-    function simpan(){
-      let idKelas = document.getElementById("idKelas").value
-      let namaSesi = document.getElementById("namaSesi").value;
-      let hariSesi = document.getElementById("hariSesi").value;
-      let waktuMulai = document.getElementById("waktuMulai").value;
-      let waktuAkhir = document.getElementById ("waktuAkhir").value;
-      let cmd = document.getElementById("cmd").value;
-
-
-      let data = new FormData();
-      data.append("idKelas", idKelas)
-      data.append("namaSesi", namaSesi);
-      data.append("hariSesi", hariSesi);
-      data.append("waktuMulai", waktuMulai);
-      data.append("waktuAkhir", waktuAkhir);
-      data.append("cmd", cmd);
-
-      if(cmd == "Ubah"){
-        if(confirm("Apakah anda ingin mengubah data ini?")){
-          data.append("idSesiKelas", idSesiKelasskrg);
-          ajaxku("proses-sesikelas.php", data);
-        }
-      }
-      else{
-        ajaxku("proses-sesikelas.php", data);
-      }
-      resetForm();
-    }
-
-    function ubah(idSesiKelas, idKelas,  namaSesi, hariSesi, waktuMulai, waktuAkhir){
-      idSesiKelasskrg = idSesiKelas;
-      document.getElementById("idKelas").value = idKelas;
-      document.getElementById("namaSesi").value = namaSesi;
-      document.getElementById("hariSesi").value = hariSesi;
-      document.getElementById("waktuMulai").value = waktuMulai;
-      document.getElementById("waktuAkhir").value = waktuAkhir;
-      document.getElementById("cmd").value = "Ubah";
-      document.getElementById("idKelas").focus();
-    }
-
-    function hapus(idSesiKelas){
-      if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
-        let data = new FormData();
-        data.append("cmd", "Hapus");
-        data.append("idSesiKelas", idSesiKelas);
-
-        ajaxku("proses-sesikelas.php", data);
-      }
-    }
-    
-    // function hitungJumlahData(){
-    //   document.addEventListener("DOMContentLoaded", function(){
-    //     let table = document.getElementById("tableku");
-    //     let hitungBaris = 0;
-
-    //     if (table) {
-    //       hitungBaris = table.getElementsByClassName("tr-body");
-    //     }
-
-    //     if (hitungBaris === 0) {
-    //     document.getElementById("hitungJumlahData").innerHTML = "Tidak ada data.";
-    //     } else {
-    //     document.getElementById("hitungJumlahData").innerHTML = "Jumlah Data pada table: " + hitungBaris.length;
-    //     }
-    //   });
-    // }
-    // hitungJumlahData();
-    let table = document.getElementById("tableku");
-    let hitungBaris = 0;
-
-      if (table) {
-        hitungBaris = table.getElementsByClassName("tr-body").length;
-      } else {
-        hitungBaris = table.getElementsByClassName("tr-body").length;
-      }
-    document.getElementById("hitungJumlahData").innerText = "Jumlah data dalam tabel: " + hitungBaris;
   </script>
 </html>

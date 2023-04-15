@@ -52,7 +52,7 @@
                                     </tr>
                                 </thead>
                             <?php 
-                                $sql = mysqli_query($con, "select *  from (((tbdaftarkelas inner join tbkelas on tbdaftarkelas.idkelas = tbkelas.idkelas) inner join tbjemaat on tbdaftarkelas.idjemaat = tbjemaat.idjemaat) inner join tbsesikelas on tbdaftarkelas.idsesikelas = tbsesikelas.idsesikelas);");
+                                $sql = mysqli_query($con, "select * from tbdaftarkelasbaptis");
                                 while($data = mysqli_fetch_array($sql)){
                                     $iddaftarkelas = $data[0];
                                     $idkelas = $data[1];

@@ -82,17 +82,19 @@
                                     $waktuAkhir = $data[5];
                                     $namaKelas = $data['namaKelas'];
                                     ?>
-                                        <tbody>
-                                            <td><?php echo $idSesiKelas; ?></td>
-                                            <td><?php echo $namaKelas; ?></td>
-                                            <td><?php echo $namaSesi; ?></td>
-                                            <td><?php echo $hariSesi; ?></td>
-                                            <td><?php echo $waktuMulai; ?></td>
-                                            <td><?php echo $waktuAkhir; ?></td>
-                                            <td>
-                                                <input type="button" class="btn btn-primary btn-success col-md-4 mb-1" value="Ubah" onclick="ubah(<?php echo "'$idSesiKelas', '$idKelas','$namaSesi','$hariSesi','$waktuMulai','$waktuAkhir'"; ?>)">
-                                                <input type="button" class="btn btn-danger col-md-4 mb-1" value="Hapus" onclick="hapus(<?php echo "'$idSesiKelas'"; ?>)">
-                                            </td>
+                                        <tbody class="tr-body">
+                                            <tr>
+                                                <td><?php echo $idSesiKelas; ?></td>
+                                                <td><?php echo $namaKelas; ?></td>
+                                                <td><?php echo $namaSesi; ?></td>
+                                                <td><?php echo $hariSesi; ?></td>
+                                                <td><?php echo $waktuMulai; ?></td>
+                                                <td><?php echo $waktuAkhir; ?></td>
+                                                <td>
+                                                    <input type="button" class="btn btn-primary btn-success col-md-4 mb-1" value="Ubah" onclick="ubah(<?php echo "'$idSesiKelas', '$idKelas','$namaSesi','$hariSesi','$waktuMulai','$waktuAkhir'"; ?>)">
+                                                    <input type="button" class="btn btn-danger col-md-4 mb-1" value="Hapus" onclick="hapus(<?php echo "'$idSesiKelas'"; ?>)">
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     <?php
                                 }
