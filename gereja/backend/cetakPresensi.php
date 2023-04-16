@@ -55,6 +55,21 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+      @media print {
+      body * {
+        visibility: hidden;
+      }
+      .table, .table * {
+        visibility: visible;
+      }
+      .table {
+        position: absolute;
+        left: -50%;
+        top: -200%;
+      }
+    }
+    </style>
   </head>
 
   <body onload="loading()">
@@ -142,12 +157,9 @@
                       >
                       <div class="col-md-5">
                         <select name="kategori" id="kategori" class="form-select fs-5">
-                          <option disabled selected>-- Pilih Kategori Laporan --</option>
-                          <option value="pendaftaranKelasBaptis">1. Pendaftaran Kelas Baptis</option>
-                          <option value="pendaftaranPembaptisan">2. Pendaftaran Pembaptisan</option>
-                          <option value="pendaftaranKelasBimbinganPranikah">3. Pendaftaran Kelas Bimbingan Pranikah</option>
-                          <option value="pendaftaranPemberkatanPernikahan">4. Pendaftaran Pemberkatan Pernikahan</option>
-                          <option value="totalPendaftaran">5. Total Pendaftaran</option>
+                          <option disabled selected>-- Pilih Kelas --</option>
+                          <option value="pendaftaranKelasBaptis">1. Kelas Baptis</option>
+                          <option value="pendaftaranKelasBimbinganPranikah">2. Kelas Bimbingan Pranikah</option>
                         </select>
                       </div>
                     </div>     
@@ -171,24 +183,8 @@
                             <div id="hasilLaporan"></div>
                             <div class="border-top">
                                 <div class="card-body">
-                                    <input type="button" class="btn btn-primary float-end mb-2 fs-4" value="Download" data-bs-toggle="modal" data-bs-target="#modalCetak">
-                                    <div class="modal fade" id="modalCetak" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog modal-xl">
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Cetak Data</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                          </div>
-                                          <div class="modal-body">
-                                            <div id="hasilLaporan"></div>
-                                          </div>
-                                          <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" id="cobaPrint" class="btn btn-primary" onclick="window.print()">Print</button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                    <input type="button" class="btn btn-primary float-end mb-2 fs-4" value="Download" onclick="window.print()">
+                                    
                                 </div>
                             </div>
                         </div>
@@ -314,7 +310,7 @@
     
     function loading(){
         
-        laporan("proses-laporan.php?kategori=" + document.getElementById("kategori").value);
+        laporan("proses-cetak.php?kategori=" + document.getElementById("kategori").value);
     }
   </script>
 </html>

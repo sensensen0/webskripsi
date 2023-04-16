@@ -41,69 +41,44 @@
 
     echo "###";
 ?>
-<!DOCTYPE html>
-    <head>
-        <style>
-            .table-wrapper {
-                /* max-height: 400px;
-                max-width: 100%;
-                overflow: auto;
-                display:inline-block; */
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <td>ID Sesi Kelas</td>
+            <td>Nama Kelas</td>
+            <td>Nama Sesi</td>
+            <td>Hari Sesi</td>
+            <td>Waktu Mulai</td>
+            <td>Waktu Akhir</td>
+            <td>Aksi</td>
+        </tr>
+    </thead>
+    <?php 
+                $sql = mysqli_query($con, "select * from tbsesikelas inner join tbkelas on tbsesikelas.idKelas = tbkelas.idKelas");
+                while($data = mysqli_fetch_array($sql)){
+                    $idSesiKelas = $data[0];
+                    $idKelas = $data[1];
+                    $namaSesi = $data[2];
+                    $hariSesi = $data[3];
+                    $waktuMulai = $data[4];
+                    $waktuAkhir = $data[5];
+                    $namaKelas = $data['namaKelas'];
+            ?>
+            <tbody class="table-light tr-body">
+                <tr>
+                    <td><?php echo $idSesiKelas; ?></td>
+                    <td><?php echo $namaKelas; ?></td>
+                    <td><?php echo $namaSesi; ?></td>
+                    <td><?php echo $hariSesi; ?></td>
+                    <td><?php echo $waktuMulai; ?></td>
+                    <td><?php echo $waktuAkhir; ?></td>
+                    <td>
+                        <input type="button" class="btn btn-primary btn-success col-md-4 mb-1" value="Ubah" onclick="ubah(<?php echo "'$idSesiKelas', '$idKelas','$namaSesi','$hariSesi','$waktuMulai','$waktuAkhir'"; ?>)">
+                        <input type="button" class="btn btn-danger col-md-4 mb-1" value="Hapus" onclick="hapus(<?php echo "'$idSesiKelas'"; ?>)">
+                    </td>
+                </tr>
+            </tbody>
+        <?php
             }
-        </style>                  
-    </head>
-    <body>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <form class="form-horizontal">
-                        <div class="card-body">
-                            <h4 class="card-title">Table Data</h4>
-                            <table class="table table-responsive-md table-bordered table-wrapper">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <td>ID Sesi Kelas</td>
-                                        <td>Nama Kelas</td>
-                                        <td>Nama Sesi</td>
-                                        <td>Hari Sesi</td>
-                                        <td>Waktu Mulai</td>
-                                        <td>Waktu Akhir</td>
-                                        <td>Aksi</td>
-                                    </tr>
-                                </thead>
-                            <?php 
-                                $sql = mysqli_query($con, "select * from tbsesikelas inner join tbkelas on tbsesikelas.idKelas = tbkelas.idKelas");
-                                while($data = mysqli_fetch_array($sql)){
-                                    $idSesiKelas = $data[0];
-                                    $idKelas = $data[1];
-                                    $namaSesi = $data[2];
-                                    $hariSesi = $data[3];
-                                    $waktuMulai = $data[4];
-                                    $waktuAkhir = $data[5];
-                                    $namaKelas = $data['namaKelas'];
-                                    ?>
-                                        <tbody class="tr-body">
-                                            <tr>
-                                                <td><?php echo $idSesiKelas; ?></td>
-                                                <td><?php echo $namaKelas; ?></td>
-                                                <td><?php echo $namaSesi; ?></td>
-                                                <td><?php echo $hariSesi; ?></td>
-                                                <td><?php echo $waktuMulai; ?></td>
-                                                <td><?php echo $waktuAkhir; ?></td>
-                                                <td>
-                                                    <input type="button" class="btn btn-primary btn-success col-md-4 mb-1" value="Ubah" onclick="ubah(<?php echo "'$idSesiKelas', '$idKelas','$namaSesi','$hariSesi','$waktuMulai','$waktuAkhir'"; ?>)">
-                                                    <input type="button" class="btn btn-danger col-md-4 mb-1" value="Hapus" onclick="hapus(<?php echo "'$idSesiKelas'"; ?>)">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    <?php
-                                }
-                            ?>
-                            </table>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div> 
-    </body>
-</html>
+        ?>
+</table>

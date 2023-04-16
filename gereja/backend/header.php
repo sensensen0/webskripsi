@@ -358,7 +358,7 @@
                     href="javascript:void(0)"
                     aria-expanded="false"
                     ><i class="mdi mdi-receipt"></i
-                    ><span class="hide-menu">Form Transaksi Data</span></a
+                    ><span class="hide-menu">Form Verifikasi Data</span></a
                   >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
@@ -368,33 +368,48 @@
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="form-daftarkelas.php" class="sidebar-link"
+                    <a href="form-daftarbaptis.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline me-2"></i
                       ><span class="hide-menu lh-1"> Data Pendaftaran Pembaptisan </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="form-daftarkelas.php" class="sidebar-link"
+                    <a href="form-daftarpranikah.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline me-2"></i
                       ><span class="hide-menu text-wrap lh-1"> Data Pendaftaran Kelas Bimbingan Pranikah</span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="form-daftarkelas.php" class="sidebar-link"
+                    <a href="form-daftarpemberkatan.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline me-2"></i
                       ><span class="hide-menu text-wrap lh-1"> Data Pendaftaran Pemberkatan Pernikahan </span></a
                     >
                   </li>
                 </ul>
               </li>
-              <ul aria-expanded="false" class="">
-                <li class="sidebar-item">
-                      <a href="laporan.php" class="sidebar-link"
-                        ><i class="mdi mdi-receipt"></i
-                        ><span class="hide-menu lh-1">Laporan</span></a
+              <li class="sidebar-item">
+                <a
+                    class="sidebar-link has-arrow waves-effect waves-dark"
+                    href="javascript:void(0)"
+                    aria-expanded="false"
+                    ><i class="mdi mdi-receipt"></i
+                    ><span class="hide-menu">Transaksi Data</span></a
+                  >
+                <ul aria-expanded="false" class="collapse first-level">
+                  <li class="sidebar-item">
+                      <a href="cetakPresensi.php" class="sidebar-link"
+                        ><i class="mdi mdi-note-outline me-2"></i
+                        ><span class="hide-menu lh-1">Cetak Data Presensi</span></a
                       >
-                </li>
-              </ul>
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="laporan.php" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline me-2"></i
+                      ><span class="hide-menu lh-1">Laporan Pendaftaran</span></a
+                    >
+                  </li>
+                </ul>
+              </li>
             </ul>
           </nav>
           <!-- End Sidebar navigation -->

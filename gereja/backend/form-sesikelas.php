@@ -54,6 +54,26 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- CSS untuk gaya cetakan -->
+    <style>
+      @media print {
+      body * {
+        visibility: hidden;
+      }
+      .modal-body, .modal-body * {
+        visibility: visible;
+      }
+      .modal-body {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+    </style>
+
   </head>
 
   <body onload="loading()">
@@ -229,8 +249,27 @@
           </div> 
           <div id="tableku">
           </div>
-          <p id="hitungJumlahData">0
-          </p>
+          <input type="button" class="btn btn-primary float-end mb-3" name="tes" id="tes" value="Tes Modal" data-bs-toggle="modal" data-bs-target="#modalCetak">
+          <div class="col-md-12">
+          <div class="modal fade" id="modalCetak" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cetak</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div id="tableku"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="cobaPrint" class="btn btn-primary" onclick="window.print()">Print</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p id="hitungJumlahData"></p>
           <!-- ============================================================== -->
           <!-- End PAge Content -->
           <!-- ============================================================== -->
@@ -352,7 +391,8 @@
             alert("Error: Data telah terhapus");
           }
 
-          document.getElementById("tableku").innerHTML = bagi[2]
+          document.getElementById("tableku").innerHTML = bagi[2];
+
         }
       };
       xhttp.open("POST", url, true);
@@ -440,6 +480,7 @@
     //   });
     // }
     // hitungJumlahData();
+      
     let table = document.getElementById("tableku");
     let hitungBaris = 0;
 
