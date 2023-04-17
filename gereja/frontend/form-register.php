@@ -29,7 +29,7 @@
     </style>
     <title>Registrasi Akun</title>
 </head>
-<body>
+<body onload="loading()">
     <div class="container-fluid vh-100 vw-100">
         <div class="row">
           <!-- <div class="vh-100 vw-100" style="background-color: rgba(0, 0, 0, 0.4);"> -->
@@ -91,7 +91,7 @@
                       </div>
                       <div class="mb-3">
                         <label for="noHp" class="form-label">Nomor Handphone</label>
-                        <input type="number" class="form-control" min="0" max="0" id="noHp" name="noHp" min="0" max="9" placeholder="Masukkan nomor handphone" oninput="validasiNoHp()" required>
+                        <input type="number" class="form-control" id="noHp" name="noHp" placeholder="Masukkan nomor handphone" oninput="validasiNoHp()" required>
                       </div>
                       <div class="mb-3">
                         <label for="alamatLengkap" class="form-label">Alamat Lengkap</label>
@@ -106,7 +106,7 @@
                         <input type="text" class="form-control" id="kota" name="kota" placeholder="Masukan kota" required>
                       </div>
                       <div class="mb-3">
-                        <label for="kecamatan" class="form-label">kecamatan</label>
+                        <label for="kecamatan" class="form-label">Kecamatan</label>
                         <input type="text" class="form-control" id="kecamatan" name="kecamatan" placeholder="Masukan kecamatan" required>
                       </div>
                       <div class="mb-3">
@@ -132,8 +132,8 @@
                         </div>
                       </div>
                       <div class="mb-3 text-center">
-                        <a href="form-verifikasi.htm"><button type="submit" class="btn btn-primary btn-block">Daftar</button></a>
-                        <button class="btn btn-danger btn-block" onclick="konfirmasiBatal()">Batal</button>
+                        <input id="cmd" type="button" class="btn btn-primary" value="Daftar" onclick="daftar()">
+                        <input type="button" class="btn btn-danger" value="Batal" onclick="konfirmasiBatal()">
                       </div>
                       <div>
                         <a class ="text-decoration-none" href="form-login.htm"><p class="link fw-light">Sudah punya akun? Login di sini</p></a>
@@ -150,20 +150,32 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script>
-        document.querySelector('form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
+      // function validateForm() {
+      //   var password = document.getElementById("password").value;
+      //   var confirmPassword = document.getElementById("confirmPassword").value;
+      //   var passwordError = document.getElementById("passwordError");
+      //   var passwordLengthError = document.getElementById("passwordLengthError");
+      //   var cmd = document.getElementById("cmd");
+      //   // Reset pesan error sebelumnya
+      //   passwordError.textContent = "";
+      //   passwordLengthError.textContent = "";
 
-        // Get password and confirm password values
-        var password = document.getElementById('password').value;
-        var confirmPassword = document.getElementById('confirmPassword').value;
+      //   // Cek apakah password dan confirm password sama
+      //   if (password !== confirmPassword) {
+      //     passwordError.textContent = "Password dan Confirm Password tidak sama!";
+      //     cmd.disabled = true;
+      //     return false;
+      //   }
 
-        // Check if password and confirm password match
-        if (password === confirmPassword) {
-        //simpan data
-        } else {
-        alert('Password does not match. Please try again.');
-        }
-        });
+      //   // Cek panjang password minimal 6 karakter
+      //   if (password.length < 6) {
+      //     passwordLengthError.textContent = "Password harus memiliki minimal 6 karakter!";
+      //     cmd.disabled = true;
+      //     return false;
+      //   }
+      //   cmd.disabled=false;
+      //   return true;
+      // }
 
         function validasiKodePos() {
             var input = document.getElementById("kodePos").value;
@@ -199,7 +211,118 @@
                 document.getElementById("username").scrollIntoView();
             }
         }
-        
+        var usernameSkrg = "";
+
+        function ajaxku(url, data){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            var dataku = this.responseText;
+
+            var bagi = dataku.split("###");
+
+            if(bagi[1] == "daftar"){
+                alert("Anda telah terdaftar!");
+                window.location.href="form-login.php";
+            }else if (bagi[1] == "usernameada") {
+                alert("Username Telah Ada! Mohon menggunakan username lain.");
+                resetForm();
+            }else if (bagi[1] == "penggunaada") {
+                alert("Pengguna Telah Ada! Mohon mendaftar pengguna lain.");
+                resetForm();
+            }
+
+            // document.getElementById("tableku").innerHTML = bagi[2]
+            }
+        };
+            xhttp.open("POST", url, true);
+            xhttp.send(data);
+        }
+
+        function loading(){
+        // document.getElementById("pasangan").style.display = "none";
+            ajaxku("proses-regis.php");
+        }
+
+        function resetForm(){
+          document.getElementById("username").value = "";
+          document.getElementById("password").value = "";
+          document.getElementById("confirmPassword").value = "";
+          document.getElementById("email").value = "";
+          document.getElementById("namaLengkap").value = "";
+          document.getElementById("jenisKelamin").value = -1;
+          document.getElementById("tempatLahir").value = "";
+          document.getElementById("tanggalLahir").value = "";
+          document.getElementById("noHp").value = "";
+          document.getElementById("alamatLengkap").value = "";
+          document.getElementById("provinsi").value = "";
+          document.getElementById("kota").value = "";
+          document.getElementById("kecamatan").value = "";
+          document.getElementById("kelurahan").value = "";
+          document.getElementById("kodePos").value = "";
+          document.getElementById("pekerjaan").value = -1;
+          document.getElementById("username").focus();
+          document.getElementById("username").scrollIntoView();
+        }
+
+        function daftar(){
+          let username = document.getElementById("username").value;
+          let password = document.getElementById("password").value;
+          let email = document.getElementById("email").value;
+          let namaLengkap = document.getElementById("namaLengkap").value;
+          let jenisKelamin = document.querySelector('input[name="jenisKelamin"]:checked').value;
+          let tempatLahir = document.getElementById("tempatLahir").value;
+          let tanggalLahir = document.getElementById("tanggalLahir").value;
+          let noHp = document.getElementById("noHp").value;
+          let alamatLengkap = document.getElementById("alamatLengkap").value;
+          let provinsi = document.getElementById("provinsi").value;
+          let kota = document.getElementById("kota").value;
+          let kecamatan = document.getElementById("kecamatan").value;
+          let kelurahan = document.getElementById("kelurahan").value;
+          let kodePos = document.getElementById("kodePos").value;
+          let pekerjaan = document.getElementById("pekerjaan").value;
+          let cmd = document.getElementById("cmd").value;
+
+
+          let data = new FormData();
+          data.append("username", username);
+          data.append("password", password);
+          data.append("email", email);
+          data.append("namaLengkap", namaLengkap);
+          data.append("jenisKelamin", jenisKelamin);
+          data.append("tempatLahir", tempatLahir);
+          data.append("tanggalLahir", tanggalLahir);
+          data.append("noHp", noHp);
+          data.append("alamatLengkap", alamatLengkap);
+          data.append("provinsi", provinsi);
+          data.append("kota", kota);
+          data.append("kecamatan", kecamatan);
+          data.append("kelurahan", kelurahan);
+          data.append("kodePos", kodePos);
+          data.append("pekerjaan", pekerjaan);
+          data.append("cmd", cmd);
+
+          ajaxku("proses-regis.php", data);
+        }
+
+        // function ubah(iddaftarkelas, idkelas, username, namapasangan, idsesikelas){
+        // iddaftarkelasskrg = iddaftarkelas;
+        // document.getElementById("idkelas").value = idkelas;
+        // document.getElementById("username").value = username;
+        // document.getElementById("namapasangan").value = namapasangan;
+        // document.getElementById("idsesikelas").value = idsesikelas;
+        // document.getElementById("cmd").value = "Ubah";
+        // }
+
+        // function hapus(iddaftarkelas){
+        // if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
+        //     let data = new FormData();
+        //     data.append("cmd", "Hapus");
+        //     data.append("iddaftarkelas", iddaftarkelas);
+
+        //     ajaxku("proses-regis.php", data);
+        // }
+        // }
     </script>
 </body>
 </html>

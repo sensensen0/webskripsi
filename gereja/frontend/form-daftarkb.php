@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -113,8 +114,8 @@
                         </div>
                     </div>                    
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-block">Daftar</button>
-                        <button type="submit" id="batal" class="btn btn-danger btn-block">Batal</button>
+                        <input type="button" class="btn btn-primary btn-block" onclick="daftar()">Daftar
+                        <input type="button" id="batal" class="btn btn-danger btn-block">Batal
                     </div>
                 </form>
             </div>
@@ -123,6 +124,92 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script>
+        var usernameSkrg = "";
+
+        function ajaxku(url, data){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            var dataku = this.responseText;
+
+            var bagi = dataku.split("###");
+
+            if(bagi[1] == "daftar"){
+                alert("Anda telah terdaftar!");
+            }else if (bagi[1] == "ubah") {
+                alert("Data telah berubah");
+            }else if (bagi[1] == "hapus") {
+                alert("Data telah terhapus");
+            }
+
+            // document.getElementById("tableku").innerHTML = bagi[2]
+            }
+        };
+            xhttp.open("POST", url, true);
+            xhttp.send(data);
+        }
+
+        function loading(){
+        // document.getElementById("pasangan").style.display = "none";
+            ajaxku("proses-daftarkb.php");
+        }
+
+        // function resetForm(){
+        // document.getElementById("idkelas").value = "";
+        // document.getElementById("username").value = "";
+        // document.getElementById("namapasangan").value = "";
+        // document.getElementById("idsesikelas").value = "";
+        // document.getElementById("cmd").value = "Daftar";
+        // location.href="form-login.htm";
+        // }
+
+        function daftar(){
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let email = document.getElementById("email").value;
+        let namaLengkap = document.getElementById("namaLengkap").value;
+        let jenisKelamin = document.querySelector('input[name="jenisKelamin"]:checked').value;
+        let tempatLahir = document.getElementById("tempatLahir").value;
+        let tanggalLahir = document.getElementById("tanggalLahir").value;
+        let noHp = document.getElementById("noHp").value;
+        let alamatLengkap = document.getElementById("alamatLengkap").value;
+        let provinsi = document.getElementById("provinsi").value;
+        let kota = document.getElementById("kota").value;
+        let kecamatan = document.getElementById("kecamatan").value;
+        let kelurahan = document.getElementById("kelurahan").value;
+        let kodePos = document.getElementById("kodePos").value;
+        let pekerjaan = document.getElementById("pekerjaan").value;
+        let cmd = document.getElementById("cmd").value;
+
+
+        let data = new FormData();
+        data.append("idkelas", idkelas);
+        data.append("username", username);
+        data.append("namapasangan", namapasangan);
+        data.append("idsesikelas", idsesikelas);
+        data.append("cmd", cmd);
+
+        ajaxku("proses-daftarkb.php", data);
+        }
+
+        // function ubah(iddaftarkelas, idkelas, username, namapasangan, idsesikelas){
+        // iddaftarkelasskrg = iddaftarkelas;
+        // document.getElementById("idkelas").value = idkelas;
+        // document.getElementById("username").value = username;
+        // document.getElementById("namapasangan").value = namapasangan;
+        // document.getElementById("idsesikelas").value = idsesikelas;
+        // document.getElementById("cmd").value = "Ubah";
+        // }
+
+        // function hapus(iddaftarkelas){
+        // if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
+        //     let data = new FormData();
+        //     data.append("cmd", "Hapus");
+        //     data.append("iddaftarkelas", iddaftarkelas);
+
+        //     ajaxku("proses-daftarkb.php", data);
+        // }
+        // }
     </script>
 </body>
 </html>

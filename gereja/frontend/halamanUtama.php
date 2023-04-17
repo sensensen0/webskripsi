@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html>
+    <?php session_start(); ?>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +38,7 @@
             <!--Navbar-->
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
                 <div class="container">
-                  <a class="navbar-brand me-5" href="index.htm">
+                  <a class="navbar-brand me-5" href="halamanUtama.php">
                     <img src="../assets/img/logo.png" alt="Logo" width="100" height="100" class="d-inline-block align-text-top">
                   </a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,10 +75,10 @@
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-1 p-2">
-                            <a href="form-login.htm" class="btn btn-outline-light pt-2 pb-2 px-4">Masuk</a>
+                            <a href="form-login.php" class="btn btn-outline-light pt-2 pb-2 px-4">Masuk</a>
                         </li>
                         <li class="nav-item mt-1 p-2">
-                            <a href="form-register.htm" class="btn btn-light pt-2 pb-2 px-4">Daftar</a>
+                            <a href="form-register.php" class="btn btn-light pt-2 pb-2 px-4">Daftar</a>
                         </li>
                     </ul>
                   </div>

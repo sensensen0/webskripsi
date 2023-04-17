@@ -30,7 +30,7 @@
             }
         </style>
 </head>
-<body>
+<body onload="loading()">
     <div class="container-fluid text-light">
         <div class="row">
           <div class="mask vh-100 vw-100" style="background-color: rgba(0, 0, 0, 0.4);">
@@ -51,10 +51,10 @@
                         <input type="password" class="form-control" id="password" name="password" required placeholder="Masukkan password">
                       </div>
                       <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-block justify-content-center">Login</button>
+                        <input type="button" class="btn btn-primary justify-content-center" value="Login" onclick="login()">
                       </div>
                       <div class="text-center">
-                        <a class ="text-decoration-none" href="form-register.htm"><p class="link fw-light">Belum punya akun?</p></a>
+                        <a class ="text-decoration-none" href="form-register.php"><p class="link fw-light">Belum punya akun?</p></a>
                       </div>
                       <div id="alert" class="alert d-none"></div>
                     </div>
@@ -68,6 +68,64 @@
 
     <!-- script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script>
+      function ajax (url, data){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function (){
+          if (this.readyState == 4 && this.status == 200) {
+            var dataku = this.responseText;
+
+            if (dataku == "login"){
+                alert("Berhasil Login!");
+                location.href="halamanUser.php";
+            } else if(dataku == "gagal"){
+                alert("Username atau Password Salah!");
+                document.getElementById("username").value="";
+                document.getElementById("password").value="";
+                document.getElementById("username").focus();
+            }
+          }
+        };
+        xhttp.open("POST", url, true);
+        xhttp.send(data);
+      }
+        
+      function login(){
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        var data = new FormData;
+        data.append("username", username);
+        data.append("password", password);
+            
+        ajax("proses-login.php", data);
+      }
+
+      function loading(){
+        ajax("proses-login.php");
+      }
+      let user = document.getElementById("username");
+        user.addEventListener("keypress", function(event){
+        if (event.key === "Enter") {
+          event.preventDefault();
+          alert("Username / Password belum diisi!");
+          user.value="";
+        }
+      });
+
+      let pwd = document.getElementById("password");
+        pwd.addEventListener("keypress", function(event) {
+          if (event.key === "Enter" && user.value === "") {
+            event.preventDefault();
+            alert("Username / Password belum diisi!");
+            user.focus();
+            pwd.value="";
+          } else if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("login").click();
+          }
+      });  
+    </script>
     <!-- end script -->
 </body>
 </html>

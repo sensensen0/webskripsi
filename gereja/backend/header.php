@@ -341,7 +341,7 @@
                   <li class="sidebar-item">
                     <a href="form-sesikelas.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline"></i
-                      ><span class="hide-menu"> Form Sesi Kelas </span></a
+                      ><span class="hide-menu"> Data Sesi Kelas </span></a
                     >
                   </li>
                   <li class="sidebar-item">
@@ -358,24 +358,24 @@
                     href="javascript:void(0)"
                     aria-expanded="false"
                     ><i class="mdi mdi-receipt"></i
-                    ><span class="hide-menu">Form Verifikasi Data</span></a
+                    ><span class="hide-menu">Verifikasi Data</span></a
                   >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
-                    <a href="form-daftarkb.php" class="sidebar-link"
+                    <a href="form-daftarkelasbaptis.php" class="sidebar-link"
                       ><i class="mdi mdi-note-outline me-2"></i
                       ><span class="hide-menu text-wrap lh-1"> Data Pendaftaran Kelas Pembaptisan </span></a
                     >
                   </li>
                   <li class="sidebar-item">
                     <a href="form-daftarbaptis.php" class="sidebar-link"
-                      ><i class="mdi mdi-note-outline me-2"></i
-                      ><span class="hide-menu lh-1"> Data Pendaftaran Pembaptisan </span></a
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu lh-1 "> Data Pendaftaran Pembaptisan </span></a
                     >
                   </li>
                   <li class="sidebar-item">
                     <a href="form-daftarpranikah.php" class="sidebar-link"
-                      ><i class="mdi mdi-note-outline me-2"></i
+                      ><i class="mdi mdi-note-outline me-1"></i
                       ><span class="hide-menu text-wrap lh-1"> Data Pendaftaran Kelas Bimbingan Pranikah</span></a
                     >
                   </li>

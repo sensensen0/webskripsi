@@ -104,7 +104,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title">Form Daftar Kelas</h4>
+              <h4 class="page-title">Verifikasi Daftar Kelas Baptis</h4>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -128,7 +128,7 @@
           <!-- ============================================================== -->
           <!-- Start Page Content -->
           <!-- ============================================================== -->
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <form class="form-horizontal">
@@ -141,19 +141,8 @@
                         >Nama Kelas</label
                       >
                       <div class="col-md-9">
-                        <select name="idKelas" id="idKelas" class="form-select" onclick="tampil()" onchange="pilihKelas(this.value)">
-                          <option disabled selected>-- Pilih Kelas --</option>
-                          <?php
-                            include "koneksi.php";
-                            $sql = mysqli_query($con, "select * from tbkelas");
-                            while($data = mysqli_fetch_array($sql)) {
-                              $idkelas = $data['idKelas'];
-                              $namakelas = $data['namaKelas'];
-                              ?>
-                                <option value="<?php echo $idKelas ?>"><?php echo $namaKelas;?></option>
-                                <?php
-                            }                            
-                          ?>
+                        <select name="idKelas" id="idKelas" class="form-select" onclick="tampil()">
+                          <option disabled selected>-- Pilih Kelas --</option>                        
                         </select>
                       </div>
                     </div>
@@ -165,18 +154,7 @@
                       >
                       <div class="col-md-9">
                         <select name="username" id="username" class="form-select">
-                        <option value="" selected disabled>-- Pilih Daftar Jemaat --</option>
-                        <?php
-                            include "koneksi.php";
-                            $sql = mysqli_query($con, "select * from tbjemaat");
-                            while($data = mysqli_fetch_array($sql)) {
-                              $username = $data['username'];
-                              $namajemaat = $data['namajemaat'];
-                              ?>
-                                <option value="<?php echo $username ?>"><?php echo $namajemaat;?></option>
-                                <?php
-                            }                            
-                          ?>                          
+                        <option value="" selected disabled>-- Pilih Daftar Jemaat --</option>                      
                         </select>
                       </div>
                     </div>
@@ -214,7 +192,7 @@
                 </form>
               </div>
             </div>
-          </div> 
+          </div>  -->
           <div id="tableku"></div>
           <!-- ============================================================== -->
           <!-- End PAge Content -->
@@ -343,8 +321,8 @@
     }
     
     function loading(){
-      document.getElementById("pasangan").style.display = "none";
-      ajaxku("proses-daftarkb.php");
+      // document.getElementById("pasangan").style.display = "none";
+      ajaxku("proses-daftarkelasbaptis.php");
     }
 
     function resetForm(){
@@ -373,11 +351,11 @@
       if(cmd == "Ubah"){
         if(confirm("Apakah anda ingin mengubah data ini?")){
           data.append("iddaftarkelas", iddaftarkelasskrg);
-          ajaxku("proses-daftarkb.php", data);
+          ajaxku("proses-daftarkelasbaptis.php", data);
         }
       }
       else{
-        ajaxku("proses-daftarkb.php", data);
+        ajaxku("proses-daftarkelasbaptis.php", data);
       }
       resetForm();
     }
@@ -397,34 +375,34 @@
         data.append("cmd", "Hapus");
         data.append("iddaftarkelas", iddaftarkelas);
 
-        ajaxku("proses-daftarkb.php", data);
+        ajaxku("proses-daftarkelasbaptis.php", data);
       }
     }
-    //pemfilteran pemilihan kelas dan muncul sesinya sesuai kelas yang dipilih
-    function pilihKelas(idkelas){
-      const selectElement = document.getElementById('idsesikelas');
-      let selectHtml = '<option disabled selected>-- Pilih Sesi Kelas --</option>';
+    // //pemfilteran pemilihan kelas dan muncul sesinya sesuai kelas yang dipilih
+    // function pilihKelas(idkelas){
+    //   const selectElement = document.getElementById('idsesikelas');
+    //   let selectHtml = '<option disabled selected>-- Pilih Sesi Kelas --</option>';
 
-      fetch(`apiSesiKelas.php?idkelas=${idkelas}`)
-        .then(res => res.json())
-        .then(res => {
-          res.forEach(val => {
-            selectHtml += `<option value="${val.idsesikelas}">${val.namasesi} (${val.harisesi}: ${val.waktumulai}-${val.waktuakhir})</option>`;
-          });
+    //   fetch(`apiSesiKelas.php?idkelas=${idkelas}`)
+    //     .then(res => res.json())
+    //     .then(res => {
+    //       res.forEach(val => {
+    //         selectHtml += `<option value="${val.idsesikelas}">${val.namasesi} (${val.harisesi}: ${val.waktumulai}-${val.waktuakhir})</option>`;
+    //       });
 
-          selectElement.innerHTML = selectHtml;
-        });
-    }
+    //       selectElement.innerHTML = selectHtml;
+    //     });
+    // }
 
-    //buat function tampil field nama pasangan saat kelas bimbingan pranikah terpilih
-    function tampil() {
-      let pranikah = document.getElementById("idkelas").value;
-      if (pranikah === "2") {
-        pasangan.style.display = 'flex';
-      }
-      else {
-        pasangan.style.display = "none";
-      }
-    }
+    // //buat function tampil field nama pasangan saat kelas bimbingan pranikah terpilih
+    // function tampil() {
+    //   let pranikah = document.getElementById("idkelas").value;
+    //   if (pranikah === "2") {
+    //     pasangan.style.display = 'flex';
+    //   }
+    //   else {
+    //     pasangan.style.display = "none";
+    //   }
+    // }
   </script>
 </html>

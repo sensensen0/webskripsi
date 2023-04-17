@@ -481,14 +481,12 @@
     // }
     // hitungJumlahData();
       
-    let table = document.getElementById("tableku");
-    let hitungBaris = 0;
+    // let table = document.getElementById("tableku");
+    // let hitungBaris = 0;
 
-      if (table) {
-        hitungBaris = table.getElementsByClassName("tr-body").length;
-      } else {
-        hitungBaris = table.getElementsByClassName("tr-body").length;
-      }
-    document.getElementById("hitungJumlahData").innerText = "Jumlah data dalam tabel: " + hitungBaris;
+    //   if (table) {
+    //     // hitungBaris = table.getElementsByClassName("tr-body").length;
+    //   } 
+    // document.getElementById("hitungJumlahData").innerHTML = "Jumlah data dalam tabel: " + table.getElementsByClassName("tr-body").length;
   </script>
 </html>

@@ -157,43 +157,43 @@
                       </div>
                     </div>
                     <form onsubmit="return validateForm();">
-                    <div class="form-group row" onsubmit="return validateForm()">
-                      <label
-                        for="password"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Password</label
-                      >
-                      <div class="col-md-4">
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="password"
-                          placeholder="Isi password"
-                          oninput="validateForm();"
-                          required
-                        />
+                      <div class="form-group row" onsubmit="return validateForm()">
+                        <label
+                          for="password"
+                          class="col-sm-3 text-end control-label col-form-label"
+                          >Password</label
+                        >
+                        <div class="col-md-4">
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            placeholder="Isi password"
+                            oninput="validateForm();"
+                            required
+                          />
+                        </div>
+                        
+                      <span id="passwordLengthError" class="error col-md-5"></span><br> <!-- Menampilkan pesan error -->
                       </div>
-                      
-                    <span id="passwordLengthError" class="error col-md-5"></span><br> <!-- Menampilkan pesan error -->
-                    </div>
-                    <div class="form-group row" onsubmit="return validateForm()">
-                      <label
-                        for="confirmPassword"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Confirm Password</label
-                      >
-                      <div class="col-md-4">
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="confirmPassword"
-                          placeholder="Isi ulang password"
-                          oninput="validateForm();"
-                          required
-                        />
+                      <div class="form-group row" onsubmit="return validateForm()">
+                        <label
+                          for="confirmPassword"
+                          class="col-sm-3 text-end control-label col-form-label"
+                          >Confirm Password</label
+                        >
+                        <div class="col-md-4">
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="confirmPassword"
+                            placeholder="Isi ulang password"
+                            oninput="validateForm();"
+                            required
+                          />
+                        </div>
+                        <span id="passwordError" class="error col-md-4"></span><br> <!-- Menampilkan pesan error -->
                       </div>
-                      <span id="passwordError" class="error col-md-4"></span><br> <!-- Menampilkan pesan error -->
-                    </div>
                     </form>
                     <div class="form-group row">
                       <label
