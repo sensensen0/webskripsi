@@ -19,5 +19,6 @@
         $_SESSION['namaLengkap'] = $namaLengkap;
     } else {
         echo "gagal";
-    }    
+    }
+    
 ?>

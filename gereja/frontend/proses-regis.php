@@ -1,6 +1,6 @@
 <?php
     include "koneksi.php";
-    
+
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email'];
@@ -16,7 +16,7 @@
     $kelurahan = $_POST['kelurahan'];
     $kodePos = $_POST['kodePos'];
     $pekerjaan = $_POST['pekerjaan'];
-    $tanggalDaftar = date("Y-m-d");
+    $tanggalDaftar = date("d-m-Y");
     $cmd = $_POST['cmd'];
 
     if ($cmd == "Daftar"){
@@ -24,9 +24,9 @@
         $query2 = "SELECT * FROM tbuser where namaLengkap = '$namaLengkap'";
         $result1 = mysqli_query($con, $query1);
         $result2 = mysqli_query($con, $query2);
-        if (mysqli_num_rows($result1) > 0) {
+        if (mysqli_num_rows($result1) > 1) {
             echo '###usernameada';
-        }else if (mysqli_num_rows($result2) > 0) {
+        }else if (mysqli_num_rows($result2) > 1) {
             echo '###penggunaada';
         }
         else {
@@ -36,6 +36,7 @@
             echo "###daftar";
         }
     }
+    mysqli_query($con, "UPDATE tbuser SET tanggalDaftar = CURDATE() WHERE tanggalDaftar = '0000-00-00'");
     // }else if($cmd == "Ubah") {
     //     mysqli_query($con, "update tbdaftarkelas set idkelas='$idkelas', idjemaat='$idjemaat', namapasangan='$namapasangan', idsesikelas='$idsesikelas'");
     //     echo "###ubah";

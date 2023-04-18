@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <?php session_start(); 
-        include "koneksi.php";
+    <?php 
+    session_start();
     ?>
     <head>
         <meta charset="utf-8">
@@ -65,10 +65,10 @@
                           Pendaftaran
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="form-daftarkb.htm">Kelas Pembaptisan</a></li>
-                          <li><a class="dropdown-item" href="form-daftarbaptis.htm">Pembaptisan</a></li>
-                          <li><a class="dropdown-item" href="form-daftarpranikah.htm">Kelas Bimbingan Pranikah</a></li>
-                          <li><a class="dropdown-item" href="form-daftarpemberkatan.htm">Pemberkatan Pernikahan</a></li>
+                          <li><a class="dropdown-item" href="form-daftarkb.php">Kelas Pembaptisan</a></li>
+                          <li><a class="dropdown-item" href="form-daftarbaptis.php">Pembaptisan</a></li>
+                          <li><a class="dropdown-item" href="form-daftarpranikah.php">Kelas Bimbingan Pranikah</a></li>
+                          <li><a class="dropdown-item" href="form-daftarpemberkatan.php">Pemberkatan Pernikahan</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
@@ -77,22 +77,19 @@
                     </ul>
                     <ul class="navbar-nav ms-auto">
                     <div class="dropdown">
-                        <button id="dropdownMenuButton" class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                             <i class="bi bi-person-fill me-2">
                             </i>
                             <?php
-                                    $query = "SELECT namaLengkap FROM tbuser";
-                                    $result = $con->query($query);
-
-                                    $data = mysqli_fetch_array($result);
-                                    echo $namaLengkap = $data[0];
-                                ?>
+                                echo $_SESSION['namaLengkap'];
+                            ?>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="#">Kelola Akun</a>
-                                <ul class="dropdown-menu" aria-expanded="false">
-                                    <li><a class="dropdown-item" href="kelolaAkun.htm">Ubah Data</a></li>
-                                    <li><a class="dropdown-item" href="">Ubah Password</a></li>
+                        <ul class="dropdown-menu">
+                            <li class="dropstart">
+                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Kelola Akun</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="kelolaAkun.php">Ubah Data</a></li>
+                                    <li><a class="dropdown-item" href="ubahPassword.php">Ubah Password</a></li>
                                 </ul>
                             </li>
                             <li><a id="logOut" class="dropdown-item" href="proses-logout.php">Log Out</a></li>

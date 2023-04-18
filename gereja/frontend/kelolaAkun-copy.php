@@ -1,5 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php session_start(); 
+    // include "koneksi.php";
+
+    // $username = $_SESSION['username'];
+
+    // $sql = "SELECT * FROM tbuser where username = '$username'";
+    // $result = mysqli_query($con, $sql);
+    // $data = mysqli_fetch_assoc($result);
+
+    // if(isset($_POST['Ubah'])) {
+    //     $username = $_POST['username'];
+    //     $email = $_POST['email'];
+    //     $namaLengkap = $_POST['namaLengkap'];
+    //     $jenisKelamin = $_POST['jenisKelamin'];
+    //     $tempatLahir = $_POST['tempatLahir'];
+    //     $tanggalLahir = $_POST['tanggalLahir'];
+    //     $noHp = $_POST['noHp'];
+    //     $alamatLengkap = $_POST['alamatLengkap'];
+    //     $provinsi = $_POST['provinsi'];
+    //     $kota = $_POST['kota'];
+    //     $kecamatan = $_POST['kecamatan'];
+    //     $kelurahan = $_POST['kelurahan'];
+    //     $kodePos = $_POST['kodePos'];
+    //     $pekerjaan = $_POST['pekerjaan'];
+
+    //     // header("Location: kelolaAkun.php");
+    // }
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,40 +55,33 @@
                 color: rgb(0, 68, 255);
             }
     </style>
-    <title>Registrasi Akun</title>
+    <title>Kelola Akun</title>
 </head>
 <body onload="loading()">
     <div class="container-fluid vh-100 vw-100">
         <div class="row">
           <!-- <div class="vh-100 vw-100" style="background-color: rgba(0, 0, 0, 0.4);"> -->
             <div class="warnabg row text-center mb-3">
-              <a href="index.htm"><img src="../assets/img/logo.png" alt="Logo gkkb serdam" width="120px" height="120px"></a>
+              <a href="halamanUser.php"><img src="../assets/img/logo.png" alt="Logo gkkb serdam" width="120px" height="120px"></a>
             </div>
             <div class="d-flex justify-content-center align-items-center">
               <div class="col-md-5">
-                <form id="form-registrasi">
-                  <h2 class="text-center mb-4">Registrasi Akun</h2>
+                <form id="form-registrasi" method="$_POST" action="proses-kelolaAkun.php">
+                  <h2 class="text-center mb-4">Kelola Akun</h2>
                   <div class="col-md-12 border border-dark px-5 pt-3 pb-3">
                       <div class="mb-3 align-items-center">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control" id="username" name="username" minlength="8" maxlength="20"
-                          placeholder="Masukkan username" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmPassword" name="confrimPassword" placeholder="Masukkan ulang password" required>
+                          placeholder="xx-20-xx" required readonly >
                       </div>
                       <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required placeholder="Masukkan email">
+                        <input type="email" class="form-control" id="email" name="email" required placeholder="xx-100-xx">
                       </div>
                       <div class="mb-3">
                         <label for="namaLengkap" class="form-label">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="namaLengkap" name="namaLengkap" placeholder="Masukkan nama lengkap" required>
+                        <input type="text" class="form-control" id="namaLengkap" name="namaLengkap" placeholder="xx-100-xx" required
+                        >
                       </div>
                       <div class="mb-3">
                         <div>
@@ -83,7 +104,7 @@
                       </div>
                       <div class="mb-3">
                         <label for="tempatLahir" class="form-label">Tempat Lahir</label>
-                        <input type="text" class="form-control" id="tempatLahir" name="tempatLahir" placeholder="Masukkan Tempat Lahir" required>
+                        <input type="text" class="form-control" id="tempatLahir" name="tempatLahir" placeholder="xx-50-xx" required>
                       </div>
                       <div class="mb-3">
                         <label for="tanggalLahir" class="form-label">tanggalLahir</label>
@@ -91,52 +112,49 @@
                       </div>
                       <div class="mb-3">
                         <label for="noHp" class="form-label">Nomor Handphone</label>
-                        <input type="number" class="form-control" id="noHp" name="noHp" placeholder="Masukkan nomor handphone" oninput="validasiNoHp()" required>
+                        <input type="number" class="form-control" id="noHp" name="noHp" placeholder="xx-14-xx" oninput="validasiNoHp()" required>
                       </div>
                       <div class="mb-3">
                         <label for="alamatLengkap" class="form-label">Alamat Lengkap</label>
-                        <input type="text" class="form-control" id="alamatLengkap" name="alamatLengkap" placeholder="Masukkan alamat" required>
+                        <input type="text" class="form-control" id="alamatLengkap" name="alamatLengkap" placeholder="xx-500-xx" required>
                       </div>
                       <div class="mb-3">
                         <label for="provinsi" class="form-label">Provinsi</label>
-                        <input type="text" class="form-control" id="provinsi" name="provinsi" placeholder="Masukan provinsi" required>
+                        <input type="text" class="form-control" id="provinsi" name="provinsi" placeholder="xx-50-xx"required>
                       </div>
                       <div class="mb-3">
                         <label for="kota" class="form-label">Kota</label>
-                        <input type="text" class="form-control" id="kota" name="kota" placeholder="Masukan kota" required>
+                        <input type="text" class="form-control" id="kota" name="kota" placeholder="xx-50-xx" required>
                       </div>
                       <div class="mb-3">
                         <label for="kecamatan" class="form-label">Kecamatan</label>
-                        <input type="text" class="form-control" id="kecamatan" name="kecamatan" placeholder="Masukan kecamatan" required>
+                        <input type="text" class="form-control" id="kecamatan" name="kecamatan" placeholder="xx-50-xx" required>
                       </div>
                       <div class="mb-3">
                         <label for="kelurahan" class="form-label">Kelurahan</label>
-                        <input type="text" class="form-control" id="kelurahan" name="kelurahan" placeholder="Masukan kelurahan" required>
+                        <input type="text" class="form-control" id="kelurahan" name="kelurahan" placeholder="xx-50-xx" required>
                       </div>
                       <div class="mb-3">
                         <label for="kodePos" class="form-label">Kode Pos</label>
-                        <input type="number" class="form-control" id="kodePos" name="kodePos" placeholder="Masukan kode pos" oninput="validasiKodePos()" required>
+                        <input type="number" class="form-control" id="kodePos" name="kodePos" placeholder="xx-5-xx" oninput="validasiKodePos()"required>
                         <span id="errorMsg" style="color: red;"></span>
                       </div>
                       <div class="mb-3">
                         <label for="pekerjaan" class="form-label">Pekerjaan</label>
                         <div class="">
-                            <select name="pekerjaan" id="pekerjaan" class="form-select">
+                            <select name="pekerjaan" id="pekerjaan" class="form-select" >
                               <option disabled selected>-- Pilih pekerjaan --</option>
-                              <option value="Tidak bekerja">Tidak bekerja</option>
-                              <option value="Pelajar">Pelajar/Mahasiswa</option>
+                              <option value="Tidak bekerja" >Tidak bekerja</option>
+                              <option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
                               <option value="Karyawan">Karyawan</option>
                               <option value="Pengusaha">Pengusaha</option>
-                              <option value="Self-employed">Self-Employed</option>
+                              <option value="Self-employed" >Self-Employed</option>
                             </select>
                         </div>
                       </div>
-                      <div class="mb-3 text-center">
-                        <input id="cmd" type="button" class="btn btn-primary" value="Daftar" onclick="daftar()">
+                      <div class="mt-3 mb-3 text-center">
+                        <input id="cmd" type="button" class="btn btn-primary" value="Ubah" onclick="ubah()">
                         <input type="button" class="btn btn-danger" value="Batal" onclick="konfirmasiBatal()">
-                      </div>
-                      <div>
-                        <a class ="text-decoration-none" href="form-login.htm"><p class="link fw-light">Sudah punya akun? Login di sini</p></a>
                       </div>
                       <div id="alert" class="alert d-none"></div>
                     </div>
@@ -205,7 +223,7 @@
         //function konfirmasi batal
         function konfirmasiBatal(){
             if(confirm("Apakah anda yakin ingin membatalkan pendaftaran?")) {
-                location.href="index.htm"
+                location.href="halamanUser.php"
             } else {
                 document.getElementById("username").focus();
                 document.getElementById("username").scrollIntoView();
@@ -235,7 +253,6 @@
                 
             }
 
-            // document.getElementById("tableku").innerHTML = bagi[2]
             }
         };
             xhttp.open("POST", url, true);
@@ -243,14 +260,10 @@
         }
 
         function loading(){
-        // document.getElementById("pasangan").style.display = "none";
             ajaxku("proses-kelolaAkun.php");
         }
 
         function resetForm(){
-          document.getElementById("username").value = "";
-          document.getElementById("password").value = "";
-          document.getElementById("confirmPassword").value = "";
           document.getElementById("email").value = "";
           document.getElementById("namaLengkap").value = "";
           document.getElementById("jenisKelamin").value = -1;
@@ -268,64 +281,50 @@
           document.getElementById("username").scrollIntoView();
         }
 
-        // function daftar(){
-        //   let username = document.getElementById("username").value;
-        //   let password = document.getElementById("password").value;
-        //   let email = document.getElementById("email").value;
-        //   let namaLengkap = document.getElementById("namaLengkap").value;
-        //   let jenisKelamin = document.querySelector('input[name="jenisKelamin"]:checked').value;
-        //   let tempatLahir = document.getElementById("tempatLahir").value;
-        //   let tanggalLahir = document.getElementById("tanggalLahir").value;
-        //   let noHp = document.getElementById("noHp").value;
-        //   let alamatLengkap = document.getElementById("alamatLengkap").value;
-        //   let provinsi = document.getElementById("provinsi").value;
-        //   let kota = document.getElementById("kota").value;
-        //   let kecamatan = document.getElementById("kecamatan").value;
-        //   let kelurahan = document.getElementById("kelurahan").value;
-        //   let kodePos = document.getElementById("kodePos").value;
-        //   let pekerjaan = document.getElementById("pekerjaan").value;
-        //   let cmd = document.getElementById("cmd").value;
+        function ubah(){
+
+            let email = document.getElementById("email").value;
+            let namaLengkap = document.getElementById("namaLengkap").value;
+            let jenisKelamin = document.querySelector('input[name="jenisKelamin"]:checked').value;
+            let tempatLahir = document.getElementById("tempatLahir").value;
+            let tanggalLahir = document.getElementById("tanggalLahir").value;
+            let noHp = document.getElementById("noHp").value;
+            let alamatLengkap = document.getElementById("alamatLengkap").value;
+            let provinsi = document.getElementById("provinsi").value;
+            let kota = document.getElementById("kota").value;
+            let kecamatan = document.getElementById("kecamatan").value;
+            let kelurahan = document.getElementById("kelurahan").value;
+            let kodePos = document.getElementById("kodePos").value;
+            let pekerjaan = document.getElementById("pekerjaan").value;
+            let cmd = document.getElementById("cmd").value;
 
 
-        //   let data = new FormData();
-        //   data.append("username", username);
-        //   data.append("password", password);
-        //   data.append("email", email);
-        //   data.append("namaLengkap", namaLengkap);
-        //   data.append("jenisKelamin", jenisKelamin);
-        //   data.append("tempatLahir", tempatLahir);
-        //   data.append("tanggalLahir", tanggalLahir);
-        //   data.append("noHp", noHp);
-        //   data.append("alamatLengkap", alamatLengkap);
-        //   data.append("provinsi", provinsi);
-        //   data.append("kota", kota);
-        //   data.append("kecamatan", kecamatan);
-        //   data.append("kelurahan", kelurahan);
-        //   data.append("kodePos", kodePos);
-        //   data.append("pekerjaan", pekerjaan);
-        //   data.append("cmd", cmd);
+            let data = new FormData();
+            data.append("email", email);
+            data.append("namaLengkap", namaLengkap);
+            data.append("jenisKelamin", jenisKelamin);
+            data.append("tempatLahir", tempatLahir);
+            data.append("tanggalLahir", tanggalLahir);
+            data.append("noHp", noHp);
+            data.append("alamatLengkap", alamatLengkap);
+            data.append("provinsi", provinsi);
+            data.append("kota", kota);
+            data.append("kecamatan", kecamatan);
+            data.append("kelurahan", kelurahan);
+            data.append("kodePos", kodePos);
+            data.append("pekerjaan", pekerjaan);
+            data.append("cmd", cmd);
 
-        //   ajaxku("proses-kelolaAkun.php", data);
-        // }
-
-        function ubah(iddaftarkelas, idkelas, username, namapasangan, idsesikelas){
-            iddaftarkelasskrg = iddaftarkelas;
-            document.getElementById("idkelas").value = idkelas;
-            document.getElementById("username").value = username;
-            document.getElementById("namapasangan").value = namapasangan;
-            document.getElementById("idsesikelas").value = idsesikelas;
-            document.getElementById("cmd").value = "Ubah";
+            if(cmd == "Ubah"){
+              if(confirm("Apakah anda ingin mengubah data ini?")){
+                data.append("username", usernameSkrg);
+                ajaxku("proses-kelolaAkun.php", data);
+                setTimeout(() => {
+                  location.reload();
+                }, 2000);
+              }
+            }
         }
-
-        // function hapus(iddaftarkelas){
-        // if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
-        //     let data = new FormData();
-        //     data.append("cmd", "Hapus");
-        //     data.append("iddaftarkelas", iddaftarkelas);
-
-        //     ajaxku("proses-kelolaAkun.php", data);
-        // }
-        // }
     </script>
 </body>
 </html>

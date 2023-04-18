@@ -1,3 +1,34 @@
+<?php session_start(); 
+    include "koneksi.php";
+
+    $username = $_SESSION['username'];
+
+    $sql = "SELECT * FROM tbuser where username = '$username'";
+    $result = mysqli_query($con, $sql);
+    $data = mysqli_fetch_assoc($result);
+
+    if(isset($_POST['Ubah'])) {
+        $email = $_POST['email'];
+        $namaLengkap = $_POST['namaLengkap'];
+        $jenisKelamin = $_POST['jenisKelamin'];
+        $tempatLahir = $_POST['tempatLahir'];
+        $tanggalLahir = $_POST['tanggalLahir'];
+        $noHp = $_POST['noHp'];
+        $alamatLengkap = $_POST['alamatLengkap'];
+        $provinsi = $_POST['provinsi'];
+        $kota = $_POST['kota'];
+        $kecamatan = $_POST['kecamatan'];
+        $kelurahan = $_POST['kelurahan'];
+        $kodePos = $_POST['kodePos'];
+        $pekerjaan = $_POST['pekerjaan'];
+
+        // $sql = "UPDATE tbuser SET email = '$email', namaLengkap = '$namaLengkap', jenisKelamin = '$jenisKelamin', tempatLahir = '$tempatLahir', tanggalLahir = '$tanggalLahir', noHp = '$noHp', 
+        // alamatLengkap = '$alamatLengkap', provinsi = '$provinsi', kota = '$kota', kecamatan = '$kecamatan', kelurahan = '$kelurahan', kodePos = '$kodePos', pekerjaan = '$pekerjaan' where username = '$username'";
+
+        // mysqli_query($con, $sql);
+        // header("Location: kelolaAkun.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,8 +55,12 @@
             <div class="col-md-6">
                 <form action="" id="form-regisKelasBaptis" class="border border-dark px-5 py-3 border-opacity-25 rounded-3">
                     <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" id="username" class="form-control form-input" placeholder="" readonly>
+                    </div>
+                    <div class="mb-3">
                         <label for="namaLengkap" class="form-label">Nama Lengkap</label>
-                        <input type="text" id="namaLengkap" class="form-control form-input" placeholder="">
+                        <input type="text" id="namaLengkap" class="form-control form-input" placeholder="" readonly>
                     </div>
                     <div class="mb-3">
                         <div>
