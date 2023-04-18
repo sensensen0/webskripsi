@@ -194,7 +194,7 @@
                 alert("Pengguna Telah Ada! Mohon mendaftar pengguna lain.");
                 resetForm();
             }else if(bagi[1] == "ubah") {
-                alert("Data telah diubah!");
+                alert("Password telah diubah!");
                 
             }
 
@@ -205,7 +205,7 @@
         }
 
         function loading(){
-            ajaxku("proses-kelolaAkun.php");
+            ajaxku("proses-ubahPassword.php");
         }
 
         function resetForm(){
@@ -229,12 +229,23 @@
           document.getElementById("username").scrollIntoView();
         }
         function ubah(){
-          if(cmd == "Ubah"){
-            if(confirm("Apakah anda ingin mengubah data ini?")){
-              data.append("username", usernameSkrg);
-              ajaxku("proses-kelolaAkun.php", data);
+            let passwordBaru = document.getElementById("passwordBaru");
+            let cmd = document.getElementById("cmd").value;
+
+            let data = new FormData();
+            data.append("passwordBaru", passwordBaru);
+            data.append("cmd", cmd);
+
+            if(cmd == "Ubah"){
+              if(confirm("Apakah anda ingin mengubah password ini?")){
+                data.append("username", usernameSkrg);
+                ajaxku("proses-ubahPassword.php", data);
+                // setTimeout(() => {
+                //   location.reload();
+                // }, 2000);
+                // window.location.href="halamanUser.php";
+              }
             }
-          }
         }
     </script>
 </body>

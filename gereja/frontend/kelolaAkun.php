@@ -322,6 +322,7 @@
                 setTimeout(() => {
                   location.reload();
                 }, 2000);
+                window.location.href="halamanUser.php";
               }
             }
         }

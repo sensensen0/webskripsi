@@ -205,7 +205,7 @@
         //function konfirmasi batal
         function konfirmasiBatal(){
             if(confirm("Apakah anda yakin ingin membatalkan pendaftaran?")) {
-                location.href="index.htm"
+                location.href="halamanUtama.php"
             } else {
                 document.getElementById("username").focus();
                 document.getElementById("username").scrollIntoView();

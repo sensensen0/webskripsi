@@ -57,16 +57,15 @@
                 <div class="mb-3 align-items-center">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control" id="username" name="username" minlength="8" maxlength="20"
-                          placeholder="Masukkan username" required readonly value="<?php echo $data['username'];?>">
+                        placeholder="xx-20-xx" required readonly >
                       </div>
                       <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email" required readonly value="<?php echo $data['email'];?>">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="xx-100-xx" required readonly>
                       </div>
                       <div class="mb-3">
                         <label for="namaLengkap" class="form-label">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="namaLengkap" name="namaLengkap" placeholder="Masukkan nama lengkap" required readonly
-                        value="<?php echo $data['namaLengkap'];?>">
+                        <input type="text" class="form-control" id="namaLengkap" name="namaLengkap" placeholder="xx-100-xx" required readonly>
                       </div>
                       <div class="mb-3">
                         <div>
@@ -89,51 +88,51 @@
                       </div>
                       <div class="mb-3">
                         <label for="tempatLahir" class="form-label">Tempat Lahir</label>
-                        <input type="text" class="form-control" id="tempatLahir" name="tempatLahir" placeholder="Masukkan Tempat Lahir" value="<?php echo $data['tempatLahir'];?>"required readonly>
+                        <input type="text" class="form-control" id="tempatLahir" name="tempatLahir"placeholder="xx-50-xx" required readonly>
                       </div>
                       <div class="mb-3">
                         <label for="tanggalLahir" class="form-label">tanggalLahir</label>
-                        <input type="date" class="form-control" id="tanggalLahir" name="tanggalLahir" placeholder="dd-mm-yyyy" value="<?php echo $data['tanggalLahir'];?>" required readonly>
+                        <input type="date" class="form-control" id="tanggalLahir" name="tanggalLahir" placeholder="dd-mm-yyyy"  required readonly>
                       </div>
                       <div class="mb-3">
                         <label for="noHp" class="form-label">Nomor Handphone</label>
-                        <input type="number" class="form-control" id="noHp" name="noHp" placeholder="Masukkan nomor handphone" oninput="validasiNoHp()"value="<?php echo $data['noHp'];?>" required readonly>
+                        <input type="number" class="form-control" id="noHp" name="noHp" placeholder="xx-14-xx" oninput="validasiNoHp()"required readonly>
                       </div>
                       <div class="mb-3">
                         <label for="alamatLengkap" class="form-label">Alamat Lengkap</label>
-                        <input type="text" class="form-control" id="alamatLengkap" name="alamatLengkap" placeholder="Masukkan alamat lengkap" value="<?php echo $data['alamatLengkap'];?>"required readonly>
+                        <input type="text" class="form-control" id="alamatLengkap" name="alamatLengkap" placeholder="xx-500-xx" required readonly>
                       </div>
                       <div class="mb-3">
                         <label for="provinsi" class="form-label">Provinsi</label>
-                        <input type="text" class="form-control" id="provinsi" name="provinsi" placeholder="Masukan provinsi" value="<?php echo $data['provinsi'];?>"required readonly>
+                        <input type="text" class="form-control" id="provinsi" name="provinsi" placeholder="xx-50-xx" required readonly>
                       </div>
                       <div class="mb-3">
                         <label for="kota" class="form-label">Kota</label>
-                        <input type="text" class="form-control" id="kota" name="kota" placeholder="Masukan kota" value="<?php echo $data['kota'];?>"required readonly>
+                        <input type="text" class="form-control" id="kota" name="kota" placeholder="xx-50-xx" required readonly>
                       </div>
                       <div class="mb-3">
                         <label for="kecamatan" class="form-label">Kecamatan</label>
-                        <input type="text" class="form-control" id="kecamatan" name="kecamatan" placeholder="Masukan kecamatan" value="<?php echo $data['kecamatan'];?>"required readonly>
+                        <input type="text" class="form-control" id="kecamatan" name="kecamatan" placeholder="xx-50-xx" required readonly>
                       </div>
                       <div class="mb-3">
                         <label for="kelurahan" class="form-label">Kelurahan</label>
-                        <input type="text" class="form-control" id="kelurahan" name="kelurahan" placeholder="Masukan kelurahan"value="<?php echo $data['kelurahan'];?>" required readonly>
+                        <input type="text" class="form-control" id="kelurahan" name="kelurahan" placeholder="xx-50-xx" required readonly>
                       </div>
                       <div class="mb-3">
                         <label for="kodePos" class="form-label">Kode Pos</label>
-                        <input type="number" class="form-control" id="kodePos" name="kodePos" placeholder="Masukan kode pos" oninput="validasiKodePos()" value="<?php echo $data['kodePos'];?>" required readonly>
+                        <input type="number" class="form-control" id="kodePos" name="kodePos" placeholder="xx-5-xx" oninput="validasiKodePos()"  required readonly>
                         <span id="errorMsg" style="color: red;"></span>
                       </div>
                       <div class="mb-3">
                         <label for="pekerjaan" class="form-label">Pekerjaan</label>
                         <div class="">
                             <select name="pekerjaan" id="pekerjaan" class="form-select">
-                              <option disabled>-- Pilih pekerjaan --</option>
-                              <option value="Tidak bekerja`" disabled <?php if ($data['pekerjaan']=='Tidak bekerja'){ echo'selected disabled';}?>>Tidak bekerja</option>
-                              <option value="Pelajar/Mahasiswa" disabled <?php if ($data['pekerjaan']=='Pelajar/Mahasiswa'){ echo'selected disabled';}?>>Pelajar/Mahasiswa</option>
-                              <option value="Karyawan" disabled <?php if ($data['pekerjaan']=='Karyawan'){ echo'selected disabled';}?>>Karyawan</option>
-                              <option value="Pengusaha" disabled <?php if ($data['pekerjaan']=='Pengusaha'){ echo'selected disabled';}?>>Pengusaha</option>
-                              <option value="Self-employed" disabled <?php if ($data['pekerjaan']=='Self-employed'){ echo'selected disabled';}?>>Self-Employed</option>
+                              <option disabled selected>-- Pilih pekerjaan --</option>
+                              <option value="Tidak bekerja`">>Tidak bekerja</option>
+                              <option value="Pelajar/Mahasiswa"> >Pelajar/Mahasiswa</option>
+                              <option value="Karyawan"></option>
+                              <option value="Pengusaha"> </option>
+                              <option value="Self-employed">>Self-Employed</option>
                             </select>
                         </div>
                       </div>
@@ -158,7 +157,7 @@
                         <label for="idSesiKelas" class="form-label">Sesi Kelas</label>
                         <div class="">
                             <select name="idSesiKelas" id="idSesiKelas" class="form-select">
-                              <option disabled>-- Pilih Sesi Kelas --</option>
+                              <option disabled selected>-- Pilih Sesi Kelas --</option>
                               <?php
                                 include "koneksi.php";
                                 $sql = mysqli_query($con, "select * from tbsesikelas inner join tbkelas on tbsesikelas.idKelas = tbkelas.idKelas where tbkelas.namaKelas = 'Kelas Pembaptisan'");
