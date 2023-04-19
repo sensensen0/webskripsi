@@ -147,7 +147,7 @@
                           <option value="pendaftaranPembaptisan">2. Pendaftaran Pembaptisan</option>
                           <option value="pendaftaranKelasBimbinganPranikah">3. Pendaftaran Kelas Bimbingan Pranikah</option>
                           <option value="pendaftaranPemberkatanPernikahan">4. Pendaftaran Pemberkatan Pernikahan</option>
-                          <option value="totalPendaftaran">5. Total Pendaftaran</option>
+                          <option value="Total Pendaftaran">5. Total Pendaftaran</option>
                         </select>
                       </div>
                     </div>     
@@ -169,27 +169,7 @@
                         <h4 class="card-title">Hasil laporan</h4>
                         <div class="card-body">
                             <div id="hasilLaporan"></div>
-                            <div class="border-top">
-                                <div class="card-body">
-                                    <input type="button" class="btn btn-primary float-end mb-2 fs-4" value="Download" data-bs-toggle="modal" data-bs-target="#modalCetak">
-                                    <div class="modal fade" id="modalCetak" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog modal-xl">
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Cetak Data</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                          </div>
-                                          <div class="modal-body">
-                                            <div id="hasilLaporan"></div>
-                                          </div>
-                                          <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" id="cobaPrint" class="btn btn-primary" onclick="window.print()">Print</button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
+                              <div class="border-top"></div>
                             </div>
                         </div>
                     </div>

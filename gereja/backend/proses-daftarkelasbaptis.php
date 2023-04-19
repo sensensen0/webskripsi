@@ -43,38 +43,43 @@
                             <table class="table table-responsive table-bordered">
                                 <thead class="table-dark">
                                     <tr>
-                                        <td>ID Daftar Kelas</td>
-                                        <td>Nama Kelas</td>
-                                        <td>Nama Jemaat</td>
-                                        <td>Nama Pasangan</td>
-                                        <td>Sesi</td>
+                                        <td>ID Daftar</td>
+                                        <td>Tanggal Daftar</td>
+                                        <td>Username</td>
+                                        <td>Nama Lengkap</td>
+                                        <td>Konfirmasi</td>
+                                        <td>ID Sesi Kelas</td>
+                                        <td>Nama Sesi</td>
+                                        <td>Status Verifikasi</td>
                                         <td>Aksi</td>
                                     </tr>
                                 </thead>
                             <?php 
-                                $sql = mysqli_query($con, "select * from tbdaftarkelasbaptis");
+                                $sql = mysqli_query($con, "select * from tbdaftarkelasbaptis inner join tbuser on tbdaftarkelasbaptis.username = tbuser.username inner join tbsesikelas on tbdaftarkelasbaptis.idsesikelas = tbsesikelas.idsesikelas");
                                 while($data = mysqli_fetch_array($sql)){
-                                    $iddaftarkelas = $data[0];
-                                    $idkelas = $data[1];
-                                    $idjemaat = $data[2];
-                                    $namapasangan = $data[3];
-                                    $idsesikelas = $data[4];
-                                    $namakelas = $data['namakelas'];
-                                    $namajemaat = $data['namajemaat'];
-                                    $namasesi = $data['namasesi'];
-                                    $harisesi = $data['harisesi'];
-                                    $waktumulai = $data['waktumulai'];
-                                    $waktuakhir = $data['waktuakhir'];
+                                    $idDaftarKelasBaptis = $data[0];
+                                    $tanggalDaftar = $data[1];
+                                    $username = $data[2];
+                                    $namaLengkap = $data['namaLengkap'];
+                                    $konfirmasi = $data[3];
+                                    $idSesiKelas = $data['4'];
+                                    $namaSesi = $data['namaSesi'];
+                                    $waktuMulai = $data['waktuMulai'];
+                                    $waktuAkhir = $data['waktuAkhir'];
+                                    $statusVerifikasi = $data['5'];
                                     ?>
                                         <tbody>
-                                            <td><?php echo $iddaftarkelas; ?></td>
-                                            <td><?php echo $namakelas; ?></td>
-                                            <td><?php echo $namajemaat; ?></td>
-                                            <td><?php echo $namapasangan; ?></td>
-                                            <td><?php echo $namasesi . (": "). ("("). $harisesi .(": ") . $waktumulai .("-"). $waktuakhir .(")"); ?></td>
+                                            <td><?php echo $idDaftarKelasBaptis; ?></td>
+                                            <td><?php echo $tanggalDaftar; ?></td>
+                                            <td><?php echo $username; ?></td>
+                                            <td><?php echo $namaLengkap; ?></td>
+                                            <td><?php if($konfirmasi="0"){echo $konfirmasi = "Tidak Bersedia";} else{echo $konfirmasi="Bersedia";} ?></td>
+                                            <td><?php echo $idSesiKelas;?></td>
+                                            <td><?php echo $namaSesi," (","$waktuMulai", "-","$waktuAkhir",")";?></td>
+                                            <td><?php if($statusVerifikasi="0"){echo $statusVerifikasi="Belum terverifikasi";}else{echo $statusVerifikasi="Telah terverifikasi";}?></td>
                                             <td class="text-center">
-                                                <input type="button" class="btn btn-primary btn-success center col-md-auto mb-1" value="Ubah" onclick="ubah(<?php echo "'$iddaftarkelas', '$idkelas','$idjemaat','$namapasangan','$idsesikelas'"; ?>)">
-                                                <input type="button" class="btn btn-danger col-md-auto mb-1" value="Hapus" onclick="hapus(<?php echo "'$iddaftarkelas'"; ?>)">
+                                                <input type="button" class="btn btn-primary btn-success center col-md-auto mb-1" value="Terima">
+                                                <input type="button" class="btn btn-danger col-md-auto mb-1" value="Tolak">
                                             </td>
                                         </tbody>
                                     <?php

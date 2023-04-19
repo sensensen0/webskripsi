@@ -229,7 +229,7 @@
           document.getElementById("username").scrollIntoView();
         }
         function ubah(){
-            let passwordBaru = document.getElementById("passwordBaru");
+            let passwordBaru = document.getElementById("passwordBaru").value;
             let cmd = document.getElementById("cmd").value;
 
             let data = new FormData();
@@ -240,10 +240,10 @@
               if(confirm("Apakah anda ingin mengubah password ini?")){
                 data.append("username", usernameSkrg);
                 ajaxku("proses-ubahPassword.php", data);
-                // setTimeout(() => {
-                //   location.reload();
-                // }, 2000);
-                // window.location.href="halamanUser.php";
+                setTimeout(() => {
+                  location.reload();
+                }, 2000);
+                window.location.href="halamanUser.php";
               }
             }
         }

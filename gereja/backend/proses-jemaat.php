@@ -1,16 +1,22 @@
 <?php
     include "koneksi.php";
     
-    $idjemaat = $_POST['idjemaat'];
-    $tanggalmasuk = $_POST['tanggalmasuk'];
-    $namajemaat = $_POST['namajemaat'];
-    $tanggallahir = $_POST['tanggallahir'];
-    $jk = $_POST['jk'];
-    $alamat = $_POST['alamat'];
-    $nohp = $_POST['nohp'];
-    $status = $_POST['status'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $namaLengkap = $_POST['namaLengkap'];
+    $jenisKelamin = $_POST['jenisKelamin'];
+    $tempatLahir = $_POST['tempatLahir'];
+    $tanggalLahir = $_POST['tanggalLahir'];
+    $noHp = $_POST['noHp'];
+    $alamatLengkap = $_POST['alamatLengkap'];
+    $provinsi = $_POST['provinsi'];
+    $kota = $_POST['kota'];
+    $kecamatan = $_POST['kecamatan'];
+    $kelurahan = $_POST['kelurahan'];
+    $kodePos = $_POST['kodePos'];
     $pekerjaan = $_POST['pekerjaan'];
-    $cmd = $_POST['cmd'];
+    $tanggalDaftar = $_POST['tanggalDaftar'];
 
     if ($cmd == "Simpan"){
         mysqli_query($con, "insert into tbjemaat (tanggalmasuk, namajemaat, tanggallahir, jk, alamat, nohp, status, pekerjaan) values('$tanggalmasuk', '$namajemaat', '$tanggallahir', '$jk', '$alamat', '$nohp', '$status', '$pekerjaan')");
@@ -47,10 +53,10 @@
                             <table class="table table-responsive table-bordered table-wrapper">
                                 <thead class="table-dark">
                                     <tr>
-                                        <td>Tanggal Daftar</td>
-                                        <td>Nama User</td>
                                         <td>Username</td>
+                                        <td>Password</td>
                                         <td>Email</td>
+                                        <td>Nama Lengkap</td>
                                         <td>Jenis Kelamin</td>
                                         <td>Tempat Lahir</td>
                                         <td>Tanggal Lahir</td>
@@ -62,36 +68,46 @@
                                         <td>Kelurahan</td>
                                         <td>Kode Pos</td>
                                         <td>Pekerjaan</td>
-                                        <td>Aksi</td>
+                                        <td>Tanggal Daftar</td>
                                     </tr>
                                 </thead>
                             <?php 
-                                $sql = mysqli_query($con, "select * from tbjemaat");
+                                $sql = mysqli_query($con, "select * from tbuser");
                                 while($data = mysqli_fetch_array($sql)){
-                                    $idjemaat = $data[0];
-                                    $tanggalmasuk = $data[1];
-                                    $namajemaat = $data[2];
-                                    $tanggallahir = $data[3];
-                                    $jk = $data[4];
-                                    $alamat = $data[5];
-                                    $nohp = $data[6];
-                                    $status = $data[7];
-                                    $pekerjaan = $data[8];
+                                    $username = $data[0];
+                                    $password = $data[1];
+                                    $email = $data[2];
+                                    $namaLengkap = $data[3];
+                                    $jenisKelamin = $data[4];
+                                    $tempatLahir = $data[5];
+                                    $tanggalLahir = $data[6];
+                                    $noHp = $data[7];
+                                    $alamatLengkap = $data[8];
+                                    $provinsi = $data[9];
+                                    $kota = $data[10];
+                                    $kecamatan = $data[11];
+                                    $kelurahan = $data[12];
+                                    $kodePos = $data[13];
+                                    $pekerjaan = $data[14];
+                                    $tanggalDaftar = $data[15];
                                     ?>
                                         <tbody>
-                                            <td><?php echo $idjemaat; ?></td>
-                                            <td><?php echo $tanggalmasuk; ?></td>
-                                            <td><?php echo $namajemaat; ?></td>
-                                            <td><?php echo $tanggallahir; ?></td>
-                                            <td><?php echo $jk; ?></td>
-                                            <td><?php echo $alamat; ?></td>
-                                            <td><?php echo $nohp; ?></td>
-                                            <td><?php echo $status; ?></td>
+                                            <td><?php echo $username; ?></td>
+                                            <td><?php echo $password; ?></td>
+                                            <td><?php echo $email; ?></td>
+                                            <td><?php echo $namaLengkap; ?></td>
+                                            <td><?php echo $jenisKelamin; ?></td>
+                                            <td><?php echo $tempatLahir; ?></td>
+                                            <td><?php echo $tanggalLahir; ?></td>
+                                            <td><?php echo $noHp; ?></td>
+                                            <td><?php echo $alamatLengkap; ?></td>
+                                            <td><?php echo $provinsi; ?></td>
+                                            <td><?php echo $kota; ?></td>
+                                            <td><?php echo $kecamatan; ?></td>
+                                            <td><?php echo $kelurahan; ?></td>
+                                            <td><?php echo $kodePos; ?></td>
                                             <td><?php echo $pekerjaan; ?></td>
-                                            <td>
-                                                <input type="button" class="btn btn-primary btn-success col-auto mb-1" value="Ubah" onclick="ubah(<?php echo "'$idjemaat', '$tanggalmasuk','$namajemaat','$tanggallahir','$jk','$alamat','$nohp','$status','$pekerjaan'"; ?>)">
-                                                <input type="button" class="btn btn-danger col-auto mb-1" value="Hapus" onclick="hapus(<?php echo "'$idjemaat'"; ?>)">
-                                            </td>
+                                            <td><?php echo $tanggalDaftar; ?></td>
                                         </tbody>
                                     <?php
                                 }

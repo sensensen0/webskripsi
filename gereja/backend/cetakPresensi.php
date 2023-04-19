@@ -119,7 +119,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h3 class="page-title">Laporan</h3>
+              <h3 class="page-title">Cetak Presensi</h3>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -146,14 +146,14 @@
           <div class="row">
             <div class="col-md-12">
               <div class="card">
-                <form id = "formLaporan" class="form-horizontal">
+                <form id = "formCetak Presensi" class="form-horizontal">
                   <div class="card-body">
-                    <h4 class="card-title">Laporan</h4>
+                    <h4 class="card-title">Cetak Presensi</h4>
                     <div class="form-group row">
                       <label
                         for="kategori"
                         class="col-md-4 text-end control-label col-form-label fs-5"
-                        >Kategori Laporan</label
+                        >Kategori Cetak Presensi</label
                       >
                       <div class="col-md-5">
                         <select name="kategori" id="kategori" class="form-select fs-5">
@@ -166,7 +166,7 @@
                   </div>  
                   <div class="border-top">
                     <div class="card-body">
-                          <input id="cmd" type="button" class="btn btn-primary float-end mb-3 fs-4" value="Tampilkan Laporan" onclick="loading()">
+                          <input id="cmd" type="button" class="btn btn-primary float-end mb-3 fs-5" value="Tampilkan Laporan" onclick="loading()">
                     </div>    
                   </div>
                 </form>
@@ -183,8 +183,6 @@
                             <div id="hasilLaporan"></div>
                             <div class="border-top">
                                 <div class="card-body">
-                                    <input type="button" class="btn btn-primary float-end mb-2 fs-4" value="Download" onclick="window.print()">
-                                    
                                 </div>
                             </div>
                         </div>
