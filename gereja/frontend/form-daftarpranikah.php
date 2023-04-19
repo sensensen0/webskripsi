@@ -57,7 +57,6 @@
             <div class="col-md-6">
                 <form action="" id="form-regisKelasBaptis" class="border border-dark px-5 py-3 border-opacity-25 rounded-3">
                     <div class="border border-dark px-4 py-3 mb-3 border-opacity-25 rounded-3">
-                        <h3 class="mb-3">Pihak Pria</h3>
                         <div class="mb-3">
                             <div class="mb-3 align-items-center">
                                 <label for="username" class="form-label">Username</label>
@@ -73,7 +72,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="noHp" class="form-label">Nomor Handphone</label>
-                                <input type="number" id="noHp" class="form-control form-input" readonly value="<?php echo $data['noHp'];?>">
+                                <input type="number" id="noHp" class="form-control form-input" placeholder="Masukkan nomor handphone" readonly value="<?php echo $data['noHp'];?>">
                             </div>
                         </div>
                     <div class="border border-dark px-4 py-3 mb-3 border-opacity-25 rounded-3">
@@ -88,7 +87,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="noHpPasangan" class="form-label">Nomor Handphone Pasangan</label>
-                            <input type="number" id="noHpPasangan" class="form-control form-input" required>
+                            <input type="number" id="noHpPasangan" class="form-control form-input" placeholder="Masukkan nomor handphone" required>
                         </div>
                     </div>
                     <div class="mb-3">

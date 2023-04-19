@@ -166,7 +166,7 @@
                   </div>  
                   <div class="border-top">
                     <div class="card-body">
-                          <input id="cmd" type="button" class="btn btn-primary float-end mb-3 fs-5" value="Tampilkan Laporan" onclick="loading()">
+                          <input id="cmd" type="button" class="btn btn-primary float-end mb-3 fs-5" value="Tampilkan Data" onclick="loading()">
                     </div>    
                   </div>
                 </form>
@@ -178,7 +178,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Hasil laporan</h4>
+                        <h4 class="card-title">Hasil data</h4>
                         <div class="card-body">
                             <div id="hasilLaporan"></div>
                             <div class="border-top">

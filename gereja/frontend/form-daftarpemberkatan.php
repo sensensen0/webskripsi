@@ -3,11 +3,11 @@
 
     $username = $_SESSION['username'];
 
-    $sql = "SELECT * FROM tbuser where username = '$username'";
-    $result = mysqli_query($con, $sql);
+    $sql = "SELECT * FROM tbuser inner join tbdaftarpranikah on tbuser.username=tbdaftarpranikah.username where tbuser.username = '$username'";
+    $result= mysqli_query($con, $sql);
     $data = mysqli_fetch_assoc($result);
 
-    if(isset($_POST['Daftar'])) {
+    if(isset($_POST['Daftar'])) {  
         $email = $_POST['email'];
         $namaLengkap = $_POST['namaLengkap'];
         $jenisKelamin = $_POST['jenisKelamin'];
@@ -21,12 +21,15 @@
         $kelurahan = $_POST['kelurahan'];
         $kodePos = $_POST['kodePos'];
         $pekerjaan = $_POST['pekerjaan'];
+        $namaPasangan = $_POST['namaPasangan'];
 
         // $sql = "UPDATE tbuser SET email = '$email', namaLengkap = '$namaLengkap', jenisKelamin = '$jenisKelamin', tempatLahir = '$tempatLahir', tanggalLahir = '$tanggalLahir', noHp = '$noHp', 
         // alamatLengkap = '$alamatLengkap', provinsi = '$provinsi', kota = '$kota', kecamatan = '$kecamatan', kelurahan = '$kelurahan', kodePos = '$kodePos', pekerjaan = '$pekerjaan' where username = '$username'";
 
         // mysqli_query($con, $sql);
         // header("Location: kelolaAkun.php");
+    } else if ($data !== null && isset($data[0])) {
+            echo "Anda belum mendaftar bimbingan pranikah!";
     }
 ?>
 <!DOCTYPE html>
@@ -67,7 +70,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="namaPasangan" class="form-label">Nama Pasangan</label>
-                        <input type="text" id="namaPasangan" class="form-control form-input" placeholder="Masukkan nama pasangan">
+                        <input type="text" id="namaPasangan" class="form-control form-input" placeholder="Masukkan nama pasangan" value = "<?php echo $data['namaPasangan'];?>">
                     </div>
                     <div class="mb-3">
                         <label for="lampirSuratBaptis" class="form-label">Lampir Surat Baptis</label>

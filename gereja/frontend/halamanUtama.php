@@ -57,7 +57,7 @@
                       <li class="nav-item">
                         <a class="nav-link" href="#informasi">Informasi</a>
                       </li>
-                      <li class="nav-item dropdown">
+                      <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Pendaftaran
                         </a>
@@ -67,7 +67,7 @@
                           <li><a class="dropdown-item" href="form-daftarpranikah.htm">Kelas Bimbingan Pranikah</a></li>
                           <li><a class="dropdown-item" href="form-daftarpemberkatan.htm">Pemberkatan Pernikahan</a></li>
                         </ul>
-                      </li>
+                      </li> -->
                       <li class="nav-item">
                         <a href="#hubungiKami" class="nav-link">Hubungi Kami</a>
                       </li>

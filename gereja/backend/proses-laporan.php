@@ -38,6 +38,13 @@
             ?>
         </tbody>
     </table>
+    <?php 
+            $sql = "select * from tbdaftarbaptis";
+            $result = mysqli_query($con, $sql);
+
+            $jumlahData = mysqli_num_rows($result);
+    ?>
+    <p>Jumlah data: <?php echo $jumlahData?></p>
     <a href="cetakLaporanKb.php" class="btn btn-primary float-end fs-5 mt-3" target="_blank">Cetak</a>
 <?php 
     } else if ($kategori == "pendaftaranPembaptisan") {
