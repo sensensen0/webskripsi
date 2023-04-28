@@ -55,6 +55,11 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+      body {
+        overflow-x: auto;
+      }
+    </style>
   </head>
 
   <body onload="loading()">
@@ -104,7 +109,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title">Verifikasi Daftar Kelas Baptis</h4>
+              <h4 class="page-title">Verifikasi Daftar Kelas Bimbingan Pranikah</h4>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -322,7 +327,7 @@
     
     function loading(){
       // document.getElementById("pasangan").style.display = "none";
-      ajaxku("proses-daftarbaptis.php");
+      ajaxku("proses-daftarpemberkatan.php");
     }
 
     function resetForm(){
@@ -355,7 +360,7 @@
         }
       }
       else{
-        ajaxku("proses-daftarbaptis.php", data);
+        ajaxku("proses-daftarpemberkatan.php", data);
       }
       resetForm();
     }

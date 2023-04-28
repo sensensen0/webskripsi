@@ -22,6 +22,7 @@
     }
 
     echo "###";
+    header("Content-type: image/png");
 ?>
 <!DOCTYPE html>
     <head>
@@ -47,33 +48,43 @@
                                         <td>Tanggal Daftar</td>
                                         <td>Username</td>
                                         <td>Nama Lengkap</td>
-                                        <td>Konfirmasi</td>
+                                        <td>Nama Pasangan</td>
+                                        <td>Tanggal Lahir Pasangan</td>
+                                        <td>No. Hp Pasangan</td>
+                                        <td>Lampiran Foto</td>
                                         <td>Nama Sesi</td>
                                         <td>Status Verifikasi</td>
                                         <td>Aksi</td>
                                     </tr>
                                 </thead>
                             <?php 
-                                $sql = mysqli_query($con, "select * from tbdaftarkelasbaptis inner join tbuser on tbdaftarkelasbaptis.username = tbuser.username inner join tbsesikelas on tbdaftarkelasbaptis.idsesikelas = tbsesikelas.idsesikelas");
-                                while($data = mysqli_fetch_array($sql)){
-                                    $idDaftarKelasBaptis = $data[0];
+                                $sql = mysqli_query($con, "select * from tbdaftarpranikah inner join tbuser on tbdaftarpranikah.username = tbuser.username inner join tbsesikelas on tbdaftarpranikah.idsesikelas = tbsesikelas.idsesikelas");
+                                while($data = mysqli_fetch_array($sql)){    
+                                    $idDaftarPranikah = $data[0];
                                     $tanggalDaftar = $data[1];
                                     $username = $data[2];
                                     $namaLengkap = $data['namaLengkap'];
-                                    $konfirmasi = $data[3];
-                                    $idSesiKelas = $data[4];
+                                    $namaPasangan = $data[3];
+                                    $tanggalLahirPasangan = $data[4];
+                                    $noHpPasangan = $data[5];
+                                    $lampirSuratBaptis = $data[6];
                                     $namaSesi = $data['namaSesi'];
                                     $waktuMulai = $data['waktuMulai'];
                                     $waktuAkhir = $data['waktuAkhir'];
-                                    $statusVerifikasi = $data['5'];
+                                    $idSesiKelas = $data[7];
+                                    $statusVerifikasi = $data[8];
+
                                     ?>
                                         <tbody>
-                                            <td><?php echo $idDaftarKelasBaptis; ?></td>
+                                            <td><?php echo $idDaftarPranikah; ?></td>
                                             <td><?php echo $tanggalDaftar; ?></td>
                                             <td><?php echo $username; ?></td>
                                             <td><?php echo $namaLengkap; ?></td>
-                                            <td><?php if($konfirmasi="0"){echo $konfirmasi = "Tidak Bersedia";} else{echo $konfirmasi="Bersedia";} ?></td>
+                                            <td><?php echo $namaPasangan; ?></td>
+                                            <td><?php echo $tanggalLahirPasangan; ?></td>
+                                            <td><?php echo $noHpPasangan;?></td>
                                             <td><?php echo $namaSesi," (","$waktuMulai", "-","$waktuAkhir",")";?></td>
+                                            <td><?php echo $lampirSuratBaptis; ?></td>
                                             <td><?php if($statusVerifikasi="0"){echo $statusVerifikasi="Belum terverifikasi";}else{echo $statusVerifikasi="Telah terverifikasi";}?></td>
                                             <td class="text-center">
                                                 <input type="button" class="btn btn-primary btn-success center col-md-auto mb-1" value="Terima">

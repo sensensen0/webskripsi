@@ -104,7 +104,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title">Verifikasi Daftar Kelas Baptis</h4>
+              <h4 class="page-title">Verifikasi Daftar Kelas Bimbingan Pranikah</h4>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -322,7 +322,7 @@
     
     function loading(){
       // document.getElementById("pasangan").style.display = "none";
-      ajaxku("proses-daftarbaptis.php");
+      ajaxku("proses-daftarpranikah.php");
     }
 
     function resetForm(){
@@ -355,7 +355,7 @@
         }
       }
       else{
-        ajaxku("proses-daftarbaptis.php", data);
+        ajaxku("proses-daftarpranikah.php", data);
       }
       resetForm();
     }

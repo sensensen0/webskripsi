@@ -39,12 +39,11 @@
         </tbody>
     </table>
     <?php 
-            $sql = "select * from tbdaftarbaptis";
-            $result = mysqli_query($con, $sql);
+            // $sql = "select * from tbdaftarkelasbaptis";
+            // $result = mysqli_query($con, $sql);
 
-            $jumlahData = mysqli_num_rows($result);
+            // $jumlahData = mysqli_num_rows($result);
     ?>
-    <p>Jumlah data: <?php echo $jumlahData?></p>
     <a href="cetakLaporanKb.php" class="btn btn-primary float-end fs-5 mt-3" target="_blank">Cetak</a>
 <?php 
     } else if ($kategori == "pendaftaranPembaptisan") {
@@ -84,6 +83,12 @@
                 ?>
             </tbody>
         </table>
+        <?php 
+            // $sql = "select * from tbdaftarbaptis";
+            // $result = mysqli_query($con, $sql);
+
+            // $jumlahData = mysqli_num_rows($result);
+    ?>
         <a href="cetakLaporanBaptis.php" class="btn btn-primary float-end fs-5 mt-3" target="_blank">Cetak</a>
 <?php
     } else if ($kategori == "pendaftaranKelasBimbinganPranikah")  {
@@ -124,6 +129,12 @@
                 ?>
             </tbody>
         </table>
+        <?php 
+    //         $sql = "select * from tbdaftarpranikah";
+    //         $result = mysqli_query($con, $sql);
+
+    //         $jumlahData = mysqli_num_rows($result);
+    // ?>
         <a href="cetakLaporanPranikah.php" class="btn btn-primary float-end fs-5 mt-3" target="_blank">Cetak</a>
 <?php
     } else if ($kategori == "pendaftaranPemberkatanPernikahan") {
@@ -169,7 +180,12 @@
                 ?>
             </tbody>
         </table> 
-        <a href="cetakLaporanPemberkatan.php" class="btn btn-primary float-end fs-5 mt-3" target="_blank">Cetak</a>
+        <?php 
+            // $sql = "select * from tbdaftarpemberkatan";
+            // $result = mysqli_query($con, $sql);
+
+            // $jumlahData = mysqli_num_rows($result);
+    ?>        <a href="cetakLaporanPemberkatan.php" class="btn btn-primary float-end fs-5 mt-3" target="_blank">Cetak</a>
         <?php
 ?>
 <?php

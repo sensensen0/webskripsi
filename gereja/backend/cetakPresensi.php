@@ -162,7 +162,21 @@
                           <option value="pendaftaranKelasBimbinganPranikah">2. Kelas Bimbingan Pranikah</option>
                         </select>
                       </div>
-                    </div>     
+                    </div>
+                    <!-- <div class="form-group row">
+                    <label
+                        for="sesi"
+                        class="col-md-4 text-end control-label col-form-label fs-5"
+                        >PilihSesi Kelas</label
+                      >
+                      <div class="col-md-5">
+                        <select name="sesi" id="sesi" class="form-select fs-5">
+                          <option disabled selected>-- Pilih Sesi --</option>
+                          <option value="sesiPertama">1. Sesi 1</option>
+                          <option value="sesiKedua">2. Sesi 2</option>
+                        </select>
+                      </div>  
+                    </div>      -->
                   </div>  
                   <div class="border-top">
                     <div class="card-body">

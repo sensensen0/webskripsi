@@ -30,7 +30,7 @@
         $pdf->Cell(50,6, $data['namaLengkap'],1,1);
     }
     //Data pendaftaran pembaptisan
-    $pdf->Text(10,58,"Pendaftaran Pembaptisan");
+
     $pdf->Cell(10,15,'',0,1,);
     $pdf->SetFont('Times','B',9);
     $pdf->Cell(10,7,'NO',1,0,'C');
@@ -39,6 +39,7 @@
     $pdf->Cell(50,7,'NAMA LENGKAP' ,1,0,'C');
     $pdf->Cell(50,7,'OPSI BAPTIS' ,1,0,'C');
     
+    $pdf->Text(10,58,"Pendaftaran Pembaptisan");
     $pdf->Cell(10,7,'',0,1);
     $pdf->SetFont('Times','',10);
     $no=1;
@@ -51,7 +52,6 @@
         $pdf->Cell(50,6, $data['opsiBaptis'],1,1);
     }
     //Data pendaftaran pembaptisan
-    $pdf->Text(10,92,"Pendaftaran Kelas Bimbingan Pranikah");
     $pdf->Cell(10,15,'',0,1,);
     $pdf->SetFont('Times','B',9);
     $pdf->Cell(10,7,'NO',1,0,'C');
@@ -59,7 +59,8 @@
     $pdf->Cell(50,7,'USERNAME' ,1,0,'C');
     $pdf->Cell(50,7,'NAMA LENGKAP' ,1,0,'C');
     $pdf->Cell(50,7,'NAMA PASANGAN' ,1,0,'C');
-    
+
+    $pdf->Text(10,98,"Pendaftaran Kelas Bimbingan Pranikah");
     $pdf->Cell(10,7,'',0,1);
     $pdf->SetFont('Times','',10);
     $no=1;
@@ -72,7 +73,6 @@
         $pdf->Cell(50,6, $data['namaPasangan'],1,1);   
     }
     //Data pendaftaran Pemberkatan Pernikahan
-    $pdf->Text(10,125,"Pendaftaran Pemberkatan Pernikahan");
     $pdf->Cell(10,15,'',0,1,);
     $pdf->SetFont('Times','B',9);
     $pdf->Cell(10,7,'NO',1,0,'C');
@@ -83,6 +83,7 @@
     $pdf->Cell(50,7,'TANGGAL PEMBERKATAN' ,1,0,'C');
     $pdf->Cell(50,7,'WAKTU PEMBERKATAN' ,1,0,'C');    
     
+    $pdf->Text(10,132,"Pendaftaran Pemberkatan Pernikahan");
     $pdf->Cell(10,7,'',0,1);
     $pdf->SetFont('Times','',10);
     $no=1;
@@ -97,6 +98,6 @@
         $pdf->Cell(50,6, $data['waktuPemberkatan'],1,1);
     }
  
-$pdf->Output('D', 'laporan-totalpembaptisan.pdf');
+$pdf->Output('D', 'laporan-totalpendaftaran.pdf');
  
 ?>
