@@ -60,33 +60,33 @@
                                     </tr>
                                 </thead>
                             <?php 
-                                $sql = mysqli_query($con, "select * from tbdaftarpemberkatan inner join tbuser on tbdaftarpemberkatan.username = tbuser.username");
+                                $sql = mysqli_query($con, "select * from tbdaftarpemberkatan inner join tbuser on tbdaftarpemberkatan.username = tbuser.username inner join tbsesikelas on tbdaftarpemberkatan.idsesikelas = tbsesikelas.idsesikelas");
                                 while($data = mysqli_fetch_array($sql)){    
                                     $idDaftarPemberkatan = $data[0];
                                     $tanggalDaftar = $data[1];
                                     $username = $data[2];
+                                    $namaLengkap = $data['namaLengkap'];
                                     $namaPasangan = $data[3];
                                     $lampirSuratBaptis = $data[4];
                                     $lampirSertifikatPranikah = $data[5];
                                     $tanggalPemberkatan = $data[6];
-                                    $waktuPemberkatan = $data[7];
+                                    $waktuMulai = $data['waktuMulai'];
                                     $namaOrtuPria = $data[8];
                                     $namaOrtuWanita = $data[9];
                                     $statusVerifikasi = $data[10];
-                                    $namaLengkap = $data['namaLengkap'];
                                     ?>
                                         <tbody>
-                                            <td><?php echo $idDaftarPemberkatan; ?></td>
-                                            <td><?php echo $tanggalDaftar; ?></td>
-                                            <td><?php echo $username; ?></td>
-                                            <td><?php echo $namaLengkap; ?></td>
-                                            <td><?php echo $namaPasangan; ?></td>
-                                            <td><?php echo $lampirSuratBaptis; ?></td>
-                                            <td><?php echo $lampirSertifikatPranikah;?></td>
-                                            <td><?php echo $tanggalPemberkatan;?><td>
-                                            <td><?php echo $waktuPemberkatan;?></td>
-                                            <td><?php echo $namaOrtuPria; ?></td>
-                                            <td><?php echo $namaOrtuWanita; ?></td>
+                                            <td><?php echo $idDaftarPemberkatan;?>
+                                            <td><?php echo $tanggalDaftar;?>
+                                            <td><?php echo $username;?></td>
+                                            <td><?php echo $namaLengkap;?>
+                                            <td><?php echo $namaPasangan;?>
+                                            <td><?php echo $lampirSuratBaptis;?>
+                                            <td><?php echo $lampirSertifikatPranikah;?>
+                                            <td><?php echo $tanggalPemberkatan;?></td>
+                                            <td><?php echo $waktuMulai;?></td>
+                                            <td><?php echo $namaOrtuPria;?></td>
+                                            <td><?php echo $namaOrtuWanita;?></td>
                                             <td><?php if($statusVerifikasi="0"){echo $statusVerifikasi="Belum terverifikasi";}else{echo $statusVerifikasi="Telah terverifikasi";}?></td>
                                             <td class="text-center">
                                                 <input type="button" class="btn btn-primary btn-success center col-md-auto mb-1" value="Terima">

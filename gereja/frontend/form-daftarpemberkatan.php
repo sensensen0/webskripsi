@@ -89,9 +89,21 @@
                         <div class="">
                             <select name="waktuPemberkatan" id="waktuPemberkatan" class="form-select">
                               <option disabled selected>-- Pilih Waktu Pemberkatan --</option>
-                              <option value="10.00 WIB">10.30 WIB</option>
-                              <option value="12.00 WIB">12.00 WIB</option>
-                              <option value="14.00 WIB">14.00 WIB</option>
+                              <?php
+                                include "koneksi.php";
+                                $sql = mysqli_query($con, "select * from tbsesikelas inner join tbkelas on tbsesikelas.idKelas = tbkelas.idKelas where tbkelas.namaKelas = 'Pemberkatan Pernikahan'");
+                                while($data = mysqli_fetch_array($sql)){
+                                $idSesiKelas = $data['idSesiKelas'];
+                                $namaKelas = $data['namaKelas'];
+                                $namaSesi = $data['namaSesi'];
+                                $hariSesi = $data['hariSesi'];
+                                $waktuMulai = $data['waktuMulai'];
+                                $waktuAkhir = $data['waktuAkhir'];
+                                ?>
+                                    <option value="<?php echo $idSesiKelas; ?>"><?php echo $namaSesi, " (", $hariSesi,": ", $waktuMulai,"-",$waktuAkhir, ")"?></option>
+                                <?php
+                              } 
+                          ?>
                             </select>
                         </div>
                     </div>

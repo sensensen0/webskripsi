@@ -51,8 +51,8 @@
                                         <td>Nama Pasangan</td>
                                         <td>Tanggal Lahir Pasangan</td>
                                         <td>No. Hp Pasangan</td>
-                                        <td>Lampiran Foto</td>
                                         <td>Nama Sesi</td>
+                                        <td>Lampiran Foto</td>
                                         <td>Status Verifikasi</td>
                                         <td>Aksi</td>
                                     </tr>
