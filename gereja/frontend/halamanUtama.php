@@ -129,7 +129,8 @@
                             <div class="row">
                                 <div class="col-md-12 mt-3">
                                     <p style="font-size: 1.2rem;">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, ipsam voluptatem dicta tenetur mollitia magnam et? In beatae architecto sequi deleniti, corporis iusto quo illo neque animi similique laborum vitae?
+                                        Gereja Kristen Kalimantan Barat (GKKB) Jemaat Sungai Raya Dalam merupakan salah satu gereja yang tergabung dalam
+                                        sinode GKKB. GKKB Jemaat Sungai Raya Dalam beralamatkan di Kabupaten Kubu Raya, Jalan Sungai Raya Dalam, Komplek Taman Bougenville No. 59.
                                     </p>
                                 </div>
                             </div>
@@ -156,11 +157,15 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Visi</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, officiis error! Harum distinctio cupiditate nulla commodi tempora nemo id quidem sit? Perspiciatis, sapiente. Necessitatibus, enim velit cumque non incidunt nihil?</p>
+                                    <p style="font-size: large;">
+                                        Gereja misioner yang melipatgandakan murid-murid Kristus untuk menggenapkan amanat agung Tuhan Yesus.
+                                    </p>
                                 </div>
                                 <div class="col-md-6">
                                     <h3>Misi</h3>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quos repudiandae earum molestiae quo repellendus neque reprehenderit possimus voluptatibus dolorum sint sed iure, doloremque doloribus maxime. Dolorum ut a repellendus.</p>
+                                    <p style="font-size: large;">
+                                        Melakukan pemuridan yang otentik untuk menghasilkan murid-murid Kristus yang siap untuk memenangkan dunia dan hidup memuliakan Kristus
+                                    </p>
                                 </div>
                             </div>
                         </div>
