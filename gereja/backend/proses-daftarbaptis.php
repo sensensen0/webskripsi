@@ -75,7 +75,9 @@
                                             <td><?php echo $namaLengkap; ?></td>
                                             <td><?php echo $opsiBaptis; ?></td>
                                             <td><?php echo $ukuranJubah; ?></td>
-                                            <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($uploadFoto).'" width="300" height="600"/>'; ?></td>
+                                            <td>
+                                                <img src="uploads/<?php echo $uploadFoto ?>" style="width:200px;" alt="">
+                                            </td>
                                             <td><?php if($statusVerifikasi="0"){echo $statusVerifikasi="Belum terverifikasi";}else{echo $statusVerifikasi="Telah terverifikasi";}?></td>
                                             <td class="text-center">
                                                 <input type="button" class="btn btn-primary btn-success center col-md-auto mb-1" value="Terima">
