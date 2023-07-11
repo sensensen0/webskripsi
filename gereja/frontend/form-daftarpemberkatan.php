@@ -74,11 +74,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="lampirSuratBaptis" class="form-label">Lampir Surat Baptis</label>
-                        <input type="file" accept=".jpg, .jpeg, .pdf" id="lampirSuratBaptis" class="form-control form-input">
+                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" id="lampirSuratBaptis" class="form-control form-input">
                     </div>
                     <div class="mb-3">
                         <label for="lampirSertifikatPranikah" class="form-label">Lampir Sertifikat Pranikah</label>
-                        <input type="file" accept=".jpg, .jpeg, .pdf" id="lampirSertifikatPranikah" class="form-control form-input">
+                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" id="lampirSertifikatPranikah" class="form-control form-input">
                     </div>
                     <div class="mb-3">
                         <label for="tanggalPemberkatan" class="form-label">Tanggal Pemberkatan</label>
@@ -125,6 +125,8 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script>
         var idDaftarPranikahSkrg = "";
 
@@ -164,8 +166,8 @@
             let username = document.getElementById("username").value;
             let namaLengkap = document.getElementById("namaLengkap").value;
             let namaPasangan = document.getElementById("namaPasangan").value;
-            let lampirSuratBaptis = document.getElementById("lampirSuratBaptis").value;
-            let lampirSertifikatPranikah = document.getElementById("lampirSertifikatPranikah").value;
+            let lampirSuratBaptis = document.getElementById("lampirSuratBaptis").files[0];
+            let lampirSertifikatPranikah = document.getElementById("lampirSertifikatPranikah").files[1];
             let tanggalPemberkatan = document.getElementById("tanggalPemberkatan").value;
             let waktuPemberkatan = document.getElementById("waktuPemberkatan").value;
             let namaOrtuPria = document.getElementById("namaOrtuPria").value;
@@ -186,7 +188,34 @@
             data.append("namaOrtuWanita",namaOrtuWanita);
             data.append("cmd", cmd);
 
-            ajaxku("proses-pemberkatan.php", data);
+            $.ajax({
+                url: 'proses-pemberkatan.php',
+                type: 'POST',
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                var dataku = response;
+
+                var bagi = dataku.split("###");
+
+                if(bagi[1] == "daftar"){
+                    alert("Anda telah terdaftar!");
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                    window.location.href="halamanUser.php"
+                }else if (bagi[1] == "ubah") {
+                    alert("Data telah berubah");
+                }else if (bagi[1] == "hapus") {
+                    alert("Data telah terhapus");
+                }
+                },
+                error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+                // Handle error
+                }
+            });
         }       
       document.getElementById('lampirSuratBaptis').addEventListener('change', function(event) {
         var file = event.target.files[0];

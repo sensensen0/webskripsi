@@ -19,7 +19,7 @@
     $pekerjaan = $_POST['pekerjaan'];
     $konfirmasi = $_POST['konfirmasi'];
     $idSesiKelas = $_POST['idSesiKelas'];
-    $statusVerifikasi = 1;
+    $statusVerifikasi = 0;
     $cmd = $_POST['cmd'];
 
     if($cmd == "Daftar") {

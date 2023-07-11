@@ -13,7 +13,7 @@
     $alamatLengkap = $_POST['alamatLengkap'];
     $opsiBaptis = $_POST['opsiBaptis'];
     $ukuranJubah = $_POST['ukuranJubah'];
-    $statusVerifikasi = 1;
+    $statusVerifikasi = 0;
     $cmd = $_POST['cmd'];
 
     if($cmd == "Daftar") {
@@ -34,7 +34,7 @@
             $fileNameImage = $randomString . '.' . $extension;
 
             // Move the uploaded file to a desired location
-            $uploadDirectory = '../backend/uploads/'; // Specify the directory where you want to save the uploaded image
+            $uploadDirectory = '../backend/uploads/fotoProfile/'; // Specify the directory where you want to save the uploaded image
             $destinationPath = $uploadDirectory . $fileNameImage;
             if (!move_uploaded_file($tmpFilePath, $destinationPath)) {
                 $response = array('error' => 'Error moving the uploaded image.');

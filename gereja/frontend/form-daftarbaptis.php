@@ -148,7 +148,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="uploadFoto" class="form-label">Upload Pas Foto</label>
-                        <input type="file" accept=".jpg, .jpeg" id="uploadFoto" class="form-control form-input">
+                        <input type="file" accept=".jpg, .jpeg, .png" id="uploadFoto" class="form-control form-input">
                     </div>
                     <div class="text-center">
                         <input id = "cmd" type="button" class="btn btn-primary" value="Daftar" onclick="daftar()">

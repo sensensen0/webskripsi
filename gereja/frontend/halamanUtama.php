@@ -245,7 +245,34 @@
                         overflow-x: hidden;
                         position: relative;
                     ">
-                    <div class="col-md-12 text-center">
+                    <div class="col-md-6 text-center row d-flex justify-content-center align-items-center mx-auto">
+                        <h1 class="mt-1 mb-5" style="font-size: 4rem;">Jadwal Ibadah</h1>
+                        <div class="row d-flex justify-content-center align-items-center mx-auto">
+                            <table class="ms-4">
+                                <tr>
+                                    <th>IBADAH</th>
+                                    <th>JAM IBADAH</th>
+                                </tr>
+                                <tr>
+                                    <td>Ibadah Raya 1</td>
+                                    <td>09.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Ibadah Raya 2</td>
+                                    <td>17.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Sekolah Minggu</td>
+                                    <td>09.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Tunas dan Remaja</td>
+                                    <td>11.00</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center">
                         <h1 class = "mt-1 mb-5" style="font-size: 4rem;">Hubungi Kami</h1>
                         <div class="row d-flex justify-content-center align-items-center mx-auto">
                             <a href="https://goo.gl/maps/T23XPUitTsGqZf7u5" target="_blank" class="link"><p><span><i class="bi bi-geo-alt-fill me-2"></i></span>Jalan Sungai Raya Dalam, Komplek Taman Bougenville No. 59</p>

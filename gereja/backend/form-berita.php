@@ -145,7 +145,7 @@
                           type="text"
                           class="form-control text-uppercase"
                           id="judulBerita"
-                          placeholder="xx-100-xx"
+                          placeholder="Isi judul berita"
                           required
                         />
                       </div>
@@ -157,7 +157,7 @@
                         >Isi Berita</label
                       >
                       <div class="col-sm-9">
-                        <textarea class="form-control" placeholder="xx-500-xx" id="isiBerita" rows="10" required></textarea>
+                        <textarea class="form-control" placeholder="Isi informasi berita" id="isiBerita" rows="10" required></textarea>
                       </div>
                     </div>
                     <form action="/upload" enctype="multipart/form-data">
