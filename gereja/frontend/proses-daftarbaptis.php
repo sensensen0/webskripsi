@@ -41,13 +41,17 @@
                 echo json_encode($response);
             }
         }
+        $query1 = "SELECT * FROM tbdaftarbaptis WHERE username = '$username'";
+        $result1 = mysqli_query($con, $query1);
+        if (mysqli_num_rows($result1) >= 1) {
+            echo '###usernameada';
+        }else {
+            $sql = "insert into tbdaftarbaptis (tanggalDaftar, username, opsiBaptis, ukuranJubah, uploadFoto, statusVerifikasi) 
+            values ('$tanggalDaftar', '$username', '$opsiBaptis', '$ukuranJubah', '$fileNameImage', '$statusVerifikasi')";
 
-
-        $sql = "insert into tbdaftarbaptis (tanggalDaftar, username, opsiBaptis, ukuranJubah, uploadFoto, statusVerifikasi) 
-        values ('$tanggalDaftar', '$username', '$opsiBaptis', '$ukuranJubah', '$fileNameImage', '$statusVerifikasi')";
-
-        mysqli_query($con, $sql);
-        echo "###daftar";
+            mysqli_query($con, $sql);
+            echo "###daftar";
+        }      
     }
     mysqli_query($con, "UPDATE tbdaftarbaptis SET tanggalDaftar = CURDATE() WHERE tanggalDaftar = '0000-00-00'");
 ?>

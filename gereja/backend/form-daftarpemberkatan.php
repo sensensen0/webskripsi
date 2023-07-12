@@ -110,7 +110,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title">Verifikasi Daftar Kelas Bimbingan Pranikah</h4>
+              <h4 class="page-title">Verifikasi Daftar Pemberkatan Pernikahan</h4>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -187,10 +187,10 @@
                                             <td><?php echo $waktuMulai;?></td>
                                             <td><?php echo $namaOrtuPria;?></td>
                                             <td><?php echo $namaOrtuWanita;?></td>
-                                            <td id = "statusVerifikasi"><?php if($statusVerifikasi="0"){echo $statusVerifikasi="Belum terverifikasi";}else if($statusVerifikasi=="1"){echo $statusVerifikasi="Telah terverifikasi";}?></td>
+                                            <td id = "statusVerifikasi"><?php if($statusVerifikasi=="0"){echo $statusVerifikasi="Belum terverifikasi";}else if($statusVerifikasi=="1"){echo $statusVerifikasi="Telah terverifikasi";}?></td>
                                             <td class="text-center">
                                                 <input id = "accept" type="button" class="btn btn-primary btn-success center col-md-auto mb-1" value="Terima" onclick="terima()">
-                                                <input id = "decline" type="button" class="btn btn-danger col-md-auto mb-1" value="Tolak" onclick="tolak()">
+                                                <input id = "decline" type="button" class="btn btn-danger col-md-auto mb-1" value="Tolak" onclick="tolak(<?php echo "'$idDaftarPemberkatan'"; ?>)">
                                             </td>
                                         </tbody>
                                     <?php
@@ -340,22 +340,22 @@
 
       if( accept == "Terima") {
         if(confirm("Apakah anda yakin verifikasi data ini?")) {
-          data.append("idDaftarBaptis", idDaftarBaptisSkrg);
-          ajaxku("proses-daftarbaptis.php", data);
+          data.append("idDaftarPemberkatan", idDaftarPemberkatanSkrg);
+          ajaxku("proses-daftarpemberkatan.php", data);
           window.location.reload();
         }
       }
     }
 
-    function tolak(idDaftarBaptis){
+    function tolak(idDaftarPemberkatan){
       let decline = document.getElementById("decline").value;
       if( decline == "Tolak") {
         if(confirm("Apakah anda yakin menolak verifikasi data ini?")) {
           let data = new FormData();
           data.append("decline", "Tolak");
-          data.append("idDaftarBaptis", idDaftarBaptis);
+          data.append("idDaftarPemberkatan", idDaftarPemberkatan);
 
-          ajaxku("proses-daftarBaptis.php", data);
+          ajaxku("proses-daftarpemberkatan.php", data);
           window.location.reload();
         }
       }

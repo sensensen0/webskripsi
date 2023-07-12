@@ -245,7 +245,10 @@
               alert("Data telah berubah");
           }else if (bagi[1] == "hapus") {
               alert("Data telah terhapus");
-          }
+          }else if(bagi[1] == "usernameada") {
+              alert("AKUN SUDAH TERDAFTAR");
+              location.href="halamanUser.php"
+            }
         },
         error: function(xhr, status, error) {
           console.log(xhr.responseText);

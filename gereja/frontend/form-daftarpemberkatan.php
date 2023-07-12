@@ -167,7 +167,7 @@
             let namaLengkap = document.getElementById("namaLengkap").value;
             let namaPasangan = document.getElementById("namaPasangan").value;
             let lampirSuratBaptis = document.getElementById("lampirSuratBaptis").files[0];
-            let lampirSertifikatPranikah = document.getElementById("lampirSertifikatPranikah").files[1];
+            let lampirSertifikatPranikah = document.getElementById("lampirSertifikatPranikah").files[0];
             let tanggalPemberkatan = document.getElementById("tanggalPemberkatan").value;
             let waktuPemberkatan = document.getElementById("waktuPemberkatan").value;
             let namaOrtuPria = document.getElementById("namaOrtuPria").value;
@@ -209,6 +209,9 @@
                     alert("Data telah berubah");
                 }else if (bagi[1] == "hapus") {
                     alert("Data telah terhapus");
+                }else if(bagi[1] == "usernameada") {
+                    alert("AKUN SUDAH TERDAFTAR");
+                    location.href="halamanUser.php"
                 }
                 },
                 error: function(xhr, status, error) {

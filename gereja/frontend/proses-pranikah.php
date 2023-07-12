@@ -40,12 +40,17 @@
                 echo json_encode($response);
             }
         }
+        $query1 = "SELECT * FROM tbdaftarpranikah WHERE username = '$username'";
+        $result1 = mysqli_query($con, $query1);
+        if (mysqli_num_rows($result1) >= 1) {
+            echo '###usernameada';
+        }else {
+            $sql = "insert into tbdaftarpranikah (tanggalDaftar, username, namaPasangan, tanggalLahirPasangan, noHpPasangan, lampirSuratBaptis, idSesiKelas, statusVerifikasi) 
+            values ('$tanggalDaftar', '$username', '$namaPasangan', '$tanggalLahirPasangan', '$noHpPasangan', '$fileNameImage', '$idSesiKelas', '$statusVerifikasi')";
 
-        $sql = "insert into tbdaftarpranikah (tanggalDaftar, username, namaPasangan, tanggalLahirPasangan, noHpPasangan, lampirSuratBaptis, idSesiKelas, statusVerifikasi) 
-        values ('$tanggalDaftar', '$username', '$namaPasangan', '$tanggalLahirPasangan', '$noHpPasangan', '$fileNameImage', '$idSesiKelas', '$statusVerifikasi')";
-
-        mysqli_query($con, $sql);
-        echo "###daftar";
+            mysqli_query($con, $sql);
+            echo "###daftar";
+        }      
     }
     mysqli_query($con, "UPDATE tbdaftarpranikah SET tanggalDaftar = CURDATE() WHERE tanggalDaftar = '0000-00-00'");
 ?>
