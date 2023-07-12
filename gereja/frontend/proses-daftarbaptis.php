@@ -34,7 +34,7 @@
             $fileNameImage = $randomString . '.' . $extension;
 
             // Move the uploaded file to a desired location
-            $uploadDirectory = '../backend/uploads/fotoProfile/'; // Specify the directory where you want to save the uploaded image
+            $uploadDirectory = '..backend/uploads/fotoprofile/'; // Specify the directory where you want to save the uploaded image
             $destinationPath = $uploadDirectory . $fileNameImage;
             if (!move_uploaded_file($tmpFilePath, $destinationPath)) {
                 $response = array('error' => 'Error moving the uploaded image.');

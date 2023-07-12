@@ -374,6 +374,7 @@
         }
       }
       else{
+        //ajaxku("proses-berita.php",data)
         $.ajax({
         url: 'proses-berita.php',
         type: 'POST',
@@ -387,7 +388,7 @@
 
           if(bagi[1] == "simpan"){
               alert("Data telah disimpan");
-              // location.reload();
+              location.reload();
           }else if (bagi[1] == "ubah") {
               alert("Data telah berubah");
           }else if (bagi[1] == "hapus") {

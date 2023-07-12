@@ -78,7 +78,7 @@
             if (dataku == "login"){
                 alert("Berhasil Login!");
                 location.href="halamanUser.php";
-            } else if(dataku == "gagal"){
+            } else {
                 alert("Username atau Password Salah!");
                 document.getElementById("username").value="";
                 document.getElementById("password").value="";
@@ -101,9 +101,9 @@
         ajax("proses-login.php", data);
       }
 
-      function loading(){
-        ajax("proses-login.php");
-      }
+      // function loading(){
+      //   ajax("proses-login.php");
+      // }
       let user = document.getElementById("username");
         user.addEventListener("keypress", function(event){
         if (event.key === "Enter") {

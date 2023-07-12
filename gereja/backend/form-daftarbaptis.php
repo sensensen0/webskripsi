@@ -168,7 +168,7 @@
                                               <td><?php echo $opsiBaptis; ?></td>
                                               <td><?php echo $ukuranJubah; ?></td>
                                               <td>
-                                                  <img src="uploads/fotoProfile/<?php echo $uploadFoto ?>" style="width:200px;" alt="">
+                                                  <img src="uploads/fotoprofile/<?php echo $uploadFoto ?>" style="width:200px;" alt="">
                                               </td>
                                               <td id="statusVerifikasi"><?php if($statusVerifikasi=="0"){echo $statusVerifikasi="Belum terverifikasi";}else if($statusVerifikasi=="1"){echo $statusVerifikasi="Telah terverifikasi";}?></td>
                                               <td  class="text-center">
@@ -305,8 +305,6 @@
           }else if (bagi[1] == "tolak") {
             alert("Verifikasi ditolak, Data dihapus");
           }
-
-          document.getElementById("tableku").innerHTML = bagi[2]
         }
       };
       xhttp.open("POST", url, true);
@@ -337,6 +335,7 @@
 
     function tolak(idDaftarBaptis){
      let decline = document.getElementById("decline").value;
+
       if( decline == "Tolak") {
         if(confirm("Apakah anda yakin menolak verifikasi data ini?")) {
           let data = new FormData();

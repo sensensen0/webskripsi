@@ -35,7 +35,7 @@
         mysqli_query($con, "insert into tbberita (judulBerita, isiBerita, gambarCover, fileBerita, statusPublish) values('$judulBerita', '$isiBerita', '$fileNameImage', '$fileBerita', '$statusPublish')");
         echo "###simpan";
     }else if($cmd == "Ubah") {
-        mysqli_query($con, "update tbberita set judulBerita='$judulBerita', isiBerita='$isiBerita', gambarCover='$gambarCover', fileBerita='$fileBerita' where idBerita='$idBerita'");
+        mysqli_query($con, "update tbberita set judulBerita='$judulBerita', isiBerita='$isiBerita', gambarCover='$fileNameImage', fileBerita='$fileBerita' where idBerita='$idBerita'");
         echo "###ubah";
     }else if ($cmd == "Hapus") {
         mysqli_query($con, "delete from tbberita where idBerita='$idBerita'");
