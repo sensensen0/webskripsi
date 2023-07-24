@@ -223,7 +223,7 @@
 
             if(bagi[1] == "daftar"){
                 alert("Anda telah terdaftar!");
-                window.location.href="form-login.php";
+                // window.location.href="form-login.php";
             }else if (bagi[1] == "usernameada") {
                 alert("Username Telah Ada! Mohon menggunakan username lain.");
                 resetForm();

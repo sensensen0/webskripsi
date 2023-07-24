@@ -101,9 +101,9 @@
         ajax("proses-login.php", data);
       }
 
-      // function loading(){
-      //   ajax("proses-login.php");
-      // }
+      function loading(){
+        ajax("proses-login.php");
+      }
       let user = document.getElementById("username");
         user.addEventListener("keypress", function(event){
         if (event.key === "Enter") {

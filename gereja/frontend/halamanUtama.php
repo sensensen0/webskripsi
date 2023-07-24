@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -190,38 +191,30 @@
                             <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
                                 <div class="col">
                                     <div class="card h-100">
-                                        <img src="..." class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Card Title</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <small class="text-muted">Last updated 3 mins ago</small>
+                                        <img src="../assets/img/01.jpg" class="card-img-top" alt="...">
+                                            <h5 class="card-title">Persekutuan EPIC Ministry</h5>
+                                            <p class="card-text">Tema: Funky But Holy</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card h-100">
-                                        <img src="..." class="card-img-top" alt="...">
+                                        <img src="../assets/img/02.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <small class="text-muted">Last updated 3 mins ago</small>
+                                            <h5 class="card-title">Ibadah Umum (PAGI DAN SORE)</h5>
+                                            <p class="card-text">TEMA: TRUST AND OBEY</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="card h-100">
-                                        <img src="..." class="card-img-top" alt="...">
+                                        <img src="../assets/img/03.jpg" class="card-img-top" alt="...">
                                             <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                                            <h5 class="card-title">Ibadah Umum (Pagi dan Sore)</h5>
+                                        <p class="card-text">Tema: Hukum dan Pembenaran</p>
                                         </div>
-                                            <div class="card-footer">
-                                            <small class="text-muted">Last updated 3 mins ago</small>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
