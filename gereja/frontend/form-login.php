@@ -35,7 +35,7 @@
         <div class="row">
           <div class="mask vh-100 vw-100" style="background-color: rgba(0, 0, 0, 0.4);">
             <div class="warnabg row text-center mb-3">
-              <a href="index.htm"><img src="../assets/img/logo.png" alt="Logo gkkb serdam" width="120px" height="120px"></a>
+              <a href="halamanUtama.php"><img src="../assets/img/logo.png" alt="Logo gkkb serdam" width="120px" height="120px"></a>
             </div>
             <div class="d-flex justify-content-center align-items-center">
               <div class="col-md-3">

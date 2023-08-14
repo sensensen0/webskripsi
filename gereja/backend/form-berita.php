@@ -427,7 +427,7 @@
     }
 
     function publish(){
-
+      
     }
     function validateFile() {
       function validateImageFile() {

@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php session_start(); ?>
+        <?php session_start(); 
+            include "koneksi.php";
+
+            $sql = "SELECT * FROM tbberita";
+            $result = mysqli_query($con, $sql);
+            
+        ?>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -140,43 +146,20 @@
                                 <h1 style="font-size: 4rem;">Informasi Gereja</h1>
                             </div>
                             <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
-                                <div class="col">
-                                    <div class="card h-100">
-                                        <img src="../assets/img/01.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Persekutuan EPIC MINISTRY</h5>
-                                            <p class="card-text">HAI! YUK JOIN!</p>
-                                            <p class="card-text">TEMA: FUNKY BUT HOLY!</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card h-100">
-                                        <img src="../assets/img/02.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">IBADAH UMUM PAGI DAN SORE</h5>
-                                            <p class="card-text"></p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <small class="text-muted">Last updated 3 mins ago</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card h-100">
-                                        <img src="..." class="card-img-top" alt="...">
+                                <?php while($data = mysqli_fetch_assoc($result)) { ?>
+                                    <div class="col">
+                                        <div class="card h-100">
                                             <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                        </div>
-                                            <div class="card-footer">
-                                            <small class="text-muted">Last updated 3 mins ago</small>
+                                            <img src="../backend/uploads/coverberita/<?php echo $data['gambarCover']; ?>" class="card-img-top mb-3" alt="...">
+                                                <h5 class="card-title"><?php echo $data['judulBerita'];?></h5>
+                                                <p class="card-text"><?php echo $data['isiBerita']; ?></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                             </div>
                             <div class="mt-5">
-                                <button type="button" class="btn btn-outline-light p-3">Lihat selengkapnya</button>
+                                <button type="button" class="btn btn-dark p-3"><a class="text-decoration-none text-light" href="listinformasi.php">Lihat selengkapnya</a></button>
                             </div>   
                         </div>
                     </div>

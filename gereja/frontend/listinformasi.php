@@ -1,3 +1,10 @@
+<?php
+    include "koneksi.php";
+
+    $sql = "SELECT * FROM tbberita";
+    $result = mysqli_query($con, $sql);
+    
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,45 +63,19 @@
         <!-- Isi List Informasi dan Berita -->
         <section>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="row mt-5 d-flex justify-content-center align-items-center mx-5">
-                        <div class="card w-100 mb-4 shadow p-3 mb-5 bg-body">
-                            <div class="card-body">
-                              <h5 class="card-title">Pendaftaran Pembaptisan</h5>
-                              <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium earum optio ducimus voluptas reiciendis nulla rem nam, inventore excepturi expedita id natus, fuga nisi fugit sunt consequatur harum placeat unde.</p>
-                              <a href="#" class="btn btn-primary">Button</a>
-                            </div>
-                        </div>  
-                        <div class="card w-100 mb-4 shadow p-3 mb-5 bg-body">
-                            <div class="card-body">
-                                <h5 class="card-title">Pendaftaran Kelas Bimbingan Pranikah</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, dolorem saepe id, provident aliquid beatae distinctio itaque expedita, iure porro suscipit maiores voluptatibus animi corrupti earum tenetur inventore cum pariatur.</p>
-                                <a href="#" class="btn btn-primary">Button</a>
-                            </div>
-                        </div>
-                        <div class="card w-100 mb-4 shadow p-3 mb-5 bg-body">
-                            <div class="card-body">
-                                <h5 class="card-title">Pendaftaran Kelas Bimbingan Pranikah</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, dolorem saepe id, provident aliquid beatae distinctio itaque expedita, iure porro suscipit maiores voluptatibus animi corrupti earum tenetur inventore cum pariatur.</p>
-                                <a href="#" class="btn btn-primary">Button</a>
-                            </div>
-                        </div>     
-                        <div class="card w-100 mb-4 shadow p-3 mb-5 bg-body">
-                            <div class="card-body">
-                                <h5 class="card-title">Pendaftaran Kelas Bimbingan Pranikah</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, dolorem saepe id, provident aliquid beatae distinctio itaque expedita, iure porro suscipit maiores voluptatibus animi corrupti earum tenetur inventore cum pariatur.</p>
-                                <a href="#" class="btn btn-primary">Button</a>
-                            </div>
-                        </div>
-                        <div class="card w-100 mb-4 shadow p-3 mb-5 bg-body">
-                            <div class="card-body">
-                                <h5 class="card-title">Pendaftaran Kelas Bimbingan Pranikah</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, dolorem saepe id, provident aliquid beatae distinctio itaque expedita, iure porro suscipit maiores voluptatibus animi corrupti earum tenetur inventore cum pariatur.</p>
-                                <a href="#" class="btn btn-primary">Button</a>
-                            </div>
+                <?php while($data = mysqli_fetch_assoc($result)) { ?>
+                    <div class="col-md-4">
+                        <div class="row mt-5 d-flex justify-content-center align-items-center mx-3">
+                            <div class="card w-100 mb-4 shadow p-3 bg-body">
+                                <div class="card-body">
+                                <img src="../backend/uploads/coverberita/<?php echo $data['gambarCover']; ?>" style="width:50%" class="mb-3 card-img-top" alt="...">
+                                    <h5 class="card-title"><?php echo $data['judulBerita'];?></h5>
+                                    <p class="card-text"><?php echo nl2br($data['isiBerita']); ?></p>
+                                </div>
+                            </div>  
                         </div>
                     </div>
-                </div>
+                <?php } ?>
             </div>
         </section>
         <!-- Akhir dari Isi List Informasi dan Berita -->

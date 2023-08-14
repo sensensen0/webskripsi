@@ -1,6 +1,12 @@
+<?php session_start(); 
+    include "koneksi.php";
+
+    $sql = "SELECT * FROM tbberita";
+    $result = mysqli_query($con, $sql);
+    
+?>
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,17 +64,7 @@
                       <li class="nav-item">
                         <a class="nav-link" href="#informasi">Informasi</a>
                       </li>
-                      <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Pendaftaran
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="form-daftarkb.htm">Kelas Pembaptisan</a></li>
-                          <li><a class="dropdown-item" href="form-daftarbaptis.htm">Pembaptisan</a></li>
-                          <li><a class="dropdown-item" href="form-daftarpranikah.htm">Kelas Bimbingan Pranikah</a></li>
-                          <li><a class="dropdown-item" href="form-daftarpemberkatan.htm">Pemberkatan Pernikahan</a></li>
-                        </ul>
-                      </li> -->
+                      
                       <li class="nav-item">
                         <a href="#hubungiKami" class="nav-link">Hubungi Kami</a>
                       </li>
@@ -133,6 +129,9 @@
                                         Gereja Kristen Kalimantan Barat (GKKB) Jemaat Sungai Raya Dalam merupakan salah satu gereja yang tergabung dalam
                                         sinode GKKB. GKKB Jemaat Sungai Raya Dalam beralamatkan di Kabupaten Kubu Raya, Jalan Sungai Raya Dalam, Komplek Taman Bougenville No. 59.
                                     </p>
+                                    <div class="mt-5">
+                                        <button type="button" class="btn btn-light p-3"><a class="text-decoration-none text-dark" href="informasiGereja.htm" target="_blank">Lihat selengkapnya</a></button>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
@@ -189,37 +188,20 @@
                                 <h1 style="font-size: 4rem;">Informasi Gereja</h1>
                             </div>
                             <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
-                                <div class="col">
-                                    <div class="card h-100">
-                                        <div class="card-body">
-                                        <img src="../assets/img/01.jpg" class="card-img-top" alt="...">
-                                            <h5 class="card-title">Persekutuan EPIC Ministry</h5>
-                                            <p class="card-text">Tema: Funky But Holy</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card h-100">
-                                        <img src="../assets/img/02.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ibadah Umum (PAGI DAN SORE)</h5>
-                                            <p class="card-text">TEMA: TRUST AND OBEY</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card h-100">
-                                        <img src="../assets/img/03.jpg" class="card-img-top" alt="...">
+                                <?php while($data = mysqli_fetch_assoc($result)) { ?>
+                                    <div class="col">
+                                        <div class="card h-100">
                                             <div class="card-body">
-                                            <h5 class="card-title">Ibadah Umum (Pagi dan Sore)</h5>
-                                        <p class="card-text">Tema: Hukum dan Pembenaran</p>
+                                            <img src="../backend/uploads/coverberita/<?php echo $data['gambarCover']; ?>" class="card-img-top mb-3" alt="...">
+                                                <h5 class="card-title"><?php echo $data['judulBerita'];?></h5>
+                                                <p class="card-text"><?php echo $data['isiBerita']; ?></p>
+                                            </div>
                                         </div>
-
                                     </div>
-                                </div>
+                                <?php } ?>
                             </div>
                             <div class="mt-5">
-                                <button type="button" class="btn btn-outline-light p-3">Lihat selengkapnya</button>
+                                <button type="button" class="btn btn-dark p-3"><a class="text-decoration-none text-light" href="listinformasi.php" target="_blank">Lihat selengkapnya</a></button>
                             </div>   
                         </div>
                     </div>
@@ -270,8 +252,6 @@
                         <div class="row d-flex justify-content-center align-items-center mx-auto">
                             <a href="https://goo.gl/maps/T23XPUitTsGqZf7u5" target="_blank" class="link"><p><span><i class="bi bi-geo-alt-fill me-2"></i></span>Jalan Sungai Raya Dalam, Komplek Taman Bougenville No. 59</p>
                             </a>
-                            <p><span><i class="bi bi-telephone-fill me-2"></i></span>000-0000000/00-0000-0000</p>
-                            
                         </div>
                     </div>
                 </div>
